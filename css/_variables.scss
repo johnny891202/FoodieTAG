@@ -425,15 +425,18 @@ $spacers: (
   0: 0,
   1: $spacer * 1,
   2: $spacer * 2,
-  3: $spacer * 3 4: $spacer * 4,
+  3: $spacer * 3,
+  4: $spacer * 4,
   5: $spacer * 5,
   6: $spacer * 6,
   7: $spacer * 7,
-  8: $spacer * 8 9: $spacer * 9,
+  8: $spacer * 8,
+  9: $spacer * 9,
   10: $spacer * 10,
   11: $spacer * 11,
   12: $spacer * 12,
-  13: $spacer * 13 14: $spacer * 14,
+  13: $spacer * 13,
+  14: $spacer * 14,
   15: $spacer * 15,
   16: $spacer * 16,
   17: $spacer * 17,
@@ -625,9 +628,10 @@ $aspect-ratios: (
 
 // scss-docs-start font-variables
 // stylelint-disable value-keyword-case
-$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
-  "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif: "Anton", "Noto Sans TC", sans-serif;
+//system-ui, -apple-system, "Segoe UI", Roboto,
+// "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+// "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
   "Liberation Mono", "Courier New", monospace !default;
 // stylelint-enable value-keyword-case
@@ -669,8 +673,9 @@ $font-sizes: (
   2: $h2-font-size,
   3: $h3-font-size,
   4: $h4-font-size,
-  5: $font-size-base * 1.25;//$h5-font-size,
-  * custom 6: $h6-font-size,
+  5: $font-size-base * 1.25,
+  //$h5-font-size, * custom
+  6: $h6-font-size,
 ) !default;
 // scss-docs-end font-sizes
 
