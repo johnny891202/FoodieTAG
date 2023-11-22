@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+TC:wght@400;500;700&display=swap");
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "./variables";
+
+//將開發的共用元件路徑放這
+@import "./component/button";
+
+//將各自的scss檔放這裡
+@import "./scss/pages/index";
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+
