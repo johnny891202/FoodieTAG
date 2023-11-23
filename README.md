@@ -2,7 +2,11 @@
 
 ## gitHub Pages:
 
-網址:
+網址: https://johnny891202.github.io/FoodieTAG/
+
+範例:
+
+- 如果想要看到 index.html 的畫面要在網址的部分加上 `pages/index.html`
 
 ## 套件
 
