@@ -1,3 +1,9 @@
+
+//navbar
+nav{
+  max-width: 1760px;
+}
+
 h1 a{
   background-image: url(./images/logo_big.svg);
   display: block;
@@ -7,4 +13,41 @@ h1 a{
   text-indent: 101%;
   overflow: hidden;
   white-space: nowrap;
+  }
+
+//banner區塊
+  .banner{
+    background-image: url(./images/banner.jpg);
+    background-size: 1920px auto ;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 1920px;
+    height: 800px;
+  }
+
+  //banner地點篩選區塊
+  .banner-select{
+    width: 306px;
+    border-radius: 0 100px 100px 0;
+    outline: none;
+  }
+
+  //banner搜尋關鍵字區塊
+  .banner-input{
+    width: 306px;
+    border-radius: 100px 0 0 100px;
+    padding-top: 21px;
+    padding-bottom:21px;
+    outline: none;
+  }
+
+  .banner-input::placeholder{
+    color: #a0a0a0;
+    font-size: 20px;
+    line-height: 1.5;
+    border-right: 1px solid #A0A0A0;
+  }
+
+  .search-icon{
+    font-size: 44px !important;
   }
