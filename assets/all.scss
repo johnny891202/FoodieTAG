@@ -7,8 +7,10 @@
 @import "./scss/component/button";
 
 //將各自的scss檔放這裡
-
 @import "./scss/pages/index";
+
+//base
+@import "./scss/base/base";
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
