@@ -1,0 +1,210 @@
+/* login樣式開始 */
+.wrap{
+    width: 1920px;
+    margin: 0 auto;
+    // 導覽列
+    .navbar{
+        
+        padding: 20px 80px;
+        // LOGO
+        .logo{
+            background-image: url(./images/logo_big.svg);
+            display: block;
+            background-repeat: no-repeat;
+            width: 240px;
+            height: 48px;
+            @include hide-text;
+        }
+        .logo:hover{
+            opacity: 0.5;
+        }
+        // 選單
+        .navbar-menu{
+            display: flex;
+            margin-bottom: 0;
+            li{
+                font-family: Noto Sans TC;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 30px;
+                letter-spacing: 0.6px;
+                margin: 0 12px;
+                a{
+                    display: block;
+                    color: #363636;
+                    padding: 0 24px;
+                }
+                a:hover{
+                    color: #B5A39A;
+                }
+            }
+        }
+    }
+    // 登入欄位
+    .login-form{
+        padding: 100px 0;
+        background-color: #FAF7F5;
+        h2{
+            text-align: center;
+            margin-bottom: 30px;
+            color: #6B5A52;
+        }
+        form{
+            width: 40%;
+            margin: 0 auto;
+            border: 3px solid #6B5A52;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 0;
+            .content{
+                width: 50%;
+                label{
+                    display: block;
+                    font-size: 20px;
+                    font-family: Noto Sans TC;
+                    margin-bottom: 10px;
+                }
+                input{
+                    width: 100%;
+                    margin-bottom: 15px;
+                    padding: 10px;
+                    font-size: 18px;
+                    border: 2px solid #DCD3CE;
+                    border-radius: 5px;
+                }
+                input:focus{
+                    border: 2px solid #B5A39A;
+                    outline: 0;
+                }
+                ::placeholder{
+                    color: #DCD3CE;
+                }
+                .login-link{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 50px;
+                    a{
+                        color: #B5A39A;
+                    }
+                    a:hover{
+                        color: #6B5A52;
+                    }
+                }
+                button{
+                    width: 100%;
+                    padding: 8px 0;
+                    font-size: 18px;
+                    border: 0;
+                    border-radius: 5px;
+                    background-color: #6B5A52;
+                    color: #FFFFFF;
+                    margin-bottom: 30px;
+                }
+                button:hover{
+                    opacity: 0.8;
+                }
+            }
+            .other-login{
+                width: 65%;
+                border-top: 3px solid #6B5A52;
+                p{
+                    text-align: center;
+                    margin-top: 20px;
+                    font-size: 24px;
+                }
+            }
+            .google-login{
+                width: 50%;
+                padding: 10px 0;
+                font-size: 18px;
+                letter-spacing: 1px;
+                border: 0;
+                border-radius: 20px;
+                background-color: #e9544f;
+                position: relative;
+                color: #FFFFFF;
+            }
+            .google-login:hover{
+                opacity: 0.5;
+            }
+            i::before{
+                color: #FFFFFF;
+                position: absolute;
+                top: 12px;
+                left: 90px;
+            }
+        }
+    }
+    // 頁尾
+    .footer{
+        padding: 28px 80px;
+        background-color: #333;
+        color: #FFFFFF;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .footer-logo{
+            background-image: url(/assets/images/dark_logo_big.svg);
+            display: block;
+            background-repeat: no-repeat;
+            width: 240px;
+            height: 48px;
+            @include hide-text;
+        }
+        .slogan{
+            color: #FFFFFF;
+            font-family: Noto Sans TC;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 28.8px;
+            letter-spacing: 1.92px;
+        }
+        .logo-content{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            .footer-icon{
+                display: flex;
+                margin-bottom: 20px;
+                padding-left: 0;
+                li{
+                    .ig{
+                        background-image: url(/assets/images/instagram_icon.png);
+                        display: block;
+                        background-repeat: no-repeat;
+                        width: 32px;
+                        height: 32px;
+                        @include hide-text;
+                    }
+                    .fb{
+                        background-image: url(/assets/images/facebook_icon.png);
+                        display: block;
+                        background-repeat: no-repeat;
+                        width: 32px;
+                        height: 32px;
+                        @include hide-text;
+                        margin-left: 16px;
+                    }
+                }
+            }
+            span{
+                font-size: 16px;
+                font-style: normal;
+                line-height: 24px;
+                letter-spacing: 0.48px;
+            }
+            .copyright{
+                font-family: Anton;
+                font-weight: 400;
+            }
+            .logo-mark{
+                font-family: Noto Sans TC;
+                font-weight: 500;
+            }
+        }
+    }
+}
