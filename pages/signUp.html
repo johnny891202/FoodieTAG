@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'/>
     <link rel="stylesheet" href="../assets/all.css">
 </head>
 <body>
@@ -13,18 +14,35 @@
             <!-- LOGO -->
             <a href="#" class="logo">FoodieTag#</a>
             <!-- 選單 -->
-            <ul class="navbar-menu">
+            <ul class="navbar-menu list-unstyled">
                 <li><a href="#">餐廳列表</a></li>
-                <li><a href="#">登入</a></li>
-                <li><a href="#">註冊</a></li>
+                <li><a href="login.html">登入</a></li>
+                <li><a href="signUp.html">註冊</a></li>
             </ul>
+        </div>
+        <!-- 註冊欄位 -->
+        <div class="signUp-form">
+            <h2>註冊</h2>
+            <form>
+                <div class="content">
+                    <label for="email" class="signUp-label">電子信箱</label>
+                    <input type="mail" id="email" placeholder="請輸入電子信箱" class="signUp-input">
+                    <label for="password" class="signUp-label">密碼</label>
+                    <input type="password" id="password" placeholder="請輸入密碼" class="signUp-input"><i class="fa-regular fa-circle-check"></i>
+                    <label for="confirm-password" class="signUp-label">確認密碼</label>
+                    <input type="password" id="confirm-password" placeholder="請再次輸入密碼" class="signUp-input"><i class="fa-regular fa-circle-check"></i>
+                    <input type="checkbox" id="agree" class="agree-input">
+                    <label for="agree" class="agree-label">我已閱讀並同意會員約定條款說明</label>
+                    <button type="button">註冊</button>
+                </div>
+            </form>
         </div>
         <!-- 頁尾 -->
         <div class="footer">
             <a href="#" class="footer-logo">FoodieTag#</a>
             <span class="slogan">全台最大美食搜尋平台，你想吃的這裡都有！</span>
             <div class="logo-content">
-                <ul class="footer-icon">
+                <ul class="footer-icon list-unstyled">
                     <li><a href="#" class="ig">instagram</a></li>
                     <li><a href="#" class="fb">facebook</a></li>
                 </ul>
