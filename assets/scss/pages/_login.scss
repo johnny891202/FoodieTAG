@@ -61,13 +61,13 @@
             padding: 30px 0;
             .content{
                 width: 50%;
-                label{
+                .login-label{
                     display: block;
                     font-size: 20px;
                     font-family: Noto Sans TC;
                     margin-bottom: 10px;
                 }
-                input{
+                .login-input{
                     width: 100%;
                     margin-bottom: 15px;
                     padding: 10px;
@@ -75,7 +75,7 @@
                     border: 2px solid #DCD3CE;
                     border-radius: 5px;
                 }
-                input:focus{
+                .login-input:focus{
                     border: 2px solid #B5A39A;
                     outline: 0;
                 }
