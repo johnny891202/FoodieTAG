@@ -93,7 +93,7 @@
                         color: #6B5A52;
                     }
                 }
-                button{
+                .login-button{
                     width: 100%;
                     padding: 8px 0;
                     font-size: 18px;
@@ -103,7 +103,7 @@
                     color: #FFFFFF;
                     margin-bottom: 30px;
                 }
-                button:hover{
+                .login-button:hover{
                     opacity: 0.8;
                 }
             }
