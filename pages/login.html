@@ -25,15 +25,19 @@
             <h2>登入</h2>
             <form>
                 <div class="content">
-                    <label for="email">電子信箱</label>
-                    <input type="mail" id="email" placeholder="請輸入電子信箱">
-                    <label for="password">密碼</label>
-                    <input type="password" id="password" placeholder="請輸入密碼">
+                    <!-- 輸入電子信箱 -->
+                    <label for="email" class="login-label">電子信箱</label>
+                    <input type="mail" id="email" placeholder="請輸入電子信箱" class="login-input">
+                    <!-- 輸入密碼 -->
+                    <label for="password" class="login-label">密碼</label>
+                    <input type="password" id="password" placeholder="請輸入密碼" class="login-input">
+                    <!-- 忘記密碼及註冊連結 -->
                     <div class="login-link">
-                        <a href="#" class="forget-password">忘記密碼</a>
+                        <a href="forgetPassword.html" class="forget-password">忘記密碼</a>
                         <a href="signUp.html" class="signup-member">還不是會員嗎? 趕快去註冊吧!</a>
                     </div>
-                    <button type="button">登入</button>
+                    <!-- 登入按鈕 -->
+                    <button type="button" class="login-button">登入</button>
                 </div>
                 <div class="other-login">
                     <p>其他登入方式</p>

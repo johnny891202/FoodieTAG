@@ -120,13 +120,13 @@ h1 a, .h1 a {
 .wrap .login-form form .content {
   width: 50%;
 }
-.wrap .login-form form .content label {
+.wrap .login-form form .content .login-label {
   display: block;
   font-size: 20px;
   font-family: Noto Sans TC;
   margin-bottom: 10px;
 }
-.wrap .login-form form .content input {
+.wrap .login-form form .content .login-input {
   width: 100%;
   margin-bottom: 15px;
   padding: 10px;
@@ -134,7 +134,7 @@ h1 a, .h1 a {
   border: 2px solid #DCD3CE;
   border-radius: 5px;
 }
-.wrap .login-form form .content input:focus {
+.wrap .login-form form .content .login-input:focus {
   border: 2px solid #B5A39A;
   outline: 0;
 }
@@ -155,7 +155,7 @@ h1 a, .h1 a {
 .wrap .login-form form .content .login-link a:hover {
   color: #6B5A52;
 }
-.wrap .login-form form .content button {
+.wrap .login-form form .content .login-button {
   width: 100%;
   padding: 8px 0;
   font-size: 18px;
@@ -165,7 +165,7 @@ h1 a, .h1 a {
   color: #FFFFFF;
   margin-bottom: 30px;
 }
-.wrap .login-form form .content button:hover {
+.wrap .login-form form .content .login-button:hover {
   opacity: 0.8;
 }
 .wrap .login-form form .other-login {
@@ -325,7 +325,7 @@ h1 a, .h1 a {
   font-size: 18px;
   margin: 10px 0 30px 0;
 }
-.wrap .signUp-form form .content button {
+.wrap .signUp-form form .content .signUp-button {
   width: 90%;
   padding: 8px 0;
   font-size: 18px;
@@ -335,7 +335,159 @@ h1 a, .h1 a {
   color: #FFFFFF;
   margin-bottom: 30px;
 }
-.wrap .signUp-form form .content button:hover {
+.wrap .signUp-form form .content .signUp-button:hover {
+  opacity: 0.8;
+}
+
+.wrap .forgot-password {
+  padding: 100px 0;
+  background-color: #FAF7F5;
+}
+.wrap .forgot-password h2, .wrap .forgot-password .h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #6B5A52;
+}
+.wrap .forgot-password form {
+  width: 40%;
+  margin: 0 auto;
+  border: 3px solid #6B5A52;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+}
+.wrap .forgot-password form .content {
+  width: 50%;
+}
+.wrap .forgot-password form .content .forget-label {
+  display: block;
+  font-size: 20px;
+  font-family: Noto Sans TC;
+  margin-bottom: 10px;
+}
+.wrap .forgot-password form .content .forget-input {
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid #DCD3CE;
+  border-radius: 5px;
+}
+.wrap .forgot-password form .content .forget-input:focus {
+  border: 2px solid #B5A39A;
+  outline: 0;
+}
+.wrap .forgot-password form .content ::-moz-placeholder {
+  color: #DCD3CE;
+}
+.wrap .forgot-password form .content ::placeholder {
+  color: #DCD3CE;
+}
+.wrap .forgot-password form .content .send-verification-button {
+  width: 50%;
+  padding: 8px 0;
+  font-size: 18px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #6B5A52;
+  color: #FFFFFF;
+  margin-bottom: 30px;
+  margin-left: 95px;
+}
+.wrap .forgot-password form .content .send-verification-button:hover {
+  opacity: 0.8;
+}
+.wrap .forgot-password form .content .resetPassword-button {
+  display: block;
+  text-align: center;
+  background: #6B5A52;
+  color: #FFFFFF;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+.wrap .forgot-password form .content .resetPassword-button:hover {
+  opacity: 0.8;
+}
+.wrap .forgot-password form .checkCode {
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+.wrap .forgot-password form .checkCode .code-input {
+  width: 12%;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 20px;
+  background-color: #FAF7F5;
+  border: 2px solid #B5A39A;
+}
+
+.wrap .reset-password {
+  padding: 100px 0;
+  background-color: #FAF7F5;
+}
+.wrap .reset-password h2, .wrap .reset-password .h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #6B5A52;
+}
+.wrap .reset-password form {
+  width: 40%;
+  margin: 0 auto;
+  border: 3px solid #6B5A52;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+}
+.wrap .reset-password form .content {
+  width: 50%;
+}
+.wrap .reset-password form .content .new-password-label {
+  display: block;
+  font-size: 20px;
+  font-family: Noto Sans TC;
+  margin-bottom: 10px;
+}
+.wrap .reset-password form .content .new-password-input {
+  width: 90%;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid #DCD3CE;
+  border-radius: 5px;
+}
+.wrap .reset-password form .content input:focus {
+  border: 2px solid #B5A39A;
+  outline: 0;
+}
+.wrap .reset-password form .content ::-moz-placeholder {
+  color: #DCD3CE;
+}
+.wrap .reset-password form .content ::placeholder {
+  color: #DCD3CE;
+}
+.wrap .reset-password form .content i::before {
+  color: #A0A0A0;
+  font-size: 18px;
+}
+.wrap .reset-password form .content .reset-button {
+  width: 90%;
+  padding: 8px 0;
+  font-size: 18px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #6B5A52;
+  color: #FFFFFF;
+  margin: 30px 0;
+}
+.wrap .reset-password form .content .reset-button:hover {
   opacity: 0.8;
 }
 
