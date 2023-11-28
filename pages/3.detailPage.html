@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodieTAG#</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="../assets/all.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="d-flex justify-content-between px-20 py-5 align-items-center">
+      <h1>
+        <a href="index.html">FoodieTAG#</a>
+      </h1>
+      <ul class="d-flex list-unstyled mb-0">
+        <li class="fs-5 lh-sm ps-6 pe-6 fw-medium">
+          <a href="#" class="text-decoration-none text-grey-500"> 餐廳列表</a>
+        </li>
+        <li class="fs-5 lh-sm ms-6 ps-6 pe-6 fw-medium">
+          <a href="#" class="text-decoration-none text-grey-500"> 登入</a>
+        </li>
+        <li class="fs-5 lh-sm ms-6 ps-6 pe-6 fw-medium">
+          <a href="#" class="text-decoration-none text-grey-500"> 註冊</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- banner -->
+
+    <div class="bg-image">
+      <h1>鳥藏 燒き鳥居酒屋</h1>
+      <input type="button" value="加入收藏" />
+    </div>
+    <ul class="pages-tag-area">
+      <li>居酒屋</li>
+    </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <div class="d-flex">
+            <h2>鳥藏 燒き鳥居酒屋</h2>
+            <a href="#">fb</a><a href="#">ig</a>
+          </div>
+          <span>star <span>4.9</span></span>
+          <p>
+            <span class="material-icons"> place </span
+            >地址：新北市新莊區復興路一段197號
+          </p>
+          <p>
+            <span class="material-icons"> schedule </span>營業時間：營業中 18:00
+            ~ 24:00
+          </p>
+          <p><span class="material-icons"> call </span>電話：02-89928986</p>
+          <p><span class="material-icons"> paid </span>人均消費：300-600元</p>
+          <p>已被收藏28次</p>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </div>
+    <div class="page-picture-area"><img src="#" alt="" /></div>
+
+    <div class="container">
+      <h3>看看Foddie怎麼說</h3>
+      <div class="page-user-comment d-flex">
+        <div class="page-user">
+          <div class="page-user-pic"><img src="#" alt="" /></div>
+          <span class="page-user-name">依依</span>
+          <span class="page-user-title">Foodie#學徒</span>
+        </div>
+        <div class="page-comment">填寫評論及提供正確標籤可獲得積分！</div>
+      </div>
+      <input type="button" value="  最新" />
+      <input type="button" value="  最高" />
+      <input type="button" value="  最低" />
+      <div class="page-comment-area"></div>
+    </div>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="./js/all.js"></script>
+    <script src="./js/data.js"></script>
+  </body>
+</html>
