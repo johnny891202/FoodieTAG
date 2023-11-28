@@ -5,20 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FoodieTAG#</title>
     <link rel="stylesheet" href="../assets/all.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
   <body>
-    <div class="container">
-      <div class="btn btn-primary-400">按鈕</div>
-      <div class="btn btn-primary-300">按鈕</div>
-      <div class="btn btn-primary-200">按鈕</div>
-      <div class="btn btn-primary-100">按鈕</div>
-      <div class="bg-grey-500 text-white">背景</div>
-      <div class="bg-grey-400 text-grey-200">背景</div>
-      <div class="bg-grey-300 text-grey-400">背景</div>
-      <div class="bg-grey-200 text-grey-400">背景</div>
-      <div class="bg-grey-100 text-grey-500">背景</div>
-      <h1 class="title">Foodie 好評推薦</h1>
+
+    <!-- navbar -->
+    <nav class="d-flex justify-content-between px-20 py-5 align-items-center">
+        <h1>
+          <a href="index.html">FoodieTAG#</a>
+        </h1>
+        <ul class="d-flex list-unstyled mb-0">
+          <li class="fs-5 lh-sm ps-6 pe-6 fw-medium"><a href="#" class="text-decoration-none text-grey-500"> 餐廳列表</a></li>
+          <li class="fs-5 lh-sm ms-6 ps-6 pe-6 fw-medium"><a href="#" class="text-decoration-none text-grey-500"> 登入</a></li>
+          <li class="fs-5 lh-sm ms-6 ps-6 pe-6 fw-medium"><a href="#" class="text-decoration-none text-grey-500"> 註冊</a></li>
+        </ul>
+    </nav>
+    <!-- banner -->
+    <div>
+      <div class="banner d-flex flex-column align-items-center pt-25">
+        <div class="d-flex flex-column align-items-center">
+          <div class="h1 text-white mb-3">今天想吃什麼？</div>
+          <h4 class="text-white mb-9">讓 Tag 引領你找到胃之所向</h4>
+          <div class="search-bar d-flex align-items-center">
+          <input type="text" placeholder="請輸入關鍵字" id="keywordTwo" class="banner-input py-4 ps-6 border-0 text-grey-300 fs-5 lh-sm">
+          <select name="location" id="keywordOne" class="banner-select py-4 px-6 border-0 text-grey-300 fs-5 lh-sm" >
+            <option value="" disabled selected hidden>地點</option>
+            <option value="台北">台北</option>
+            <option value="苗栗">苗栗</option>
+            <option value="新竹">新竹</option>
+            <option value="彰化">彰化</option>
+            <option value="南投">南投</option>
+          </select>
+          <a href="#" id="btn" class="d-inline-block bg-primary-300 rounded-circle p-2 ms-3"><span class="search-icon material-symbols-outlined text-white">
+            search
+            </span></a>
+          </div>
+        </div>
+      </div>
     </div>
+    <!-- 美食分類 -->
+    <!-- <div class="wrap "> -->
+      <div class="container my-30">
+        <div class="row pb-6">
+          <div class="h1 d-flex flex-column mb-20">
+          <div class="py-8 text-center ">美食分類</div>
+          <div class="bottom-line align-self-center bg-grey-500"></div>
+          </div>
+          <div class="col position-relative food-card-3 px-0 mx-3 rounded-2">
+            <a href="#" class=" d-block h-100 food-class-img food-class-img01 d-flex justify-content-center align-items-center bgfood-class-img ">
+            </a>
+            <a href="#"><p class="h5 text-white food-class-text position-absolute top-50 start-50 translate-middle">韓式料理</p></a>
+          </div>
+          <div class="col position-relative food-card-3 px-0 mx-3 rounded-2">
+            <a href="#" class="d-block h-100 food-class-img food-class-img02 d-flex justify-content-center align-items-center bgfood-class-img">
+            </a>
+            <a href="#"><p class="h5 text-white food-class-text position-absolute top-50 start-50 translate-middle">日式料理</p></a>
+          </div>
+          <div class="col position-relative food-card-3 px-0 mx-3 rounded-2">
+            <a href="#" class="d-block h-100 food-class-img food-class-img03 d-flex justify-content-center align-items-center bgfood-class-img">
+            </a>
+            <a href="#"><p class="h5 text-white food-class-text position-absolute top-50 start-50 translate-middle">在地料理</p></a>
+          </div>
+        </div>
+        <div class="row gy-6">
+          <div class="col-lg-3 position-relative rounded-2">
+            <div class="food-card-4">
+              <a href="#" class=" d-block h-100 food-class-img food-class-img04 d-flex justify-content-center align-items-center bgfood-class-img">
+              </a>
+              <a href="#"><p class="h5 text-white food-class-text position-absolute top-50 start-50 translate-middle">燒烤</p></a>
+            </div>
+          </div>
+          <div class="col-lg-3 position-relative rounded-2">
+            <div class="food-card-4">
+              <a href="#" class="d-block h-100 food-class-img food-class-img05 d-flex justify-content-center align-items-center bgfood-class-img">
+              </a>
+              <a href="#"><p class="h5 text-white food-class-text position-absolute top-50 start-50 translate-middle">居酒屋</p></a>
+            </div>
+          </div>
+          <div class="col-lg-3 position-relative rounded-2">
+            <div class="food-card-4">
+              <a href="#" class="d-block h-100 food-class-img food-class-img06 d-flex justify-content-center align-items-center bgfood-class-img">
+              </a>
+              <a href="#"><p class="h5 text-white food-class-text position-absolute top-50 start-50 translate-middle">餐酒館</p></a>
+            </div>
+          </div>
+          <div class="col-lg-3 position-relative rounded-2">
+            <div class="food-card-4">
+              <a href="#" class="d-block h-100 food-class-img food-class-img07 d-flex justify-content-center align-items-center bgfood-class-img">
+              </a>
+              <a href="#"><p class="h5 text-white food-class-text position-absolute top-50 start-50 translate-middle">火鍋</p></a>
+            </div>
+          </div>
+          <div class="col-lg-3 position-relative rounded-2">
+            <div class="food-card-4">
+              <a href="#" class="d-block h-100 food-class-img food-class-img08 d-flex justify-content-center align-items-center bgfood-class-img">
+              </a>
+              <a href="#"><p class="h5 text-white food-class-text position-absolute top-50 start-50 translate-middle">早午餐</p></a>
+            </div>
+          </div>
+          <div class="col-lg-3 position-relative rounded-2">
+            <div class="food-card-4">
+              <a href="#" class="d-block h-100 food-class-img food-class-img09 d-flex justify-content-center align-items-center bgfood-class-img">
+              </a>
+              <a href="#"><p class="h5 text-white food-class-text position-absolute top-50 start-50 translate-middle">異國料理</p></a>
+            </div>
+          </div>
+          <div class="col-lg-3 position-relative rounded-2">
+            <div class="food-card-4">
+              <a href="#" class="d-block h-100 food-class-img food-class-img10 d-flex justify-content-center align-items-center bgfood-class-img">
+              </a>
+              <a href="#"><p class="h5 text-white food-class-text position-absolute top-50 start-50 translate-middle">中式料理</p></a>
+            </div>
+          </div>
+          <div class="col-lg-3 position-relative rounded-2">
+            <div class="food-card-4">
+              <a href="#" class="d-block h-100 food-class-img food-class-img11 d-flex justify-content-center align-items-center bgfood-class-img">
+              </a>
+              <a href="#"><p class="h5 text-white food-class-text position-absolute top-50 start-50 translate-middle">下午茶</p></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+
 
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
@@ -26,3 +135,5 @@
     <script src="./js/data.js"></script>
   </body>
 </html>
+
+

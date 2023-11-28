@@ -420,7 +420,7 @@ $gradient: linear-gradient(
 // You can add more entries to the $spacers map, should you need more variation.
 
 // scss-docs-start spacer-variables-maps
-$spacer: 0.25em; //1rem !default;*custom
+$spacer: 0.25rem; //1rem !default;*custom
 $spacers: (
   0: 0,
   1: $spacer * 1,
@@ -444,6 +444,16 @@ $spacers: (
   19: $spacer * 19,
   20: $spacer * 20,
   21: $spacer * 21,
+  22: $spacer * 22,
+  23: $spacer * 23,
+  24: $spacer * 24,
+  25: $spacer * 25,
+  26: $spacer * 26,
+  27: $spacer * 27,
+  28: $spacer * 28,
+  29: $spacer * 29,
+  30: $spacer * 30,
+
 ) !default; //*custom
 // scss-docs-end spacer-variables-maps
 
@@ -656,7 +666,7 @@ $font-weight-bolder: bolder !default;
 $font-weight-base: $font-weight-normal !default;
 
 $line-height-base: 1.2; //1.5 !default;*custom
-$line-height-sm: 1.25 !default;
+$line-height-sm: 1.5;   //1.5 !default;*custom
 $line-height-lg: 2 !default;
 
 $h1-font-size: $font-size-base * 2.5 !default;

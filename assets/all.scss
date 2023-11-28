@@ -5,8 +5,18 @@
 
 //將開發的共用元件路徑放這
 @import "./scss/component/button";
+@import "./scss/component/mixin";
 
 //將各自的scss檔放這裡
 @import "./scss/pages/index";
+@import "./scss/pages/login";
+@import "./scss/pages/signUp";
+@import "./scss/pages/forgetPassword";
+@import "./scss/pages/resetPassword";
+
+//base
+@import "./scss/base/base";
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+

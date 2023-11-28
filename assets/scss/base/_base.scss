@@ -1,0 +1,10 @@
+
+//box-sizing
+*,::after,::before{
+    box-sizing: border-box; 
+}
+
+//圖片設定
+img{
+    vertical-align:top; //消除圖片上下空白
+}
