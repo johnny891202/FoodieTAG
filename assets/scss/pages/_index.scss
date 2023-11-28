@@ -36,8 +36,6 @@ h1 a{
   .banner-input{
     width: 306px;
     border-radius: 100px 0 0 100px;
-    padding-top: 21px;
-    padding-bottom:21px;
     outline: none;
   }
 
@@ -50,4 +48,85 @@ h1 a{
 
   .search-icon{
     font-size: 44px !important;
+  }
+
+  //h2標題
+
+  .bottom-line {
+    width: 28px;
+    height: 3px;
+  }
+
+  //美食分類
+
+  .food-card-3 {
+    max-width: 416px;
+    height: 312px;
+    overflow: hidden;
+
+  }
+
+  .food-card-4 {
+    max-width: 306px;
+    height: 312px;
+    overflow: hidden;
+  }
+
+  .food-class-img {
+    background-size: contain;
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    filter: brightness(0.6);
+    transition: all 1s ease-in-out;
+
+  }
+
+  .food-class-img:hover {
+    transform: scale(1.2);
+    transition: all 1s ease-in-out;
+  }
+
+  .food-class-img01 {
+    background-image: url(./images/index_food_class/food_class_1.png)
+  }
+
+  .food-class-img02 {
+    background-image: url(./images/index_food_class/food_class_2.png)
+  }
+
+  .food-class-img03 {
+    background-image: url(./images/index_food_class/food_class_3.png)
+  }
+
+  .food-class-img04 {
+    background-image: url(./images/index_food_class/food_class_4.png)
+  }
+
+  .food-class-img05 {
+    background-image: url(./images/index_food_class/food_class_5.png)
+  }
+
+  .food-class-img06 {
+    background-image: url(./images/index_food_class/food_class_6.png)
+  }
+
+  .food-class-img07 {
+    background-image: url(./images/index_food_class/food_class_7.png)
+  }
+
+  .food-class-img08 {
+    background-image: url(./images/index_food_class/food_class_8.png)
+  }
+
+  .food-class-img09 {
+    background-image: url(./images/index_food_class/food_class_9.png)
+  }
+
+  .food-class-img10 {
+    background-image: url(./images/index_food_class/food_class_10.png)
+  }
+
+  .food-class-img11 {
+    background-image: url(./images/index_food_class/food_class_11.png)
   }
