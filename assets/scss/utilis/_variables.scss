@@ -314,7 +314,7 @@ $theme-colors: (
   //$primary, *custom
   "primary-300": #b5a39a,
   "primary-200": #dcd3ce,
-  "primary-100": #e0e0e0,
+  "primary-100": #FAF7F5,
   // "secondary": $secondary,
   // "success": $success,
   // "info": $info,
@@ -420,7 +420,7 @@ $gradient: linear-gradient(
 // You can add more entries to the $spacers map, should you need more variation.
 
 // scss-docs-start spacer-variables-maps
-$spacer: 0.25em; //1rem !default;*custom
+$spacer: 0.25rem; //1rem !default;*custom
 $spacers: (
   0: 0,
   1: $spacer * 1,
@@ -448,6 +448,17 @@ $spacers: (
   23: $spacer * 23,
   24: $spacer * 24,
   25: $spacer * 25,
+  26: $spacer * 26,
+  27: $spacer * 27,
+  28: $spacer * 28,
+  29: $spacer * 29,
+  30: $spacer * 30,
+  31: $spacer * 31,
+  32: $spacer * 32,
+  33: $spacer * 33,
+  34: $spacer * 34,
+  35: $spacer * 35,
+
 ) !default; //*custom
 // scss-docs-end spacer-variables-maps
 
@@ -562,6 +573,7 @@ $container-padding-x: $grid-gutter-width !default;
 $border-width: 1px !default;
 $border-widths: (
   1: 1px,
+  card: 1.5px, //custom
   2: 2px,
   3: 3px,
   4: 4px,

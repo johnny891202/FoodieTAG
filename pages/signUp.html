@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FoodieTag#會員註冊</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'/>
     <link rel="stylesheet" href="../assets/all.css">
 </head>
@@ -23,17 +23,20 @@
         <!-- 註冊欄位 -->
         <div class="signUp-form">
             <h2>註冊</h2>
-            <form>
+            <form class="signUpForm">
                 <div class="content">
                     <!-- 輸入電子信箱 -->
                     <label for="email" class="signUp-label">電子信箱</label>
-                    <input type="mail" id="email" placeholder="請輸入電子信箱" class="signUp-input">
+                    <input type="mail" id="email" placeholder="請輸入電子信箱" class="signUp-input" name="電子郵件"><i></i>
+                    <p class="alertMessage 電子郵件"></p>
                     <!-- 輸入密碼 -->
                     <label for="password" class="signUp-label">密碼</label>
-                    <input type="password" id="password" placeholder="請輸入密碼" class="signUp-input"><i class="fa-regular fa-circle-check"></i>
+                    <input type="password" id="password" placeholder="請輸入密碼" class="signUp-input" name="密碼"><i class="fa-regular fa-circle-check password-icon"></i>
+                    <p class="alertMessage 密碼"></p>
                     <!-- 再次輸入密碼 -->
                     <label for="confirm-password" class="signUp-label">確認密碼</label>
-                    <input type="password" id="confirm-password" placeholder="請再次輸入密碼" class="signUp-input"><i class="fa-regular fa-circle-check"></i>
+                    <input type="password" id="confirm-password" placeholder="請再次輸入密碼" class="signUp-input" name="再次輸入的密碼"><i class="fa-regular fa-circle-check confirm-password-icon"></i>
+                    <p class="alertMessage 再次輸入的密碼"></p>
                     <!-- 同意會員規定 -->
                     <input type="checkbox" id="agree" class="agree-input">
                     <label for="agree" class="agree-label">我已閱讀並同意會員約定條款說明</label>
@@ -56,5 +59,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="../js/signUp.js"></script>
 </body>
 </html>

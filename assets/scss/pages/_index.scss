@@ -25,29 +25,272 @@ h1 a{
     height: 800px;
   }
 
+  //banner搜尋關鍵字區塊
+  .banner-input{
+    width: 306px;
+    border-radius: 100px 0 0 100px;
+    outline: none;
+
+    &::placeholder{
+      color: #a0a0a0;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+
   //banner地點篩選區塊
   .banner-select{
     width: 306px;
     border-radius: 0 100px 100px 0;
     outline: none;
+
+    &::placeholder{
+      color: #a0a0a0;
+      font-size: 20px;
+      line-height: 1.5;
+    }
   }
 
-  //banner搜尋關鍵字區塊
-  .banner-input{
-    width: 306px;
-    border-radius: 100px 0 0 100px;
-    padding-top: 21px;
-    padding-bottom:21px;
-    outline: none;
+  .locaiton-select-list {
+    width: 268px;
+    top: 70px;
+    height: 276px;
+
+
+    & li:hover {
+      background-color: #F5F5F5;
+      color: #333333;
+      border-radius: 6px;
+      cursor: pointer;
+    }
   }
 
-  .banner-input::placeholder{
-    color: #a0a0a0;
-    font-size: 20px;
-    line-height: 1.5;
-    border-right: 1px solid #A0A0A0;
+  .hide {
+    display: none;
   }
 
   .search-icon{
     font-size: 44px !important;
+
   }
+
+  .search-btn:hover {
+    opacity: 0.7;
+    transition: all 0.5s;
+  }
+
+  //h2標題
+
+  .bottom-line {
+    width: 28px;
+    height: 3px;
+  }
+
+  //背景浮水印
+  .bg-text1 {
+    background-image: url(/assets/images/bg_text1.svg);
+    background-repeat: no-repeat;
+    width: 700px;
+    height: 100%;
+    background-size: contain;
+    top: 100px;
+  }
+
+  .bg-text2 {
+    background-image: url(/assets/images/bg_text2.svg);
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 100%;
+    background-size: contain;
+    top: 1240px;
+    right: -44px;
+  }
+
+  .bg-text2-2 {
+    background-image: url(/assets/images/bg_text2.svg);
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 100%;
+    background-size: contain;
+    top: -190px;
+    right: -44px;
+  }
+
+  .bg-text3 {
+    background-image: url(/assets/images/bg_text3.svg);
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100%;
+    background-size: contain;
+    top: 188px;
+    left: 20px;
+  }
+
+  .bg-text4 {
+    background-image: url(/assets/images/bg_text4.svg);
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 100%;
+    background-size: contain;
+    top: 148px;
+    right: -88px;
+    z-index: 1;
+  }
+
+
+  //美食分類
+
+  .food-card-3 {
+    max-width: 416px;
+    height: 312px;
+    overflow: hidden;
+
+  }
+
+  .food-card-4 {
+    max-width: 306px;
+    height: 312px;
+    overflow: hidden;
+  }
+
+  .food-class-img {
+    background-size: contain;
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    filter: brightness(0.6);
+    transition: all 1s ease-in-out;
+
+  }
+
+  .food-class-img:hover {
+    transform: scale(1.2);
+    transition: all 1s ease-in-out;
+  }
+
+  .food-class-img01 {
+    background-image: url(./images/index_food_class/food_class_1.png)
+  }
+
+  .food-class-img02 {
+    background-image: url(./images/index_food_class/food_class_2.png)
+  }
+
+  .food-class-img03 {
+    background-image: url(./images/index_food_class/food_class_3.png)
+  }
+
+  .food-class-img04 {
+    background-image: url(./images/index_food_class/food_class_4.png)
+  }
+
+  .food-class-img05 {
+    background-image: url(./images/index_food_class/food_class_5.png)
+  }
+
+  .food-class-img06 {
+    background-image: url(./images/index_food_class/food_class_6.png)
+  }
+
+  .food-class-img07 {
+    background-image: url(./images/index_food_class/food_class_7.png)
+  }
+
+  .food-class-img08 {
+    background-image: url(./images/index_food_class/food_class_8.png)
+  }
+
+  .food-class-img09 {
+    background-image: url(./images/index_food_class/food_class_9.png)
+  }
+
+  .food-class-img10 {
+    background-image: url(./images/index_food_class/food_class_10.png)
+  }
+
+  .food-class-img11 {
+    background-image: url(./images/index_food_class/food_class_11.png)
+  }
+
+  //推薦餐廳區塊
+
+  //輪播圖
+
+  .swiper-slide {
+    border: 1.5px solid #333333;
+    border-radius: 4px;
+    max-width: 306px;
+  }
+
+  .swiper-img-container {
+    max-width: 306px;
+    height: 230px;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .swiper-button-prev {
+    height: 60px !important;
+    width: 60px !important;
+
+    &::after {
+      content: "" !important ;
+      height: 60px ;
+      width: 60px ;
+      display: block;
+      background-image: url(./images/Arrow-Left.png);
+      background-repeat: no-repeat;
+    }
+  }
+  .swiper-button-next {
+    height: 60px !important;
+    width: 60px !important;
+
+    &::after {
+      content: "" !important ;
+      height: 60px ;
+      width: 60px ;
+      display: block;
+      background-image: url(./images/Arrow-Right.png);
+      background-repeat: no-repeat;
+    }
+  }
+
+
+//熱門標籤區塊
+
+.section3-bg {
+  background-color: #FAF7F5;
+  border-radius: 0 400px 400px 0 ;
+}
+
+.tag-icon {
+  border-radius: 100px;
+  border: 1.5px solid #333;
+}
+
+//評論區塊
+
+.comment-card {
+  z-index: 2;
+}
+
+//文字雲
+
+.cloud-img {
+  background-image: url(/assets/images/cloud-lg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 90%;
+  width: 100%;
+
+}
+
+.btn-arrow-right {
+  background-image: url(/assets/images/right.svg);
+  width: 28px;
+  height: 28px;
+}
