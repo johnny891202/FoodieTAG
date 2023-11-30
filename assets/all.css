@@ -1,9 +1,5 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+TC:wght@400;500;700&display=swap");
-nav {
-  max-width: 1760px;
-}
-
 h1 a, .h1 a {
   background-image: url(./images/logo_big.svg);
   display: block;
@@ -17,10 +13,10 @@ h1 a, .h1 a {
 
 .banner {
   background-image: url(./images/banner.jpg);
-  background-size: 1920px auto;
+  background-size: 2600px auto;
   background-position: center;
   background-repeat: no-repeat;
-  max-width: 1920px;
+  max-width: 2600px;
   height: 800px;
 }
 
@@ -278,10 +274,10 @@ h1 a, .h1 a {
 }
 
 /* login樣式開始 */
-section .container .navbar {
+section .navbar {
   padding: 20px 80px;
 }
-section .container .navbar .logo {
+section .navbar .logo {
   background-image: url(./images/logo_big.svg);
   display: block;
   background-repeat: no-repeat;
@@ -291,14 +287,14 @@ section .container .navbar .logo {
   overflow: hidden;
   white-space: nowrap;
 }
-section .container .navbar .logo:hover {
+section .navbar .logo:hover {
   opacity: 0.5;
 }
-section .container .navbar .navbar-menu {
+section .navbar .navbar-menu {
   display: flex;
   margin-bottom: 0;
 }
-section .container .navbar .navbar-menu li {
+section .navbar .navbar-menu li {
   font-family: Noto Sans TC;
   font-size: 20px;
   font-style: normal;
@@ -307,17 +303,16 @@ section .container .navbar .navbar-menu li {
   letter-spacing: 0.6px;
   margin: 0 12px;
 }
-section .container .navbar .navbar-menu li a {
+section .navbar .navbar-menu li a {
   display: block;
   color: #363636;
   padding: 0 24px;
 }
-section .container .navbar .navbar-menu li a:hover {
+section .navbar .navbar-menu li a:hover {
   color: #B5A39A;
 }
 section .container .login-form {
   padding: 100px 0;
-  background-color: #FAF7F5;
 }
 section .container .login-form h2, section .container .login-form .h2 {
   text-align: center;
@@ -325,7 +320,7 @@ section .container .login-form h2, section .container .login-form .h2 {
   color: #6B5A52;
 }
 section .container .login-form form {
-  width: 40%;
+  width: 60%;
   margin: 0 auto;
   border: 3px solid #6B5A52;
   border-radius: 5px;
@@ -411,10 +406,10 @@ section .container .login-form form .google-login:hover {
 section .container .login-form form i::before {
   color: #FFFFFF;
   position: absolute;
-  top: 12px;
-  left: 90px;
+  top: 15px;
+  left: 75px;
 }
-section .container .footer {
+section .footer {
   padding: 28px 80px;
   background-color: #333;
   color: #FFFFFF;
@@ -422,7 +417,7 @@ section .container .footer {
   justify-content: space-between;
   align-items: center;
 }
-section .container .footer .footer-logo {
+section .footer .footer-logo {
   background-image: url(/assets/images/dark_logo_big.svg);
   display: block;
   background-repeat: no-repeat;
@@ -432,7 +427,7 @@ section .container .footer .footer-logo {
   overflow: hidden;
   white-space: nowrap;
 }
-section .container .footer .slogan {
+section .footer .slogan {
   color: #FFFFFF;
   font-family: Noto Sans TC;
   font-size: 24px;
@@ -441,17 +436,17 @@ section .container .footer .slogan {
   line-height: 28.8px;
   letter-spacing: 1.92px;
 }
-section .container .footer .logo-content {
+section .footer .logo-content {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-section .container .footer .logo-content .footer-icon {
+section .footer .logo-content .footer-icon {
   display: flex;
   margin-bottom: 20px;
   padding-left: 0;
 }
-section .container .footer .logo-content .footer-icon li .ig {
+section .footer .logo-content .footer-icon li .ig {
   background-image: url(/assets/images/instagram_icon.png);
   display: block;
   background-repeat: no-repeat;
@@ -461,7 +456,7 @@ section .container .footer .logo-content .footer-icon li .ig {
   overflow: hidden;
   white-space: nowrap;
 }
-section .container .footer .logo-content .footer-icon li .fb {
+section .footer .logo-content .footer-icon li .fb {
   background-image: url(/assets/images/facebook_icon.png);
   display: block;
   background-repeat: no-repeat;
@@ -472,33 +467,33 @@ section .container .footer .logo-content .footer-icon li .fb {
   white-space: nowrap;
   margin-left: 16px;
 }
-section .container .footer .logo-content span {
+section .footer .logo-content span {
   font-size: 16px;
   font-style: normal;
   line-height: 24px;
   letter-spacing: 0.48px;
 }
-section .container .footer .logo-content .copyright {
+section .footer .logo-content .copyright {
   font-family: Anton;
   font-weight: 400;
 }
-section .container .footer .logo-content .logo-mark {
+section .footer .logo-content .logo-mark {
   font-family: Noto Sans TC;
   font-weight: 500;
 }
 
 /* signUp開始 */
-.wrap .signUp-form {
+section .container .signUp-form {
   padding: 100px 0;
   background-color: #FAF7F5;
 }
-.wrap .signUp-form h2, .wrap .signUp-form .h2 {
+section .container .signUp-form h2, section .container .signUp-form .h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #6B5A52;
 }
-.wrap .signUp-form form {
-  width: 40%;
+section .container .signUp-form form {
+  width: 60%;
   margin: 0 auto;
   border: 3px solid #6B5A52;
   border-radius: 5px;
@@ -507,19 +502,19 @@ section .container .footer .logo-content .logo-mark {
   align-items: center;
   padding: 30px 0;
 }
-.wrap .signUp-form form .content {
+section .container .signUp-form form .content {
   width: 50%;
 }
-.wrap .signUp-form form .content .alertMessage {
+section .container .signUp-form form .content .alertMessage {
   color: #ff0000;
 }
-.wrap .signUp-form form .content .signUp-label {
+section .container .signUp-form form .content .signUp-label {
   display: block;
   font-size: 20px;
   font-family: Noto Sans TC;
   margin-bottom: 10px;
 }
-.wrap .signUp-form form .content .signUp-input {
+section .container .signUp-form form .content .signUp-input {
   width: 90%;
   margin-bottom: 15px;
   margin-right: 10px;
@@ -528,28 +523,28 @@ section .container .footer .logo-content .logo-mark {
   border: 2px solid #DCD3CE;
   border-radius: 5px;
 }
-.wrap .signUp-form form .content input:focus {
+section .container .signUp-form form .content input:focus {
   border: 2px solid #B5A39A;
   outline: 0;
 }
-.wrap .signUp-form form .content ::-moz-placeholder {
+section .container .signUp-form form .content ::-moz-placeholder {
   color: #DCD3CE;
 }
-.wrap .signUp-form form .content ::placeholder {
+section .container .signUp-form form .content ::placeholder {
   color: #DCD3CE;
 }
-.wrap .signUp-form form .content .fa-regular::before {
+section .container .signUp-form form .content .fa-regular::before {
   color: #A0A0A0;
   font-size: 18px;
 }
-.wrap .signUp-form form .content .fa-regular.green::before {
+section .container .signUp-form form .content .fa-regular.green::before {
   color: #90ee90;
 }
-.wrap .signUp-form form .content .agree-label {
+section .container .signUp-form form .content .agree-label {
   font-size: 18px;
   margin: 10px 0 30px 0;
 }
-.wrap .signUp-form form .content .signUp-button {
+section .container .signUp-form form .content .signUp-button {
   width: 90%;
   padding: 8px 0;
   font-size: 18px;
@@ -559,21 +554,21 @@ section .container .footer .logo-content .logo-mark {
   color: #FFFFFF;
   margin-bottom: 30px;
 }
-.wrap .signUp-form form .content .signUp-button:hover {
+section .container .signUp-form form .content .signUp-button:hover {
   opacity: 0.8;
 }
 
-.wrap .forgot-password {
+section .container .forgot-password {
   padding: 100px 0;
   background-color: #FAF7F5;
 }
-.wrap .forgot-password h2, .wrap .forgot-password .h2 {
+section .container .forgot-password h2, section .container .forgot-password .h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #6B5A52;
 }
-.wrap .forgot-password form {
-  width: 40%;
+section .container .forgot-password form {
+  width: 60%;
   margin: 0 auto;
   border: 3px solid #6B5A52;
   border-radius: 5px;
@@ -582,16 +577,16 @@ section .container .footer .logo-content .logo-mark {
   align-items: center;
   padding: 30px 0;
 }
-.wrap .forgot-password form .content {
+section .container .forgot-password form .content {
   width: 50%;
 }
-.wrap .forgot-password form .content .forget-label {
+section .container .forgot-password form .content .forget-label {
   display: block;
   font-size: 20px;
   font-family: Noto Sans TC;
   margin-bottom: 10px;
 }
-.wrap .forgot-password form .content .forget-input {
+section .container .forgot-password form .content .forget-input {
   width: 100%;
   margin-bottom: 30px;
   padding: 10px;
@@ -599,17 +594,17 @@ section .container .footer .logo-content .logo-mark {
   border: 2px solid #DCD3CE;
   border-radius: 5px;
 }
-.wrap .forgot-password form .content .forget-input:focus {
+section .container .forgot-password form .content .forget-input:focus {
   border: 2px solid #B5A39A;
   outline: 0;
 }
-.wrap .forgot-password form .content ::-moz-placeholder {
+section .container .forgot-password form .content ::-moz-placeholder {
   color: #DCD3CE;
 }
-.wrap .forgot-password form .content ::placeholder {
+section .container .forgot-password form .content ::placeholder {
   color: #DCD3CE;
 }
-.wrap .forgot-password form .content .send-verification-button {
+section .container .forgot-password form .content .send-verification-button {
   width: 50%;
   padding: 8px 0;
   font-size: 18px;
@@ -620,10 +615,10 @@ section .container .footer .logo-content .logo-mark {
   margin-bottom: 30px;
   margin-left: 95px;
 }
-.wrap .forgot-password form .content .send-verification-button:hover {
+section .container .forgot-password form .content .send-verification-button:hover {
   opacity: 0.8;
 }
-.wrap .forgot-password form .content .resetPassword-button {
+section .container .forgot-password form .content .resetPassword-button {
   display: block;
   text-align: center;
   background: #6B5A52;
@@ -632,16 +627,16 @@ section .container .footer .logo-content .logo-mark {
   font-size: 18px;
   border-radius: 5px;
 }
-.wrap .forgot-password form .content .resetPassword-button:hover {
+section .container .forgot-password form .content .resetPassword-button:hover {
   opacity: 0.8;
 }
-.wrap .forgot-password form .checkCode {
+section .container .forgot-password form .checkCode {
   width: 70%;
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 30px;
 }
-.wrap .forgot-password form .checkCode .code-input {
+section .container .forgot-password form .checkCode .code-input {
   width: 12%;
   text-align: center;
   padding: 10px 0;
@@ -650,17 +645,17 @@ section .container .footer .logo-content .logo-mark {
   border: 2px solid #B5A39A;
 }
 
-.wrap .reset-password {
+section .container .reset-password {
   padding: 100px 0;
   background-color: #FAF7F5;
 }
-.wrap .reset-password h2, .wrap .reset-password .h2 {
+section .container .reset-password h2, section .container .reset-password .h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #6B5A52;
 }
-.wrap .reset-password form {
-  width: 40%;
+section .container .reset-password form {
+  width: 60%;
   margin: 0 auto;
   border: 3px solid #6B5A52;
   border-radius: 5px;
@@ -669,16 +664,16 @@ section .container .footer .logo-content .logo-mark {
   align-items: center;
   padding: 30px 0;
 }
-.wrap .reset-password form .content {
+section .container .reset-password form .content {
   width: 50%;
 }
-.wrap .reset-password form .content .new-password-label {
+section .container .reset-password form .content .new-password-label {
   display: block;
   font-size: 20px;
   font-family: Noto Sans TC;
   margin-bottom: 10px;
 }
-.wrap .reset-password form .content .new-password-input {
+section .container .reset-password form .content .new-password-input {
   width: 90%;
   margin-bottom: 15px;
   margin-right: 10px;
@@ -687,21 +682,21 @@ section .container .footer .logo-content .logo-mark {
   border: 2px solid #DCD3CE;
   border-radius: 5px;
 }
-.wrap .reset-password form .content input:focus {
+section .container .reset-password form .content input:focus {
   border: 2px solid #B5A39A;
   outline: 0;
 }
-.wrap .reset-password form .content ::-moz-placeholder {
+section .container .reset-password form .content ::-moz-placeholder {
   color: #DCD3CE;
 }
-.wrap .reset-password form .content ::placeholder {
+section .container .reset-password form .content ::placeholder {
   color: #DCD3CE;
 }
-.wrap .reset-password form .content i::before {
+section .container .reset-password form .content i::before {
   color: #A0A0A0;
   font-size: 18px;
 }
-.wrap .reset-password form .content .reset-button {
+section .container .reset-password form .content .reset-button {
   width: 90%;
   padding: 8px 0;
   font-size: 18px;
@@ -711,7 +706,7 @@ section .container .footer .logo-content .logo-mark {
   color: #FFFFFF;
   margin: 30px 0;
 }
-.wrap .reset-password form .content .reset-button:hover {
+section .container .reset-password form .content .reset-button:hover {
   opacity: 0.8;
 }
 
