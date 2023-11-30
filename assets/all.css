@@ -270,6 +270,7 @@ h1 a, .h1 a {
   font-weight: 500;
 }
 
+/* signUp開始 */
 .wrap .signUp-form {
   padding: 100px 0;
   background-color: #FAF7F5;
@@ -291,6 +292,9 @@ h1 a, .h1 a {
 }
 .wrap .signUp-form form .content {
   width: 50%;
+}
+.wrap .signUp-form form .content .alertMessage {
+  color: #ff0000;
 }
 .wrap .signUp-form form .content .signUp-label {
   display: block;
@@ -317,9 +321,12 @@ h1 a, .h1 a {
 .wrap .signUp-form form .content ::placeholder {
   color: #DCD3CE;
 }
-.wrap .signUp-form form .content i::before {
+.wrap .signUp-form form .content .fa-regular::before {
   color: #A0A0A0;
   font-size: 18px;
+}
+.wrap .signUp-form form .content .fa-regular.green::before {
+  color: #90ee90;
 }
 .wrap .signUp-form form .content .agree-label {
   font-size: 18px;

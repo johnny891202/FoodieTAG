@@ -1,3 +1,4 @@
+/* signUp開始 */
 .wrap{
     //註冊頁面表單
     .signUp-form{
@@ -19,6 +20,9 @@
             padding: 30px 0;
             .content{
                 width: 50%;
+                .alertMessage{
+                    color: #ff0000;
+                }
                 .signUp-label{
                     display: block;
                     font-size: 20px;
@@ -41,9 +45,14 @@
                 ::placeholder{
                     color: #DCD3CE;
                 }
-                i::before{
+                .fa-regular::before{
                     color: #A0A0A0;
                     font-size: 18px;
+                }
+                .fa-regular{
+                    &.green::before{
+                        color:#90ee90;
+                    }
                 }
                 .agree-label{
                     font-size: 18px;
