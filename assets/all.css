@@ -745,6 +745,9 @@ img {
   vertical-align: top;
 }
 
+
+.font-Anton {
+  font-family: "Anton", sans-serif;
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   line-height: 1.2;
   letter-spacing: 0.08em;
@@ -829,7 +832,7 @@ div, p {
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: "Anton", "Noto Sans TC", sans-serif;
+  --bs-font-sans-serif: "Noto Sans TC", sans-serif;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
