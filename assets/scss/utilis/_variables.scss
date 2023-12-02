@@ -644,7 +644,8 @@ $aspect-ratios: (
 
 // scss-docs-start font-variables
 // stylelint-disable value-keyword-case
-$font-family-sans-serif: "Noto Sans TC", sans-serif;
+// $font-family-sans-serif: "Noto Sans TC", sans-serif;
+$font-family-sans-serif: "Anton" , "Noto Sans TC", sans-serif;
 //system-ui, -apple-system, "Segoe UI", Roboto,
 // "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
 // "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
@@ -692,6 +693,8 @@ $font-sizes: (
   5: $font-size-base * 1.25,
   //$h5-font-size, * custom
   6: $h6-font-size,
+  7: $font-size-base * 0.25 * 7,
+  8: $font-size-base * 0.25 * 8,
 ) !default;
 // scss-docs-end font-sizes
 

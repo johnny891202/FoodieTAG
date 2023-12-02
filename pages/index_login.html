@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FoodieTAG#</title>
+    <title>FoodieTAG#_已登入會員版</title>
     <link rel="stylesheet" href="../assets/all.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -15,11 +15,19 @@
         <h1>
           <a href="index.html">FoodieTAG#</a>
         </h1>
-        <ul class="d-flex list-unstyled mb-0">
-          <li class="fs-5 lh-sm ps-6 pe-6 fw-medium"><a href="#" class="text-decoration-none nav-btn px-6 py-1"> 餐廳列表</a></li>
-          <li class="fs-5 lh-sm ms-6 ps-6 pe-6 fw-medium"><a href="login.html" class="text-decoration-none nav-btn px-6 py-1"> 登入</a></li>
-          <li class="fs-5 lh-sm ms-6 ps-6 pe-6 fw-medium"><a href="signUp.html" class="text-decoration-none nav-btn px-6 py-1"> 註冊</a></li>
+        <ul class="d-flex list-unstyled mb-0 align-items-center position-relative">
+            <p class="mb-0 fs-5 text-grey-300">嗨！</p><p id="userName"></p> <p class="mb-0 fs-5 text-grey-300">今天想吃什麼？</p>
+          <li class="fs-5 lh-sm fw-medium ms-6"><a href="#" class="text-decoration-none nav-btn px-6 py-1"> 餐廳列表</a></li>
+          <li class="ms-6"><a href="#" class="text-decoration-none nav-btn user-icon p-1 rounded-circle d-block d-flex align-items-center text-center" id="user"><span class="material-symbols-outlined py-3 fs-8">
+            account_circle
+            </span></a>
+        </li>
+            <ul class="position-absolute user-bar list-unstyled d-none" id="userBar">
+                <li><a href="#" class="py-5 px-7 text-grey-500 fs-5 text-start d-block"><img src="../assets/images/user.svg" alt="member-center" class="me-3"><span>會員中心</span></a></li>
+                <li ><a href="#" class="py-5 px-7 text-grey-500 fs-5 text-start  d-block"><img src="../assets/images/logout-icon.svg" alt="logout" class="me-3"><span>登出</span></a></li>
+            </ul>
         </ul>
+            
     </nav>
     <!-- banner -->
     <section>
