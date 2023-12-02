@@ -1,0 +1,13 @@
+//按鈕
+
+.cta {
+    background-color: #6B5A52;
+    border-radius: 100px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    color: #FFFFFF;
+    &:hover {
+        background-color: #B5A39A;
+        transition: all 0.2s ease-in-out;
+    }
+}
