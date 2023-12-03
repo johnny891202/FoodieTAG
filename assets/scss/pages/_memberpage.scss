@@ -1,0 +1,50 @@
+//封面圖片
+.user-cover {
+    background-image: url(../../assets/images/memberPage/user-cover2.jpeg);
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+//個人資訊
+.user-edit-icon {
+    top: 12px;
+    right: 88px;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 0 10%;
+
+}
+
+.score-box {
+    height: 24px;
+    width: 120px;
+    border-left: 96px solid #f0e67d;
+    z-index: 1;
+}
+
+.score-box-text {
+    z-index: 2;
+    top: 0;
+    left: 10px;
+}
+
+.i-icon {
+    height: 20px;
+    width: 20px;
+    color: $white;
+    background: $grey-200;
+    border-radius: 50%;
+    font-size: 16px;
+    transition: all 0.2s;
+    &:hover {
+        background: $grey-300; 
+        transition: all 0.2s;
+    }
+}

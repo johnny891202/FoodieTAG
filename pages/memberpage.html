@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員中心</title>
+    <link rel="stylesheet" href="../assets/all.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+        <!-- navbar -->
+        <nav class="d-flex justify-content-between px-20 py-5 align-items-center">
+            <h1>
+            <a href="index.html">FoodieTAG#</a>
+            </h1>
+            <ul class="d-flex list-unstyled mb-0 align-items-center position-relative">
+                <p class="mb-0 fs-5 text-grey-300">嗨！</p><p id="userName"></p> <p class="mb-0 fs-5 text-grey-300">今天想吃什麼？</p>
+            <li class="fs-5 lh-sm fw-medium ms-6"><a href="#" class="text-decoration-none nav-btn px-6 py-1"> 餐廳列表</a></li>
+            <li class="ms-6"><a href="#" class="text-decoration-none nav-btn user-icon p-1 rounded-circle d-block d-flex align-items-center text-center" id="user"><span class="material-symbols-outlined py-3 fs-8">
+                account_circle
+                </span></a>
+            </li>
+                <ul class="position-absolute user-bar list-unstyled d-none" id="userBar">
+                    <li><a href="#" class="py-5 px-7 text-grey-500 fs-5 text-start d-block"><img src="../assets/images/user.svg" alt="member-center" class="me-3"><span>會員中心</span></a></li>
+                    <li ><a href="#" class="py-5 px-7 text-grey-500 fs-5 text-start  d-block"><img src="../assets/images/logout-icon.svg" alt="logout" class="me-3"><span>登出</span></a></li>
+                </ul>
+            </ul>              
+        </nav>
+        <!-- 使用者資訊 -->
+        <section>
+            <div class="user-cover d-block w-100 position-relative">
+                <a href="#" class="d-block position-absolute user-edit-icon fs-6 link-grey-400 d-flex align-items-center">
+                    <span class="material-symbols-outlined">
+                    edit</span>
+                    <span class="ms-2">編輯個人資訊</span></a>
+                <div class="container pt-30">
+                    <div class="d-flex justify-content-evenly">
+                        <div class="d-flex flex-column align-items-center">
+                            <img src="../assets/images/memberPage/avatar.jpeg" alt="avatar" class="avatar">
+                            <div>
+                                <p class="h5 text-primary-400 my-3">Peggy</p>
+                                <div class="position-relative d-inline-block">
+                                    <span class="d-block position-absolute i-icon top-0 start-100 translate-middle text-center d-flex align-items-center justify-content-center font-monospace">i</span>
+                                    <p class="fs-6 text-grey-300 position-relative pe-3">Foodie#學徒</p>
+                                </div>
+                                <p class="fs-6 text-grey-300 ">#已貢獻 3 個TAG！</p>
+                                <div class="position-relative">
+                                    <div class="position-relative d-inline-block pe-5">
+                                        <span class="d-block position-absolute i-icon top-0 start-100 translate-middle text-center d-flex align-items-center justify-content-center font-monospace">i</span>
+                                        <div class="bg-grey-200 score-box"></div>
+                                        <p class="score-box-text position-absolute text-grey-300 ">已累積80積分
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mt-20">
+                            <div>
+                                <a href="# " class="mt-32 fs-5 link-primary-400 d-flex align-items-center">
+                                <i class="fa-brands fa-instagram me-3 h3"></i>
+                                <span class="border-end pe-25">example123</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="# " class="mt-32 fs-5 link-primary-400 d-flex align-items-center ms-25">
+                                <i class="fa-brands fa-facebook me-3 h3"></i>
+                                <span class=" pe-25">example123</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/6ffafbaa63.js" crossorigin="anonymous"></script>
+</body>
+</html>
