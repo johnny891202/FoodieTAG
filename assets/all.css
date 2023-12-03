@@ -397,7 +397,6 @@ section .container .login-form form .google-login {
   border: 0;
   border-radius: 20px;
   background-color: #e9544f;
-  position: relative;
   color: #FFFFFF;
 }
 section .container .login-form form .google-login:hover {
@@ -405,9 +404,7 @@ section .container .login-form form .google-login:hover {
 }
 section .container .login-form form i::before {
   color: #FFFFFF;
-  position: absolute;
-  top: 15px;
-  left: 75px;
+  margin-right: 10px;
 }
 section .footer {
   padding: 28px 80px;
@@ -515,7 +512,7 @@ section .container .signUp-form form .content .signUp-label {
   margin-bottom: 10px;
 }
 section .container .signUp-form form .content .signUp-input {
-  width: 90%;
+  width: 85%;
   margin-bottom: 15px;
   margin-right: 10px;
   padding: 10px;
@@ -674,7 +671,7 @@ section .container .reset-password form .content .new-password-label {
   margin-bottom: 10px;
 }
 section .container .reset-password form .content .new-password-input {
-  width: 90%;
+  width: 85%;
   margin-bottom: 15px;
   margin-right: 10px;
   padding: 10px;

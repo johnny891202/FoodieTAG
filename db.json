@@ -2,13 +2,8 @@
   "users": [
     {
       "email": "johnny@gmail.com",
-      "password": "$2a$10$WaxhNJkiifOTC5vz6u84MOXiWIzHB8slQ8Wf5uUynvDleal2RO2Yu",
+      "password": "$2a$10$wtN5Xfcnc95KxbIRgeIwy.OF6KKsAFgQcs/urQ5mZzFqx.mivQzvC",
       "id": 1
-    },
-    {
-      "email": "johnny2@gmail.com",
-      "password": "$2a$10$QEcg/ytb7a1NpbGGX.Rx1uhuOeUtf867/pkmcg2KexgFX7JcBV5iy",
-      "id": 2
     }
   ]
 }

@@ -121,7 +121,6 @@ section{
                     border: 0;
                     border-radius: 20px;
                     background-color: #e9544f;
-                    position: relative;
                     color: #FFFFFF;
                 }
                 .google-login:hover{
@@ -129,9 +128,7 @@ section{
                 }
                 i::before{
                     color: #FFFFFF;
-                    position: absolute;
-                    top: 15px;
-                    left: 75px;
+                    margin-right: 10px;
                 }
             }
         }

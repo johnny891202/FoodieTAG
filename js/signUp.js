@@ -66,6 +66,7 @@ function signUp(userAccount) {
     axios.post("http://localhost:3000/register", userAccount)
         .then(response => {
             console.log(response.data)
+            location.href = "login.html";
             alert("註冊成功")
         })
         .catch(error => {
@@ -74,6 +75,7 @@ function signUp(userAccount) {
                 alert("此電子郵件已經被使用過!")
             }
         })
+
 }
 
 const signUpBtn = document.querySelector(".signUp-button");
@@ -103,4 +105,6 @@ signUpBtn.addEventListener("click", function (e) {
     }
 })
 
+function turn() {
 
+}
