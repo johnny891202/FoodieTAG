@@ -1,3 +1,11 @@
+//已登入會員nav-bar
+const user = document.getElementById('user');
+const userBar = document.getElementById('userBar');
+
+user.addEventListener('click',e=>{
+    userBar.classList.toggle('d-none')
+})
+
 //地點列表toggle
 const keywordOne = document.getElementById('keywordOne');
 const keywordTwo = document.getElementById('keywordTwo');
@@ -69,12 +77,3 @@ var swiper = new Swiper(".mySwiper", {
 
 
 
-
-//已登入會員nav-bar
-
-// const user = document.getElementById('user');
-// const userBar = document.getElementById('userBar');
-
-// user.addEventListener('click',e=>{
-//     userBar.classList.toggle('d-none')
-// })

@@ -1,13 +1,13 @@
 const _url = "http://localhost:3000";
 const list = document.querySelector('.list');
 const back = document.getElementById('return');
-const id = decodeURI(location.href.split("=")[1]+location.href.split("=")[2]);
+const id = decodeURI(location.href.split('?')[1]);
 console.log(id);
 
 //撈取篩選後的資料庫
 let filterdData = [];
 function init(){
-axios.get(`${_url}/resturants?q=${id}`)
+axios.get(`${_url}/resturants?${id}`)
 .then(function(response){
     filterdData = response.data;
     console.log(filterdData);
