@@ -1,20 +1,3 @@
-//首頁-輪播
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-    el: ".swiper-pagination",
-    clickable: true, 
-    mousewheel: true,
-    keyboard: true,
-    },
-});
-
-
 //首頁-搜尋
 const keywordOne = document.getElementById('keywordOne');
 const keywordTwo = document.getElementById('keywordTwo');
@@ -48,8 +31,60 @@ window.addEventListener('click',e=>{
 
 })
 
+//關鍵字搜尋功能
 
-//已登入會員nav-bar 
+const _url = "http://localhost:3000";
+const searchBtn = document.getElementById('searchBtn');
+
+
+//初始化畫面，抓取資料庫
+let resturantData = []; //賦予一個空陣列到變數data上
+
+function init(){
+    axios.get(`${_url}/resturants`)
+    .then(function(response){
+        resturantData = response.data; //把後端的posts內的資料賦予到變數data上
+        console.log(resturantData);
+    })
+};
+
+//監聽按鈕，篩選關鍵字
+searchBtn.addEventListener('click',function(e){
+    console.log(keywordOne.value);
+    console.log(keywordTwo.value);
+    window.location.href = `list_test.html?q=${keywordOne.value}&Tags_like=${keywordTwo.value}`;
+    });
+
+init();
+
+
+
+
+
+
+
+//首頁-輪播
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    mousewheel: true,
+    keyboard: true,
+    },
+});
+
+
+
+
+
+
+//已登入會員nav-bar
 
 // const user = document.getElementById('user');
 // const userBar = document.getElementById('userBar');
@@ -57,28 +92,3 @@ window.addEventListener('click',e=>{
 // user.addEventListener('click',e=>{
 //     userBar.classList.toggle('d-none')
 // })
-
-
-//關鍵字搜尋功能----------------
-
-const _url = "http://localhost:3000";
-const searchBtn = document.getElementById('searchBtn');
-let filteredData;
-
-
-//初始化畫面，抓取資料庫
-let data = []; //賦予一個空陣列到變數data上
-function init(){
-axios.get(`${_url}/resturants`)
-.then(function(response){
-    data = response.data; //把後端的posts內的資料賦予到變數data上
-   console.log(data);
-})
-};
-
-//監聽按鈕，篩選關鍵字
-btn.addEventListener('click',function(e){
-   const keyWords = input.value;
-
-   window.location.href = `restaurant_info.html?q=${keyWords}`;
-   });
