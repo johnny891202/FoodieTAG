@@ -14,6 +14,11 @@ div, p {
   line-height: 1.5;
 }
 
+.cover-size {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .font-Anton {
   font-family: "Anton", sans-serif;
 }
@@ -24422,6 +24427,39 @@ textarea.form-control-lg {
   transition: all 0.2s ease-in-out;
 }
 
+.i-icon {
+  height: 20px;
+  width: 20px;
+  color: #FFFFFF;
+  background: #EAEAEA;
+  border-radius: 50%;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+.i-icon:hover {
+  background: #A0A0A0;
+  transition: all 0.2s;
+}
+
+.nav-tabs button {
+  border-bottom: 5px solid #EAEAEA !important;
+  width: 50%;
+}
+.nav-tabs .nav-link {
+  color: #A0A0A0;
+  font-size: 24px;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  border-bottom: 5px solid #B5A39A !important;
+  color: #333333 !important;
+}
+
+.collect-icon {
+  position: absolute;
+  top: 6px;
+  right: 18px;
+}
+
 h1 a, .h1 a {
   background-image: url(./images/logo_big.svg);
   display: block;
@@ -24460,6 +24498,7 @@ h1 a, .h1 a {
   right: -50px;
   border-radius: 0 0 12px 12px;
   box-shadow: 0px 2px 8px 0px #A0A0A0;
+  z-index: 10;
 }
 .user-bar li:hover {
   color: #333333;
@@ -25228,4 +25267,84 @@ h1 a, .h1 a {
 }
 .wrap .reset-password form .content .reset-button:hover {
   opacity: 0.8;
+}
+
+.user-cover {
+  background-image: url(../../assets/images/memberPage/user-cover2.jpeg);
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cover-height {
+  height: 550px;
+}
+
+.user-edit-icon {
+  top: 12px;
+  right: 88px;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0 10%;
+     object-position: 0 10%;
+}
+
+.score-box {
+  height: 24px;
+  width: 120px;
+  border-left: 96px solid #f0e67d;
+  z-index: 1;
+}
+
+.score-box-text {
+  z-index: 2;
+  top: 0;
+  left: 10px;
+}
+
+.score-sheet {
+  display: none;
+}
+
+.score-sheet-open:hover .score-sheet {
+  display: block;
+  top: -240px;
+  left: 120%;
+  width: 500px;
+}
+
+.score-imformation:hover::after {
+  position: absolute;
+  content: "差21積分可以成為Foodie#探險家！";
+  font-size: 16px;
+  color: #333333;
+  width: 700px;
+  padding-left: 300px;
+}
+
+.comment-user-photo {
+  background-image: url(./images/memberPage/avatar.jpeg);
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.comment-photo {
+  width: 120px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 36px;
+}
+
+.collect > div {
+  height: 200px;
 }/*# sourceMappingURL=all.css.map */

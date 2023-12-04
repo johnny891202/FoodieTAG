@@ -1,5 +1,4 @@
-//按鈕
-
+//按紐
 .cta {
     background-color: #6B5A52;
     border-radius: 100px;
@@ -10,4 +9,42 @@
         background-color: #B5A39A;
         transition: all 0.2s ease-in-out;
     }
+}
+
+//資訊展開icon-i(會員中心)
+.i-icon {
+    height: 20px;
+    width: 20px;
+    color: $white;
+    background: $grey-200;
+    border-radius: 50%;
+    font-size: 16px;
+    transition: all 0.2s;
+    &:hover {
+        background: $grey-300;
+        transition: all 0.2s;
+    }
+}
+
+//頁籤樣式
+.nav-tabs {
+    button { //未被選取 border-bottom
+        border-bottom: 5px solid $grey-200 !important;
+        width: 50%;
+    }
+    .nav-link { //未被選取 文字顏色
+        color: $grey-300;
+        font-size: 24px;
+    }
+    .nav-item.show .nav-link , .nav-link.active{ //被選取狀態樣式
+        border-bottom: 5px solid $primary-300 !important;
+        color: $grey-500 !important;
+    }
+}
+
+//收藏icon位置
+.collect-icon {
+    position: absolute;
+    top: 6px;
+    right: 18px;
 }
