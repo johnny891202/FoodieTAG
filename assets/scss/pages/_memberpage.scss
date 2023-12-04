@@ -41,6 +41,28 @@
     left: 10px;
 }
 
+//積分說明表
+.score-sheet {
+    display: none;
+}
+
+.score-sheet-open:hover .score-sheet {
+    display: block;
+    top: -240px;
+    left: 120%;
+    width: 500px;
+}
+
+//積分條展開資訊
+.score-imformation:hover::after {
+    position: absolute;
+    content: "差21積分可以成為Foodie#探險家！";
+    font-size: 16px;
+    color: $grey-500;
+    width: 700px;
+    padding-left: 300px;
+}
+
 //我的評論
 .comment-user-photo {
     background-image: url(./images/memberPage/avatar.jpeg);

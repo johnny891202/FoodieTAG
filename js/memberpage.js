@@ -6,20 +6,27 @@ user.addEventListener('click',e=>{
     userBar.classList.toggle('d-none')
 })
 
+//撈個人資訊
+const _url = "http://localhost:3000";
+const userName = document.querySelector('.user-name');
+const headerUserName = document.querySelector('.header-userName');
+let data = {};
 
-//頁籤
+function init(){
+    axios.get(`${_url}/users/3`)
+    .then(function(res){
+        data = res.data;
+        console.log(data)
+        renderName();
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
+}
+init();
 
-// const tabBar = document.querySelector('.tab-bar');
-// const tabsActive = document.querySelector('.tabs-active');
-// const tabs = document.querySelector('.tabs');
-// const arr =tabsActive.parentNode.children;
-
-// tabs.addEventListener('click',e=>{
-//     tabs.classList.add('tabs-active');
-//     tabs.classList.remove('tabs');
-//     }
-// );
-
-
-
-
+//渲染名字
+function renderName(){
+    userName.textContent = data.userName;
+    headerUserName.textContent = data.userName;
+}

@@ -25309,6 +25309,26 @@ h1 a, .h1 a {
   left: 10px;
 }
 
+.score-sheet {
+  display: none;
+}
+
+.score-sheet-open:hover .score-sheet {
+  display: block;
+  top: -240px;
+  left: 120%;
+  width: 500px;
+}
+
+.score-imformation:hover::after {
+  position: absolute;
+  content: "差21積分可以成為Foodie#探險家！";
+  font-size: 16px;
+  color: #333333;
+  width: 700px;
+  padding-left: 300px;
+}
+
 .comment-user-photo {
   background-image: url(./images/memberPage/avatar.jpeg);
   background-size: cover;

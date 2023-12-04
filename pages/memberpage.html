@@ -15,7 +15,7 @@
             <a href="index.html">FoodieTAG#</a>
             </h1>
             <ul class="d-flex list-unstyled mb-0 align-items-center position-relative">
-                <p class="mb-0 fs-5 text-grey-300">嗨！</p><p id="userName"></p> <p class="mb-0 fs-5 text-grey-300">今天想吃什麼？</p>
+                <p class="mb-0 fs-5 text-grey-300">嗨！</p><span class="header-userName mb-0 fs-5 text-grey-300"></span> <p class="mb-0 fs-5 text-grey-300 mx-1">今天想吃什麼？</p>
             <li class="fs-5 lh-sm fw-medium ms-6"><a href="#" class="text-decoration-none nav-btn px-6 py-1"> 餐廳列表</a></li>
             <li class="ms-6"><a href="#" class="text-decoration-none nav-btn user-icon p-1 rounded-circle d-block d-flex align-items-center text-center" id="user"><span class="material-symbols-outlined py-3 fs-8">
                 account_circle
@@ -30,25 +30,72 @@
         <!-- 使用者資訊 -->
         <section class="cover-height">
             <div class="user-cover d-block w-100 position-relative">
-                <a href="#" class="d-block position-absolute user-edit-icon fs-6 link-grey-400 d-flex align-items-center">
+                <button type="button" class="btn btn-primary-200 position-absolute user-edit-icon fs-6 link-grey-400 d-flex align-items-center">
                     <i class="fa-solid fa-pen"></i>
-                    <span class="ms-2">編輯個人資訊</span></a>
+                    <span class="ms-2">編輯個人資訊</span></button>
                 <div class="container pt-30">
                     <div class="d-flex justify-content-evenly">
                         <div class="d-flex flex-column align-items-center">
                             <img src="../assets/images/memberPage/avatar.jpeg" alt="avatar" class="avatar">
                             <div>
-                                <p class="h5 text-primary-400 my-3">Peggy</p>
-                                <div class="position-relative d-inline-block">
-                                    <span class="d-block position-absolute i-icon top-0 start-100 translate-middle text-center d-flex align-items-center justify-content-center font-monospace">i</span>
-                                    <p class="fs-6 text-grey-300 position-relative pe-3">Foodie#學徒</p>
+                                <p class="user-name h5 text-primary-400 my-3"></p>
+                                <div class="d-inline-block">
+                                    <div class="position-relative score-sheet-open">
+                                        <span class="d-block position-absolute i-icon top-0 start-100 translate-middle text-center d-flex align-items-center justify-content-center font-monospace">i</span>
+                                        <p class="fs-6 text-grey-300 position-relative pe-3 font-monospace">Foodie#學徒</p>
+                                        <!-- 積分說明表 -->
+                                        <table class="position-absolute score-sheet align-middle text-center table table-striped font-monospace">
+                                            <tr>
+                                                <th>頭銜門檻</th>
+                                                <th>頭銜種類</th>
+                                                <th>寫評論</th>
+                                                <th>上標籤</th>
+                                                <th>優質評價</th>
+                                            </tr>
+                                            <tr>
+                                                <td>起始頭銜</td>
+                                                <td>Foodie#學徒</td>
+                                                <td> <span class="bg-primary-200 rounded-circle py-2 px-1">+10</span></td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-2">+5</span></td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-2">+5</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>達到101積分</td>
+                                                <td>Foodie#探險家</td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-1">+15</span></td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-2">+8</span></td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-2">+8</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>達到301積分</td>
+                                                <td>Foodie#評論家</td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-1">+20</span></td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-1">+10</span></td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-1">+10</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>達到601積分</td>
+                                                <td>Foodie#鑑賞家</td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-1">+25</span></td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-1">+12</span></td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-1">+12</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>達到1001積分</td>
+                                                <td>Foodie#究極老饕</td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-1">+30</span></td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-1">+15</span></td>
+                                                <td><span class="bg-primary-200 rounded-circle py-2 px-1">+15</span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
-                                <span class="d-block mb-3 fs-6 text-grey-300">#已貢獻 <span class="tags-num fs-6 text-grey-300">3</span>個TAG！</span>
+                                <span class="d-block mb-4 fs-6 text-grey-300 font-monospace">#已貢獻 <span class="tags-num fs-6 text-grey-300">3</span>個TAG！</span>
                                 <div class="position-relative">
                                     <div class="position-relative d-inline-block pe-5">
-                                        <span class="d-block position-absolute i-icon top-0 start-100 translate-middle text-center d-flex align-items-center justify-content-center font-monospace">i</span>
+                                        <span class="d-block position-absolute i-icon score-imformation top-0 start-100 translate-middle text-center d-flex align-items-center justify-content-center font-monospace">i</span>
                                         <div class="bg-grey-200 score-box"></div>
-                                        <p class="score-box-text position-absolute text-grey-300 ">已累積80積分
+                                        <p class="score-box-text position-absolute text-grey-300 font-monospace">已累積80積分
                                         </p>
                                     </div>
                                 </div>

@@ -1,14 +1,24 @@
 {
   "users": [
     {
-      "email": "johnny@gmail.com",
-      "password": "$2a$10$WaxhNJkiifOTC5vz6u84MOXiWIzHB8slQ8Wf5uUynvDleal2RO2Yu",
-      "id": 1
+    "email": "johnny@gmail.com",
+    "password": "$2a$10$WaxhNJkiifOTC5vz6u84MOXiWIzHB8slQ8Wf5uUynvDleal2RO2Yu",
+    "id": 1
     },
     {
-      "email": "johnny2@gmail.com",
-      "password": "$2a$10$QEcg/ytb7a1NpbGGX.Rx1uhuOeUtf867/pkmcg2KexgFX7JcBV5iy",
-      "id": 2
+    "email": "johnny2@gmail.com",
+    "password": "$2a$10$QEcg/ytb7a1NpbGGX.Rx1uhuOeUtf867/pkmcg2KexgFX7JcBV5iy",
+    "id": 2
+    },
+    {
+        "email": "peggy@gmail.com",
+        "password":"",
+        "id": 3,
+        "userName":"Peggy",
+        "userAvatar":"./assets/images/memberPage/avatar.jpeg",
+        "coverPicture":"./assets/images/memberPage/user-cover2.jpeg",
+        "fbUrl":"https://www.facebook.com/",
+        "igURl":"https://www.instagram.com/"
     }
   ],
 
