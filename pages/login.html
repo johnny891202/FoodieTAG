@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="../assets/all.css">
 </head>
 <body>
-    <div class="wrap">
-        <!-- 導覽列 -->
+    <!-- 導覽列 -->
+    <section>
         <div class="navbar">
             <!-- LOGO -->
-            <a href="#" class="logo">FoodieTag#</a>
+            <a href="index.html" class="logo">FoodieTag#</a>
             <!-- 選單 -->
             <ul class="navbar-menu list-unstyled">
                 <li><a href="#">餐廳列表</a></li>
@@ -20,34 +20,41 @@
                 <li><a href="signUp.html">註冊</a></li>
             </ul>
         </div>
-        <!-- 登入欄位 -->
-        <div class="login-form">
-            <h2>登入</h2>
-            <form>
-                <div class="content">
-                    <!-- 輸入電子信箱 -->
-                    <label for="email" class="login-label">電子信箱</label>
-                    <input type="mail" id="email" placeholder="請輸入電子信箱" class="login-input">
-                    <!-- 輸入密碼 -->
-                    <label for="password" class="login-label">密碼</label>
-                    <input type="password" id="password" placeholder="請輸入密碼" class="login-input">
-                    <!-- 忘記密碼及註冊連結 -->
-                    <div class="login-link">
-                        <a href="forgetPassword.html" class="forget-password">忘記密碼</a>
-                        <a href="signUp.html" class="signup-member">還不是會員嗎? 趕快去註冊吧!</a>
+    </section>
+    <!-- 登入欄位 -->
+    <section class="bg-primary-100">
+        <div class="container"> 
+            
+            <div class="login-form">
+                <h2>登入</h2>
+                <form>
+                    <div class="content">
+                        <!-- 輸入電子信箱 -->
+                        <label for="email" class="login-label">電子信箱</label>
+                        <input type="mail" id="email" placeholder="請輸入電子信箱" class="login-input">
+                        <!-- 輸入密碼 -->
+                        <label for="password" class="login-label">密碼</label>
+                        <input type="password" id="password" placeholder="請輸入密碼" class="login-input">
+                        <!-- 忘記密碼及註冊連結 -->
+                        <div class="login-link">
+                            <a href="forgetPassword.html" class="forget-password">忘記密碼</a>
+                            <a href="signUp.html" class="signup-member">還不是會員嗎? 趕快去註冊吧!</a>
+                        </div>
+                        <!-- 登入按鈕 -->
+                        <button type="button" class="login-button">登入</button>
                     </div>
-                    <!-- 登入按鈕 -->
-                    <button type="button" class="login-button">登入</button>
-                </div>
-                <div class="other-login">
-                    <p>其他登入方式</p>
-                </div>
-                <button type="button" class="google-login"><i class="fa-brands fa-google"></i>使用 GOOGLE 登入</button>
-            </form>
+                    <div class="other-login">
+                        <p>其他登入方式</p>
+                    </div>
+                    <button type="button" class="google-login"><i class="fa-brands fa-google"></i>使用 GOOGLE 登入</button>
+                </form>
+            </div>
         </div>
-        <!-- 頁尾 -->
+    </section>
+    <!-- 頁尾 -->
+    <section>
         <div class="footer">
-            <a href="#" class="footer-logo">FoodieTag#</a>
+            <a href="index.html" class="footer-logo">FoodieTag#</a>
             <span class="slogan">全台最大美食搜尋平台，你想吃的這裡都有！</span>
             <div class="logo-content">
                 <ul class="footer-icon list-unstyled">
@@ -58,8 +65,8 @@
                 <span class="logo-mark">本網站僅供個人作品使用，不提供商業用途</span>
             </div>
         </div>
-    </div>
-
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="../js/login.js"></script>
 </body>
 </html>

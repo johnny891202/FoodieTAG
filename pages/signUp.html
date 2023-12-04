@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../assets/all.css">
 </head>
 <body>
-    <div class="wrap">
-        <!-- 導覽列 -->
+    <!-- 導覽列 -->
+    <section>
         <div class="navbar">
             <!-- LOGO -->
             <a href="#" class="logo">FoodieTag#</a>
@@ -20,34 +20,45 @@
                 <li><a href="signUp.html">註冊</a></li>
             </ul>
         </div>
-        <!-- 註冊欄位 -->
-        <div class="signUp-form">
-            <h2>註冊</h2>
-            <form class="signUpForm">
-                <div class="content">
-                    <!-- 輸入電子信箱 -->
-                    <label for="email" class="signUp-label">電子信箱</label>
-                    <input type="mail" id="email" placeholder="請輸入電子信箱" class="signUp-input" name="電子郵件"><i></i>
-                    <p class="alertMessage 電子郵件"></p>
-                    <!-- 輸入密碼 -->
-                    <label for="password" class="signUp-label">密碼</label>
-                    <input type="password" id="password" placeholder="請輸入密碼" class="signUp-input" name="密碼"><i class="fa-regular fa-circle-check password-icon"></i>
-                    <p class="alertMessage 密碼"></p>
-                    <!-- 再次輸入密碼 -->
-                    <label for="confirm-password" class="signUp-label">確認密碼</label>
-                    <input type="password" id="confirm-password" placeholder="請再次輸入密碼" class="signUp-input" name="再次輸入的密碼"><i class="fa-regular fa-circle-check confirm-password-icon"></i>
-                    <p class="alertMessage 再次輸入的密碼"></p>
-                    <!-- 同意會員規定 -->
-                    <input type="checkbox" id="agree" class="agree-input">
-                    <label for="agree" class="agree-label">我已閱讀並同意會員約定條款說明</label>
-                    <!-- 註冊按鈕 -->
-                    <button type="button" class="signUp-button">註冊</button>
-                </div>
-            </form>
+    </section>
+    <section class="bg-primary-100">
+        <div class="container">
+            <!-- 註冊欄位 -->
+            <div class="signUp-form">
+                <h2>註冊</h2>
+                <form class="signUpForm">
+                    <div class="content">
+                        <!-- 輸入電子信箱 -->
+                        <label for="email" class="signUp-label">電子信箱</label>
+                        <input type="mail" id="email" placeholder="請輸入電子信箱" class="signUp-input" name="email">
+                        <p class="alertMessage"></p>
+                        <!-- 輸入使用者名稱 -->
+                        <label for="userName" class="signUp-label">使用者名稱</label>
+                        <input type="text" id="userName" placeholder="請輸入使用者名稱" class="signUp-input" name="username">
+                        <p class="alertMessage"></p>
+                        <!-- 輸入密碼 -->
+                        <label for="password" class="signUp-label">密碼</label>
+                        <input type="password" id="password" placeholder="請輸入密碼" class="signUp-input" name="password"><i class="fa-regular fa-circle-check password-icon"></i>
+                        <p class="alertMessage"></p>
+                        <!-- 再次輸入密碼 -->
+                        <label for="confirm-password" class="signUp-label">確認密碼</label>
+                        <input type="password" id="confirm-password" placeholder="請再次輸入密碼" class="signUp-input" name="confirm-password"><i class="fa-regular fa-circle-check confirm-password-icon"></i>
+                        <p class="alertMessage"></p>
+                        
+                        <!-- 同意會員規定 -->
+                        <input type="checkbox" id="agree" class="agree-input">
+                        <label for="agree" class="agree-label">我已閱讀並同意會員約定條款說明</label>
+                        <!-- 註冊按鈕 -->
+                        <button type="button" class="signUp-button">註冊</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <!-- 頁尾 -->
+    </section>
+    <!-- 頁尾 -->
+    <section>
         <div class="footer">
-            <a href="#" class="footer-logo">FoodieTag#</a>
+            <a href="index.html" class="footer-logo">FoodieTag#</a>
             <span class="slogan">全台最大美食搜尋平台，你想吃的這裡都有！</span>
             <div class="logo-content">
                 <ul class="footer-icon list-unstyled">
@@ -58,7 +69,8 @@
                 <span class="logo-mark">本網站僅供個人作品使用，不提供商業用途</span>
             </div>
         </div>
-    </div>
+    </section>
+
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="../js/signUp.js"></script>
 </body>

@@ -1,10 +1,7 @@
 /* login樣式開始 */
-.wrap{
-    max-width: 1920px;
-    margin: 0 auto;
+section{
     // 導覽列
     .navbar{
-        
         padding: 20px 80px;
         // LOGO
         .logo{
@@ -41,100 +38,98 @@
             }
         }
     }
-    // 登入欄位
-    .login-form{
-        padding: 100px 0;
-        background-color: #FAF7F5;
-        h2{
-            text-align: center;
-            margin-bottom: 30px;
-            color: #6B5A52;
-        }
-        form{
-            width: 40%;
-            margin: 0 auto;
-            border: 3px solid #6B5A52;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 0;
-            .content{
-                width: 50%;
-                .login-label{
-                    display: block;
-                    font-size: 20px;
-                    font-family: Noto Sans TC;
-                    margin-bottom: 10px;
-                }
-                .login-input{
-                    width: 100%;
-                    margin-bottom: 15px;
-                    padding: 10px;
-                    font-size: 18px;
-                    border: 2px solid #DCD3CE;
-                    border-radius: 5px;
-                }
-                .login-input:focus{
-                    border: 2px solid #B5A39A;
-                    outline: 0;
-                }
-                ::placeholder{
-                    color: #DCD3CE;
-                }
-                .login-link{
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 50px;
-                    a{
-                        color: #B5A39A;
+    .container{
+        // 登入欄位
+        .login-form{
+            padding: 100px 0;
+            h2{
+                text-align: center;
+                margin-bottom: 30px;
+                color: #6B5A52;
+            }
+            form{
+                width: 60%;
+                margin: 0 auto;
+                border: 3px solid #6B5A52;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                .content{
+                    width: 50%;
+                    .login-label{
+                        display: block;
+                        font-size: 20px;
+                        font-family: Noto Sans TC;
+                        margin-bottom: 10px;
                     }
-                    a:hover{
-                        color: #6B5A52;
+                    .login-input{
+                        width: 100%;
+                        margin-bottom: 15px;
+                        padding: 10px;
+                        font-size: 18px;
+                        border: 2px solid #DCD3CE;
+                        border-radius: 5px;
+                    }
+                    .login-input:focus{
+                        border: 2px solid #B5A39A;
+                        outline: 0;
+                    }
+                    ::placeholder{
+                        color: #DCD3CE;
+                    }
+                    .login-link{
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 50px;
+                        a{
+                            color: #B5A39A;
+                        }
+                        a:hover{
+                            color: #6B5A52;
+                        }
+                    }
+                    .login-button{
+                        width: 100%;
+                        padding: 8px 0;
+                        font-size: 18px;
+                        border: 0;
+                        border-radius: 5px;
+                        background-color: #6B5A52;
+                        color: #FFFFFF;
+                        margin-bottom: 30px;
+                    }
+                    .login-button:hover{
+                        opacity: 0.8;
                     }
                 }
-                .login-button{
-                    width: 100%;
-                    padding: 8px 0;
+                .other-login{
+                    width: 65%;
+                    border-top: 3px solid #6B5A52;
+                    p{
+                        text-align: center;
+                        margin-top: 20px;
+                        font-size: 24px;
+                    }
+                }
+                .google-login{
+                    width: 50%;
+                    padding: 10px 0;
                     font-size: 18px;
+                    letter-spacing: 1px;
                     border: 0;
-                    border-radius: 5px;
-                    background-color: #6B5A52;
+                    border-radius: 20px;
+                    background-color: #e9544f;
                     color: #FFFFFF;
-                    margin-bottom: 30px;
                 }
-                .login-button:hover{
-                    opacity: 0.8;
+                .google-login:hover{
+                    opacity: 0.5;
                 }
-            }
-            .other-login{
-                width: 65%;
-                border-top: 3px solid #6B5A52;
-                p{
-                    text-align: center;
-                    margin-top: 20px;
-                    font-size: 24px;
+                i::before{
+                    color: #FFFFFF;
+                    margin-right: 10px;
                 }
-            }
-            .google-login{
-                width: 50%;
-                padding: 10px 0;
-                font-size: 18px;
-                letter-spacing: 1px;
-                border: 0;
-                border-radius: 20px;
-                background-color: #e9544f;
-                position: relative;
-                color: #FFFFFF;
-            }
-            .google-login:hover{
-                opacity: 0.5;
-            }
-            i::before{
-                color: #FFFFFF;
-                position: absolute;
-                top: 12px;
-                left: 90px;
             }
         }
     }
@@ -208,3 +203,4 @@
         }
     }
 }
+
