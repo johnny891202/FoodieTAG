@@ -3,6 +3,12 @@
 @import "../node_modules/bootstrap/scss/functions";
 @import "./scss/utilis/variables";
 
+//base
+@import "./scss/base/base";
+@import "./scss/base/font";
+@import "./scss/base/color";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 //將開發的共用元件路徑放這
 @import "./scss/component/button";
 @import "./scss/component/mixin";
@@ -13,8 +19,4 @@
 @import "./scss/pages/signUp";
 @import "./scss/pages/forgetPassword";
 @import "./scss/pages/resetPassword";
-
-//base
-@import "./scss/base/base";
-@import "./scss/base/font";
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./scss/pages/memberpage";

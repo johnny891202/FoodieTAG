@@ -1,16 +1,56 @@
 
 //navbar
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 9bfb2495992ae6ce8e4b6384a1ae95bb522a57c3
 h1 a{
   background-image: url(./images/logo_big.svg);
   display: block;
   background-repeat: no-repeat;
   width: 240px;
   height: 48px;
-  text-indent: 101%;
-  overflow: hidden;
-  white-space: nowrap;
+  @include hide-text;
+  }
+
+  .nav-btn {
+    color: #363636;
+
+    &:hover {
+      color:$primary-300;
+    }
+    &:active {
+      color: $primary-400;
+      background-color: $primary-100;
+    }
+  }
+
+  //人頭
+  .user-icon {
+    width: 40px;
+    height: 40px;
+
+    &:hover ,&:active {
+      background-color: $primary-200;
+      color: $primary-400;
+    }
+  }
+//會員下拉選單
+  .user-bar {
+    width: 182px;
+    background: $white;
+    top: 62px;
+    right: -50px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0px 2px 8px 0px $grey-300;
+    z-index: 10;
+
+    li:hover {
+      color: $grey-500;
+      background-color: $primary-200;
+      border-radius: 0 0 12px 12px;
+    }
   }
 
 //banner區塊
@@ -23,6 +63,18 @@ h1 a{
     height: 800px;
   }
 
+  .search-bar {
+    border-radius: 100px;
+    box-shadow: 0px 2px 8px 0px $grey-300;
+  }
+    .search-bar-active {
+      border: 3px solid $primary-300;
+    }
+
+  .search-bar-container{
+    height: 85px;
+  }
+
   //banner搜尋關鍵字區塊
   .banner-input{
     width: 306px;
@@ -30,11 +82,11 @@ h1 a{
     outline: none;
 
     &::placeholder{
-      color: #a0a0a0;
+      color: $grey-300;
       font-size: 20px;
       line-height: 1.5;
     }
-  }
+}
 
   //banner地點篩選區塊
   .banner-select{
@@ -43,21 +95,22 @@ h1 a{
     outline: none;
 
     &::placeholder{
-      color: #a0a0a0;
+      color: $grey-300;
       font-size: 20px;
       line-height: 1.5;
     }
   }
 
+  //地點清單
   .locaiton-select-list {
     width: 268px;
     top: 70px;
     height: 276px;
-
+    box-shadow: 0px 2px 8px 0px $grey-300;
 
     & li:hover {
-      background-color: #F5F5F5;
-      color: #333333;
+      background-color: $primary-300;
+      color: $grey-500;
       border-radius: 6px;
       cursor: pointer;
     }
@@ -78,7 +131,6 @@ h1 a{
   }
 
   //h2標題
-
   .bottom-line {
     width: 28px;
     height: 3px;
@@ -215,7 +267,7 @@ h1 a{
   //輪播圖
 
   .swiper-slide {
-    border: 1.5px solid #333333;
+    border: 1.5px solid $grey-500;
     border-radius: 4px;
     max-width: 306px;
   }
@@ -242,6 +294,9 @@ h1 a{
       background-image: url(./images/Arrow-Left.png);
       background-repeat: no-repeat;
     }
+    &:hover::after {
+      background-image: url(./images/Arrow-Left-hover.png)
+    }
   }
   .swiper-button-next {
     height: 60px !important;
@@ -255,21 +310,32 @@ h1 a{
       background-image: url(./images/Arrow-Right.png);
       background-repeat: no-repeat;
     }
+
+    &:hover::after {
+      background-image: url(./images/Arrow-Right-hover.png);
+    }
   }
 
 
 //熱門標籤區塊
 
 .section3-bg {
-  background-color: #FAF7F5;
+  background-color: $primary-100;
   border-radius: 0 400px 400px 0 ;
 }
 
 .tag-icon {
   border-radius: 100px;
-  border: 1.5px solid #333;
-}
+  border: 1.5px solid $grey-500;
+  color:$grey-500;
+  transition: all 0.2s ease-in-out;
 
+  &:hover ,&:active {
+    background-color: $primary-400;
+    color: #FFFFFF;
+    transition: all 0.2s ease-in-out;
+  }
+}
 //評論區塊
 
 .comment-card {
@@ -291,4 +357,17 @@ h1 a{
   background-image: url(/assets/images/right.svg);
   width: 28px;
   height: 28px;
+}
+
+
+//footer
+.social-media-icon {
+  color: $white;
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    color:$grey-500;
+    background-color: $white;
+  }
 }

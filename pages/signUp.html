@@ -30,7 +30,11 @@
                     <div class="content">
                         <!-- 輸入電子信箱 -->
                         <label for="email" class="signUp-label">電子信箱</label>
-                        <input type="mail" id="email" placeholder="請輸入電子信箱" class="signUp-input" name="email"><i></i>
+                        <input type="mail" id="email" placeholder="請輸入電子信箱" class="signUp-input" name="email">
+                        <p class="alertMessage"></p>
+                        <!-- 輸入使用者名稱 -->
+                        <label for="userName" class="signUp-label">使用者名稱</label>
+                        <input type="text" id="userName" placeholder="請輸入使用者名稱" class="signUp-input" name="username">
                         <p class="alertMessage"></p>
                         <!-- 輸入密碼 -->
                         <label for="password" class="signUp-label">密碼</label>
@@ -40,6 +44,7 @@
                         <label for="confirm-password" class="signUp-label">確認密碼</label>
                         <input type="password" id="confirm-password" placeholder="請再次輸入密碼" class="signUp-input" name="confirm-password"><i class="fa-regular fa-circle-check confirm-password-icon"></i>
                         <p class="alertMessage"></p>
+                        
                         <!-- 同意會員規定 -->
                         <input type="checkbox" id="agree" class="agree-input">
                         <label for="agree" class="agree-label">我已閱讀並同意會員約定條款說明</label>
