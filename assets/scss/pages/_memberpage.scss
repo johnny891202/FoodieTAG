@@ -6,6 +6,9 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+.cover-height {
+    height: 550px;
+}
 
 //個人資訊
 .user-edit-icon {
@@ -13,6 +16,7 @@
     right: 88px;
 }
 
+//頭貼
 .avatar {
     width: 200px;
     height: 200px;
@@ -22,6 +26,7 @@
 
 }
 
+//積分條
 .score-box {
     height: 24px;
     width: 120px;
@@ -29,22 +34,30 @@
     z-index: 1;
 }
 
+//積分條文字
 .score-box-text {
     z-index: 2;
     top: 0;
     left: 10px;
 }
 
-.i-icon {
-    height: 20px;
-    width: 20px;
-    color: $white;
-    background: $grey-200;
+//我的評論
+.comment-user-photo {
+    background-image: url(./images/memberPage/avatar.jpeg);
+    background-size: cover;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    font-size: 16px;
-    transition: all 0.2s;
-    &:hover {
-        background: $grey-300; 
-        transition: all 0.2s;
-    }
+}
+
+.comment-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-right: 36px;
+}
+
+//我的收藏 圖片高度
+.collect>div{
+    height: 200px;
 }

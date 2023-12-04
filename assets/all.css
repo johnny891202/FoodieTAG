@@ -14,6 +14,11 @@ div, p {
   line-height: 1.5;
 }
 
+.cover-size {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .font-Anton {
   font-family: "Anton", sans-serif;
 }
@@ -24422,6 +24427,39 @@ textarea.form-control-lg {
   transition: all 0.2s ease-in-out;
 }
 
+.i-icon {
+  height: 20px;
+  width: 20px;
+  color: #FFFFFF;
+  background: #EAEAEA;
+  border-radius: 50%;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+.i-icon:hover {
+  background: #A0A0A0;
+  transition: all 0.2s;
+}
+
+.nav-tabs button {
+  border-bottom: 5px solid #EAEAEA !important;
+  width: 50%;
+}
+.nav-tabs .nav-link {
+  color: #A0A0A0;
+  font-size: 24px;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  border-bottom: 5px solid #B5A39A !important;
+  color: #333333 !important;
+}
+
+.collect-icon {
+  position: absolute;
+  top: 6px;
+  right: 18px;
+}
+
 h1 a, .h1 a {
   background-image: url(./images/logo_big.svg);
   display: block;
@@ -24460,6 +24498,7 @@ h1 a, .h1 a {
   right: -50px;
   border-radius: 0 0 12px 12px;
   box-shadow: 0px 2px 8px 0px #A0A0A0;
+  z-index: 10;
 }
 .user-bar li:hover {
   color: #333333;
@@ -25238,6 +25277,10 @@ h1 a, .h1 a {
   background-repeat: no-repeat;
 }
 
+.cover-height {
+  height: 550px;
+}
+
 .user-edit-icon {
   top: 12px;
   right: 88px;
@@ -25266,16 +25309,22 @@ h1 a, .h1 a {
   left: 10px;
 }
 
-.i-icon {
-  height: 20px;
-  width: 20px;
-  color: #FFFFFF;
-  background: #EAEAEA;
+.comment-user-photo {
+  background-image: url(./images/memberPage/avatar.jpeg);
+  background-size: cover;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  font-size: 16px;
-  transition: all 0.2s;
 }
-.i-icon:hover {
-  background: #A0A0A0;
-  transition: all 0.2s;
+
+.comment-photo {
+  width: 120px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 36px;
+}
+
+.collect > div {
+  height: 200px;
 }/*# sourceMappingURL=all.css.map */

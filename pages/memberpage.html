@@ -10,7 +10,7 @@
 </head>
 <body>
         <!-- navbar -->
-        <nav class="d-flex justify-content-between px-20 py-5 align-items-center">
+        <nav class="d-flex justify-content-between px-20 py-5 align-items-center shadow-sm">
             <h1>
             <a href="index.html">FoodieTAG#</a>
             </h1>
@@ -28,11 +28,10 @@
             </ul>              
         </nav>
         <!-- 使用者資訊 -->
-        <section>
+        <section class="cover-height">
             <div class="user-cover d-block w-100 position-relative">
                 <a href="#" class="d-block position-absolute user-edit-icon fs-6 link-grey-400 d-flex align-items-center">
-                    <span class="material-symbols-outlined">
-                    edit</span>
+                    <i class="fa-solid fa-pen"></i>
                     <span class="ms-2">編輯個人資訊</span></a>
                 <div class="container pt-30">
                     <div class="d-flex justify-content-evenly">
@@ -44,7 +43,7 @@
                                     <span class="d-block position-absolute i-icon top-0 start-100 translate-middle text-center d-flex align-items-center justify-content-center font-monospace">i</span>
                                     <p class="fs-6 text-grey-300 position-relative pe-3">Foodie#學徒</p>
                                 </div>
-                                <p class="fs-6 text-grey-300 ">#已貢獻 3 個TAG！</p>
+                                <span class="d-block mb-3 fs-6 text-grey-300">#已貢獻 <span class="tags-num fs-6 text-grey-300">3</span>個TAG！</span>
                                 <div class="position-relative">
                                     <div class="position-relative d-inline-block pe-5">
                                         <span class="d-block position-absolute i-icon top-0 start-100 translate-middle text-center d-flex align-items-center justify-content-center font-monospace">i</span>
@@ -73,10 +72,119 @@
                 </div>
             </div>
         </section>
+
+        <section>
+            <div class="container">
+                <!-- 頁籤 -->
+                <nav>
+                    <div class="nav nav-tabs justify-content-evenly" id="nav-tab" role="tablist">
+                    <button class="nav-link border-0 border-bottom px-20 active" id="nav-comment-tab" data-bs-toggle="tab" data-bs-target="#nav-comment" type="button" role="tab" aria-controls="nav-comment" aria-selected="true">所有評論<span class="fs-6 text-grey-300 ms-3">共<span>2</span>則</span></button>
+
+                    <button class="nav-link border-0 border-bottom " id="nav-collect-tab" data-bs-toggle="tab" data-bs-target="#nav-collect" type="button" role="tab" aria-controls="nav-collect" aria-selected="false">所有收藏<span class="fs-6 text-grey-300 ms-3">共<span>8</span>間</span></button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
+                        <div class="px-30 py-20">
+                            <!-- 評論1 -->
+                            <div class="row justify-content-center align-items-center mb-15">
+                                <div class="col-lg-3 comment-user-photo me-10"></div>
+                                <div class="col-lg-9 d-flex flex-column">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center mb-5">
+                                            <div class="me-5">
+                                                <i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i></div>
+                                            <div class="fs-5">鳥藏 燒き鳥居酒屋</div>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="link-grey-400"><i class="fa-solid fa-pen me-3"></i></a>
+                                            <a href="#" class="link-grey-400"><i class="fa-solid fa-x"></i></a>
+                                        </div>
+                                    </div>
+                                    <p>我們剛剛品味了這家居酒屋的美食，經驗絕對精彩。菜單上的選擇豐富多樣，每道菜都經過精心烹飪，味道令人驚艷。服務也非常出色，服務員熱情周到，不厭其煩地為我們提供建議。氛圍愉快，讓人感覺宛如置身日本。這家居酒屋絕對值得一遊，我們期待再次光臨。</p>
+                                    <div>
+                                        <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo.jpeg" alt="comment-photo">
+                                        <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo2.jpeg" alt="comment-photo">
+                                    </div>
+                                    <p class="text-end text-grey-300">2023年10月15日  15:10</p>
+                                </div>
+                            </div>
+                            <!-- 評論2 -->
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-lg-3 comment-user-photo me-10"></div>
+                                <div class="col-lg-9 d-flex flex-column">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center mb-5">
+                                            <div class="me-5">
+                                                <i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i></div>
+                                            <div class="fs-5">鳥藏 燒き鳥居酒屋</div>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="link-grey-400"><i class="fa-solid fa-pen me-3"></i></a>
+                                            <a href="#" class="link-grey-400"><i class="fa-solid fa-x"></i></a>
+                                        </div>
+                                    </div>
+                                    <p>我們剛剛品味了這家居酒屋的美食，經驗絕對精彩。菜單上的選擇豐富多樣，每道菜都經過精心烹飪，味道令人驚艷。服務也非常出色，服務員熱情周到，不厭其煩地為我們提供建議。氛圍愉快，讓人感覺宛如置身日本。這家居酒屋絕對值得一遊，我們期待再次光臨。</p>
+                                    <div>
+                                        <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo.jpeg" alt="comment-photo">
+                                        <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo2.jpeg" alt="comment-photo">
+                                    </div>
+                                    <p class="text-end text-grey-300">2023年10月15日  15:10</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-collect" role="tabpanel" aria-labelledby="nav-collect-tab">
+                        <div class="px-30 py-20">
+                            <div class="row collect">
+                                <div class="col-lg-3 position-relative">
+                                    <img class="img-fluid h-100 cover-size rounded-1 " src="https://lh3.googleusercontent.com/p/AF1QipNF0exG0OGWfMuo_TLfoM2Km6uC7YlpAzFtFdKo=s1360-w1360-h1020", alt="resturant-photo">
+                                    <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark"></i></a>
+                                </div>
+                                <div class="col-lg-3 position-relative">
+                                    <img class="img-fluid h-100 cover-size rounded-1" src="https://lh3.googleusercontent.com/p/AF1QipNF0exG0OGWfMuo_TLfoM2Km6uC7YlpAzFtFdKo=s1360-w1360-h1020", alt="resturant-photo">
+                                    <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark"></i></a>
+                                </div>
+                                <div class="col-lg-3 position-relative">
+                                    <img class="img-fluid h-100 cover-size rounded-1" src="https://lh3.googleusercontent.com/p/AF1QipNF0exG0OGWfMuo_TLfoM2Km6uC7YlpAzFtFdKo=s1360-w1360-h1020", alt="resturant-photo">
+                                    <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark"></i></a>
+                                </div>
+                                <div class="col-lg-3 position-relative">
+                                    <img class="img-fluid h-100 cover-size rounded-1" src="https://lh3.googleusercontent.com/p/AF1QipNF0exG0OGWfMuo_TLfoM2Km6uC7YlpAzFtFdKo=s1360-w1360-h1020", alt="resturant-photo">
+                                    <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+            <!-- footer -->
+    <section class="bg-grey-500">
+        <div class="d-flex justify-content-between align-items-center py-7 px-20">
+        <a href="#" class="d-inline-block"><img src="../assets/images/dark_logo_big.svg" alt="logo"></a>
+        <span class="text-white h5">全台最大美食搜尋平台，你想吃的這裡都有！</span>
+        <div>
+            <ul class="d-flex list-unstyled justify-content-end">
+                <li><a href="#" class="social-media-icon d-block d-flex text-center align-items-center rounded-circle">
+                    <i class="fa-brands fa-instagram w-100 h2 d-block"></i>
+                    </a>
+                </li>
+                <li><a href="#" class=" ms-4 social-media-icon d-block d-flex text-center align-items-center rounded-circle">
+                    <i class="fa-brands fa-facebook w-100 h3 text-white"></i>
+                </a>
+                </li>
+            </ul>
+            <p class="text-white text-end fs-6 mb-0">FoodieTAG ©2023 COPYRIGHT</p>
+            <p class="text-white text-end fs-6 mb-0">本網站僅供個人作品使用，不提供商業用途</p>
+        </div>
+        </div>
+    </section>
     
 
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/6ffafbaa63.js" crossorigin="anonymous"></script>
+    <script src="../js/memberpage.js"></script>
 </body>
 </html>
