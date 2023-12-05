@@ -1,10 +1,22 @@
 
-//box-sizing
-*,::after,::before{
-    box-sizing: border-box; 
-}
-
 //圖片設定
 img{
     vertical-align:top; //消除圖片上下空白
+}
+
+//文字間距 行高
+
+h1,h2,h3,h4,h5 {
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+}
+
+div,p {
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+}
+
+//圖片cover size
+.cover-size {
+    object-fit: cover;
 }
