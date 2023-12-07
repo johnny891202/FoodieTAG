@@ -6,6 +6,13 @@ user.addEventListener('click',e=>{
     userBar.classList.toggle('d-none')
 })
 
+//menu登入後帶入user名稱
+const userName = document.getElementById('userName');
+userNameStr = localStorage.getItem('user'); //取出localStorage的值(string)
+userNameObj = JSON.parse(userNameStr); // string轉換成物件
+ userName.textContent = userNameObj.username; //取得裡面的username屬性，選染到畫面
+
+
 //地點列表toggle
 const keywordOne = document.getElementById('keywordOne');
 const keywordTwo = document.getElementById('keywordTwo');

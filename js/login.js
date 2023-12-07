@@ -17,7 +17,7 @@ function login() {
             console.log(response);
             localStorage.setItem("token", response.data.accessToken);
             localStorage.setItem("user", JSON.stringify(response.data.user));
-            location.href = "index.html";
+            location.href = "index_login.html";
         })
         .catch(error => {
             if (error.response.data === "Incorrect password") {

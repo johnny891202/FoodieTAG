@@ -1,712 +1,5 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+TC:wght@400;500;700&display=swap");
-h1 a, .h1 a {
-  background-image: url(./images/logo_big.svg);
-  display: block;
-  background-repeat: no-repeat;
-  width: 240px;
-  height: 48px;
-  text-indent: 101%;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.banner {
-  background-image: url(./images/banner.jpg);
-  background-size: 2600px auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  max-width: 2600px;
-  height: 800px;
-}
-
-.banner-input {
-  width: 306px;
-  border-radius: 100px 0 0 100px;
-  outline: none;
-}
-.banner-input::-moz-placeholder {
-  color: #a0a0a0;
-  font-size: 20px;
-  line-height: 1.5;
-}
-.banner-input::placeholder {
-  color: #a0a0a0;
-  font-size: 20px;
-  line-height: 1.5;
-}
-
-.banner-select {
-  width: 306px;
-  border-radius: 0 100px 100px 0;
-  outline: none;
-}
-.banner-select::-moz-placeholder {
-  color: #a0a0a0;
-  font-size: 20px;
-  line-height: 1.5;
-}
-.banner-select::placeholder {
-  color: #a0a0a0;
-  font-size: 20px;
-  line-height: 1.5;
-}
-
-.locaiton-select-list {
-  width: 268px;
-  top: 70px;
-  height: 276px;
-}
-.locaiton-select-list li:hover {
-  background-color: #F5F5F5;
-  color: #333333;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.hide {
-  display: none;
-}
-
-.search-icon {
-  font-size: 44px !important;
-}
-
-.search-btn:hover {
-  opacity: 0.7;
-  transition: all 0.5s;
-}
-
-.bottom-line {
-  width: 28px;
-  height: 3px;
-}
-
-.bg-text1 {
-  background-image: url(/assets/images/bg_text1.svg);
-  background-repeat: no-repeat;
-  width: 700px;
-  height: 100%;
-  background-size: contain;
-  top: 100px;
-}
-
-.bg-text2 {
-  background-image: url(/assets/images/bg_text2.svg);
-  background-repeat: no-repeat;
-  width: 600px;
-  height: 100%;
-  background-size: contain;
-  top: 1240px;
-  right: -44px;
-}
-
-.bg-text2-2 {
-  background-image: url(/assets/images/bg_text2.svg);
-  background-repeat: no-repeat;
-  width: 600px;
-  height: 100%;
-  background-size: contain;
-  top: -190px;
-  right: -44px;
-}
-
-.bg-text3 {
-  background-image: url(/assets/images/bg_text3.svg);
-  background-repeat: no-repeat;
-  width: 100px;
-  height: 100%;
-  background-size: contain;
-  top: 188px;
-  left: 20px;
-}
-
-.bg-text4 {
-  background-image: url(/assets/images/bg_text4.svg);
-  background-repeat: no-repeat;
-  width: 600px;
-  height: 100%;
-  background-size: contain;
-  top: 148px;
-  right: -88px;
-  z-index: 1;
-}
-
-.food-card-3 {
-  max-width: 416px;
-  height: 312px;
-  overflow: hidden;
-}
-
-.food-card-4 {
-  max-width: 306px;
-  height: 312px;
-  overflow: hidden;
-}
-
-.food-class-img {
-  background-size: contain;
-  width: 100%;
-  height: auto;
-  background-repeat: no-repeat;
-  filter: brightness(0.6);
-  transition: all 1s ease-in-out;
-}
-
-.food-class-img:hover {
-  transform: scale(1.2);
-  transition: all 1s ease-in-out;
-}
-
-.food-class-img01 {
-  background-image: url(./images/index_food_class/food_class_1.png);
-}
-
-.food-class-img02 {
-  background-image: url(./images/index_food_class/food_class_2.png);
-}
-
-.food-class-img03 {
-  background-image: url(./images/index_food_class/food_class_3.png);
-}
-
-.food-class-img04 {
-  background-image: url(./images/index_food_class/food_class_4.png);
-}
-
-.food-class-img05 {
-  background-image: url(./images/index_food_class/food_class_5.png);
-}
-
-.food-class-img06 {
-  background-image: url(./images/index_food_class/food_class_6.png);
-}
-
-.food-class-img07 {
-  background-image: url(./images/index_food_class/food_class_7.png);
-}
-
-.food-class-img08 {
-  background-image: url(./images/index_food_class/food_class_8.png);
-}
-
-.food-class-img09 {
-  background-image: url(./images/index_food_class/food_class_9.png);
-}
-
-.food-class-img10 {
-  background-image: url(./images/index_food_class/food_class_10.png);
-}
-
-.food-class-img11 {
-  background-image: url(./images/index_food_class/food_class_11.png);
-}
-
-.swiper-slide {
-  border: 1.5px solid #333333;
-  border-radius: 4px;
-  max-width: 306px;
-}
-
-.swiper-img-container {
-  max-width: 306px;
-  height: 230px;
-}
-.swiper-img-container img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-button-prev {
-  height: 60px !important;
-  width: 60px !important;
-}
-.swiper-button-prev::after {
-  content: "" !important;
-  height: 60px;
-  width: 60px;
-  display: block;
-  background-image: url(./images/Arrow-Left.png);
-  background-repeat: no-repeat;
-}
-
-.swiper-button-next {
-  height: 60px !important;
-  width: 60px !important;
-}
-.swiper-button-next::after {
-  content: "" !important;
-  height: 60px;
-  width: 60px;
-  display: block;
-  background-image: url(./images/Arrow-Right.png);
-  background-repeat: no-repeat;
-}
-
-.section3-bg {
-  background-color: #FAF7F5;
-  border-radius: 0 400px 400px 0;
-}
-
-.tag-icon {
-  border-radius: 100px;
-  border: 1.5px solid #333;
-}
-
-.comment-card {
-  z-index: 2;
-}
-
-.cloud-img {
-  background-image: url(/assets/images/cloud-lg.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 90%;
-  width: 100%;
-}
-
-.btn-arrow-right {
-  background-image: url(/assets/images/right.svg);
-  width: 28px;
-  height: 28px;
-}
-
-/* login樣式開始 */
-section .navbar {
-  padding: 20px 80px;
-}
-section .navbar .logo {
-  background-image: url(./images/logo_big.svg);
-  display: block;
-  background-repeat: no-repeat;
-  width: 240px;
-  height: 48px;
-  text-indent: 101%;
-  overflow: hidden;
-  white-space: nowrap;
-}
-section .navbar .logo:hover {
-  opacity: 0.5;
-}
-section .navbar .navbar-menu {
-  display: flex;
-  margin-bottom: 0;
-}
-section .navbar .navbar-menu li {
-  font-family: Noto Sans TC;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 30px;
-  letter-spacing: 0.6px;
-  margin: 0 12px;
-}
-section .navbar .navbar-menu li a {
-  display: block;
-  color: #363636;
-  padding: 0 24px;
-}
-section .navbar .navbar-menu li a:hover {
-  color: #B5A39A;
-}
-section .container .login-form {
-  padding: 100px 0;
-}
-section .container .login-form h2, section .container .login-form .h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #6B5A52;
-}
-section .container .login-form form {
-  width: 60%;
-  margin: 0 auto;
-  border: 3px solid #6B5A52;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px 0;
-}
-section .container .login-form form .content {
-  width: 50%;
-}
-section .container .login-form form .content .login-label {
-  display: block;
-  font-size: 20px;
-  font-family: Noto Sans TC;
-  margin-bottom: 10px;
-}
-section .container .login-form form .content .login-input {
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 10px;
-  font-size: 18px;
-  border: 2px solid #DCD3CE;
-  border-radius: 5px;
-}
-section .container .login-form form .content .login-input:focus {
-  border: 2px solid #B5A39A;
-  outline: 0;
-}
-section .container .login-form form .content ::-moz-placeholder {
-  color: #DCD3CE;
-}
-section .container .login-form form .content ::placeholder {
-  color: #DCD3CE;
-}
-section .container .login-form form .content .login-link {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
-}
-section .container .login-form form .content .login-link a {
-  color: #B5A39A;
-}
-section .container .login-form form .content .login-link a:hover {
-  color: #6B5A52;
-}
-section .container .login-form form .content .login-button {
-  width: 100%;
-  padding: 8px 0;
-  font-size: 18px;
-  border: 0;
-  border-radius: 5px;
-  background-color: #6B5A52;
-  color: #FFFFFF;
-  margin-bottom: 30px;
-}
-section .container .login-form form .content .login-button:hover {
-  opacity: 0.8;
-}
-section .container .login-form form .other-login {
-  width: 65%;
-  border-top: 3px solid #6B5A52;
-}
-section .container .login-form form .other-login p {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 24px;
-}
-section .container .login-form form .google-login {
-  width: 50%;
-  padding: 10px 0;
-  font-size: 18px;
-  letter-spacing: 1px;
-  border: 0;
-  border-radius: 20px;
-  background-color: #e9544f;
-  color: #FFFFFF;
-}
-section .container .login-form form .google-login:hover {
-  opacity: 0.5;
-}
-section .container .login-form form i::before {
-  color: #FFFFFF;
-  margin-right: 10px;
-}
-section .footer {
-  padding: 28px 80px;
-  background-color: #333;
-  color: #FFFFFF;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-section .footer .footer-logo {
-  background-image: url(/assets/images/dark_logo_big.svg);
-  display: block;
-  background-repeat: no-repeat;
-  width: 240px;
-  height: 48px;
-  text-indent: 101%;
-  overflow: hidden;
-  white-space: nowrap;
-}
-section .footer .slogan {
-  color: #FFFFFF;
-  font-family: Noto Sans TC;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 28.8px;
-  letter-spacing: 1.92px;
-}
-section .footer .logo-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-section .footer .logo-content .footer-icon {
-  display: flex;
-  margin-bottom: 20px;
-  padding-left: 0;
-}
-section .footer .logo-content .footer-icon li .ig {
-  background-image: url(/assets/images/instagram_icon.png);
-  display: block;
-  background-repeat: no-repeat;
-  width: 32px;
-  height: 32px;
-  text-indent: 101%;
-  overflow: hidden;
-  white-space: nowrap;
-}
-section .footer .logo-content .footer-icon li .fb {
-  background-image: url(/assets/images/facebook_icon.png);
-  display: block;
-  background-repeat: no-repeat;
-  width: 32px;
-  height: 32px;
-  text-indent: 101%;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-left: 16px;
-}
-section .footer .logo-content span {
-  font-size: 16px;
-  font-style: normal;
-  line-height: 24px;
-  letter-spacing: 0.48px;
-}
-section .footer .logo-content .copyright {
-  font-family: Anton;
-  font-weight: 400;
-}
-section .footer .logo-content .logo-mark {
-  font-family: Noto Sans TC;
-  font-weight: 500;
-}
-
-/* signUp開始 */
-section .container .signUp-form {
-  padding: 100px 0;
-  background-color: #FAF7F5;
-}
-section .container .signUp-form h2, section .container .signUp-form .h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #6B5A52;
-}
-section .container .signUp-form form {
-  width: 60%;
-  margin: 0 auto;
-  border: 3px solid #6B5A52;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px 0;
-}
-section .container .signUp-form form .content {
-  width: 50%;
-}
-section .container .signUp-form form .content .alertMessage {
-  color: #ff0000;
-}
-section .container .signUp-form form .content .signUp-label {
-  display: block;
-  font-size: 20px;
-  font-family: Noto Sans TC;
-  margin-bottom: 10px;
-}
-section .container .signUp-form form .content .signUp-input {
-  width: 85%;
-  margin-bottom: 15px;
-  margin-right: 10px;
-  padding: 10px;
-  font-size: 18px;
-  border: 2px solid #DCD3CE;
-  border-radius: 5px;
-}
-section .container .signUp-form form .content input:focus {
-  border: 2px solid #B5A39A;
-  outline: 0;
-}
-section .container .signUp-form form .content ::-moz-placeholder {
-  color: #DCD3CE;
-}
-section .container .signUp-form form .content ::placeholder {
-  color: #DCD3CE;
-}
-section .container .signUp-form form .content .fa-regular::before {
-  color: #A0A0A0;
-  font-size: 18px;
-}
-section .container .signUp-form form .content .fa-regular.green::before {
-  color: #90ee90;
-}
-section .container .signUp-form form .content .agree-label {
-  font-size: 18px;
-  margin: 10px 0 30px 0;
-}
-section .container .signUp-form form .content .signUp-button {
-  width: 90%;
-  padding: 8px 0;
-  font-size: 18px;
-  border: 0;
-  border-radius: 5px;
-  background-color: #6B5A52;
-  color: #FFFFFF;
-  margin-bottom: 30px;
-}
-section .container .signUp-form form .content .signUp-button:hover {
-  opacity: 0.8;
-}
-
-section .container .forgot-password {
-  padding: 100px 0;
-  background-color: #FAF7F5;
-}
-section .container .forgot-password h2, section .container .forgot-password .h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #6B5A52;
-}
-section .container .forgot-password form {
-  width: 60%;
-  margin: 0 auto;
-  border: 3px solid #6B5A52;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px 0;
-}
-section .container .forgot-password form .content {
-  width: 50%;
-}
-section .container .forgot-password form .content .forget-label {
-  display: block;
-  font-size: 20px;
-  font-family: Noto Sans TC;
-  margin-bottom: 10px;
-}
-section .container .forgot-password form .content .forget-input {
-  width: 100%;
-  margin-bottom: 30px;
-  padding: 10px;
-  font-size: 18px;
-  border: 2px solid #DCD3CE;
-  border-radius: 5px;
-}
-section .container .forgot-password form .content .forget-input:focus {
-  border: 2px solid #B5A39A;
-  outline: 0;
-}
-section .container .forgot-password form .content ::-moz-placeholder {
-  color: #DCD3CE;
-}
-section .container .forgot-password form .content ::placeholder {
-  color: #DCD3CE;
-}
-section .container .forgot-password form .content .send-verification-button {
-  width: 50%;
-  padding: 8px 0;
-  font-size: 18px;
-  border: 0;
-  border-radius: 5px;
-  background-color: #6B5A52;
-  color: #FFFFFF;
-  margin-bottom: 30px;
-  margin-left: 95px;
-}
-section .container .forgot-password form .content .send-verification-button:hover {
-  opacity: 0.8;
-}
-section .container .forgot-password form .content .resetPassword-button {
-  display: block;
-  text-align: center;
-  background: #6B5A52;
-  color: #FFFFFF;
-  padding: 10px;
-  font-size: 18px;
-  border-radius: 5px;
-}
-section .container .forgot-password form .content .resetPassword-button:hover {
-  opacity: 0.8;
-}
-section .container .forgot-password form .checkCode {
-  width: 70%;
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 30px;
-}
-section .container .forgot-password form .checkCode .code-input {
-  width: 12%;
-  text-align: center;
-  padding: 10px 0;
-  border-radius: 20px;
-  background-color: #FAF7F5;
-  border: 2px solid #B5A39A;
-}
-
-section .container .reset-password {
-  padding: 100px 0;
-  background-color: #FAF7F5;
-}
-section .container .reset-password h2, section .container .reset-password .h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #6B5A52;
-}
-section .container .reset-password form {
-  width: 60%;
-  margin: 0 auto;
-  border: 3px solid #6B5A52;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px 0;
-}
-section .container .reset-password form .content {
-  width: 50%;
-}
-section .container .reset-password form .content .new-password-label {
-  display: block;
-  font-size: 20px;
-  font-family: Noto Sans TC;
-  margin-bottom: 10px;
-}
-section .container .reset-password form .content .new-password-input {
-  width: 85%;
-  margin-bottom: 15px;
-  margin-right: 10px;
-  padding: 10px;
-  font-size: 18px;
-  border: 2px solid #DCD3CE;
-  border-radius: 5px;
-}
-section .container .reset-password form .content input:focus {
-  border: 2px solid #B5A39A;
-  outline: 0;
-}
-section .container .reset-password form .content ::-moz-placeholder {
-  color: #DCD3CE;
-}
-section .container .reset-password form .content ::placeholder {
-  color: #DCD3CE;
-}
-section .container .reset-password form .content i::before {
-  color: #A0A0A0;
-  font-size: 18px;
-}
-section .container .reset-password form .content .reset-button {
-  width: 90%;
-  padding: 8px 0;
-  font-size: 18px;
-  border: 0;
-  border-radius: 5px;
-  background-color: #6B5A52;
-  color: #FFFFFF;
-  margin: 30px 0;
-}
-section .container .reset-password form .content .reset-button:hover {
-  opacity: 0.8;
-}
-
 img {
   vertical-align: top;
 }
@@ -25523,14 +24816,10 @@ h1 a, .h1 a {
 }
 
 /* login樣式開始 */
-.wrap {
-  max-width: 1920px;
-  margin: 0 auto;
-}
-.wrap .navbar {
+section .navbar {
   padding: 20px 80px;
 }
-.wrap .navbar .logo {
+section .navbar .logo {
   background-image: url(./images/logo_big.svg);
   display: block;
   background-repeat: no-repeat;
@@ -25540,14 +24829,14 @@ h1 a, .h1 a {
   overflow: hidden;
   white-space: nowrap;
 }
-.wrap .navbar .logo:hover {
+section .navbar .logo:hover {
   opacity: 0.5;
 }
-.wrap .navbar .navbar-menu {
+section .navbar .navbar-menu {
   display: flex;
   margin-bottom: 0;
 }
-.wrap .navbar .navbar-menu li {
+section .navbar .navbar-menu li {
   font-family: Noto Sans TC;
   font-size: 20px;
   font-style: normal;
@@ -25556,25 +24845,24 @@ h1 a, .h1 a {
   letter-spacing: 0.6px;
   margin: 0 12px;
 }
-.wrap .navbar .navbar-menu li a {
+section .navbar .navbar-menu li a {
   display: block;
   color: #363636;
   padding: 0 24px;
 }
-.wrap .navbar .navbar-menu li a:hover {
+section .navbar .navbar-menu li a:hover {
   color: #B5A39A;
 }
-.wrap .login-form {
+section .container .login-form {
   padding: 100px 0;
-  background-color: #FAF7F5;
 }
-.wrap .login-form h2, .wrap .login-form .h2 {
+section .container .login-form h2, section .container .login-form .h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #6B5A52;
 }
-.wrap .login-form form {
-  width: 40%;
+section .container .login-form form {
+  width: 60%;
   margin: 0 auto;
   border: 3px solid #6B5A52;
   border-radius: 5px;
@@ -25583,16 +24871,16 @@ h1 a, .h1 a {
   align-items: center;
   padding: 30px 0;
 }
-.wrap .login-form form .content {
+section .container .login-form form .content {
   width: 50%;
 }
-.wrap .login-form form .content .login-label {
+section .container .login-form form .content .login-label {
   display: block;
   font-size: 20px;
   font-family: Noto Sans TC;
   margin-bottom: 10px;
 }
-.wrap .login-form form .content .login-input {
+section .container .login-form form .content .login-input {
   width: 100%;
   margin-bottom: 15px;
   padding: 10px;
@@ -25600,31 +24888,31 @@ h1 a, .h1 a {
   border: 2px solid #DCD3CE;
   border-radius: 5px;
 }
-.wrap .login-form form .content .login-input:focus {
+section .container .login-form form .content .login-input:focus {
   border: 2px solid #B5A39A;
   outline: 0;
 }
-.wrap .login-form form .content ::-moz-placeholder {
+section .container .login-form form .content ::-moz-placeholder {
   color: #DCD3CE;
 }
-.wrap .login-form form .content :-ms-input-placeholder {
+section .container .login-form form .content :-ms-input-placeholder {
   color: #DCD3CE;
 }
-.wrap .login-form form .content ::placeholder {
+section .container .login-form form .content ::placeholder {
   color: #DCD3CE;
 }
-.wrap .login-form form .content .login-link {
+section .container .login-form form .content .login-link {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
 }
-.wrap .login-form form .content .login-link a {
+section .container .login-form form .content .login-link a {
   color: #B5A39A;
 }
-.wrap .login-form form .content .login-link a:hover {
+section .container .login-form form .content .login-link a:hover {
   color: #6B5A52;
 }
-.wrap .login-form form .content .login-button {
+section .container .login-form form .content .login-button {
   width: 100%;
   padding: 8px 0;
   font-size: 18px;
@@ -25634,19 +24922,19 @@ h1 a, .h1 a {
   color: #FFFFFF;
   margin-bottom: 30px;
 }
-.wrap .login-form form .content .login-button:hover {
+section .container .login-form form .content .login-button:hover {
   opacity: 0.8;
 }
-.wrap .login-form form .other-login {
+section .container .login-form form .other-login {
   width: 65%;
   border-top: 3px solid #6B5A52;
 }
-.wrap .login-form form .other-login p {
+section .container .login-form form .other-login p {
   text-align: center;
   margin-top: 20px;
   font-size: 24px;
 }
-.wrap .login-form form .google-login {
+section .container .login-form form .google-login {
   width: 50%;
   padding: 10px 0;
   font-size: 18px;
@@ -25654,19 +24942,16 @@ h1 a, .h1 a {
   border: 0;
   border-radius: 20px;
   background-color: #e9544f;
-  position: relative;
   color: #FFFFFF;
 }
-.wrap .login-form form .google-login:hover {
+section .container .login-form form .google-login:hover {
   opacity: 0.5;
 }
-.wrap .login-form form i::before {
+section .container .login-form form i::before {
   color: #FFFFFF;
-  position: absolute;
-  top: 12px;
-  left: 90px;
+  margin-right: 10px;
 }
-.wrap .footer {
+section .footer {
   padding: 28px 80px;
   background-color: #333;
   color: #FFFFFF;
@@ -25674,7 +24959,7 @@ h1 a, .h1 a {
   justify-content: space-between;
   align-items: center;
 }
-.wrap .footer .footer-logo {
+section .footer .footer-logo {
   background-image: url(/assets/images/dark_logo_big.svg);
   display: block;
   background-repeat: no-repeat;
@@ -25684,7 +24969,7 @@ h1 a, .h1 a {
   overflow: hidden;
   white-space: nowrap;
 }
-.wrap .footer .slogan {
+section .footer .slogan {
   color: #FFFFFF;
   font-family: Noto Sans TC;
   font-size: 24px;
@@ -25693,17 +24978,17 @@ h1 a, .h1 a {
   line-height: 28.8px;
   letter-spacing: 1.92px;
 }
-.wrap .footer .logo-content {
+section .footer .logo-content {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-.wrap .footer .logo-content .footer-icon {
+section .footer .logo-content .footer-icon {
   display: flex;
   margin-bottom: 20px;
   padding-left: 0;
 }
-.wrap .footer .logo-content .footer-icon li .ig {
+section .footer .logo-content .footer-icon li .ig {
   background-image: url(/assets/images/instagram_icon.png);
   display: block;
   background-repeat: no-repeat;
@@ -25713,7 +24998,7 @@ h1 a, .h1 a {
   overflow: hidden;
   white-space: nowrap;
 }
-.wrap .footer .logo-content .footer-icon li .fb {
+section .footer .logo-content .footer-icon li .fb {
   background-image: url(/assets/images/facebook_icon.png);
   display: block;
   background-repeat: no-repeat;
@@ -25724,33 +25009,33 @@ h1 a, .h1 a {
   white-space: nowrap;
   margin-left: 16px;
 }
-.wrap .footer .logo-content span {
+section .footer .logo-content span {
   font-size: 16px;
   font-style: normal;
   line-height: 24px;
   letter-spacing: 0.48px;
 }
-.wrap .footer .logo-content .copyright {
+section .footer .logo-content .copyright {
   font-family: Anton;
   font-weight: 400;
 }
-.wrap .footer .logo-content .logo-mark {
+section .footer .logo-content .logo-mark {
   font-family: Noto Sans TC;
   font-weight: 500;
 }
 
 /* signUp開始 */
-.wrap .signUp-form {
+section .container .signUp-form {
   padding: 100px 0;
   background-color: #FAF7F5;
 }
-.wrap .signUp-form h2, .wrap .signUp-form .h2 {
+section .container .signUp-form h2, section .container .signUp-form .h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #6B5A52;
 }
-.wrap .signUp-form form {
-  width: 40%;
+section .container .signUp-form form {
+  width: 60%;
   margin: 0 auto;
   border: 3px solid #6B5A52;
   border-radius: 5px;
@@ -25759,20 +25044,20 @@ h1 a, .h1 a {
   align-items: center;
   padding: 30px 0;
 }
-.wrap .signUp-form form .content {
+section .container .signUp-form form .content {
   width: 50%;
 }
-.wrap .signUp-form form .content .alertMessage {
+section .container .signUp-form form .content .alertMessage {
   color: #ff0000;
 }
-.wrap .signUp-form form .content .signUp-label {
+section .container .signUp-form form .content .signUp-label {
   display: block;
   font-size: 20px;
   font-family: Noto Sans TC;
   margin-bottom: 10px;
 }
-.wrap .signUp-form form .content .signUp-input {
-  width: 90%;
+section .container .signUp-form form .content .signUp-input {
+  width: 85%;
   margin-bottom: 15px;
   margin-right: 10px;
   padding: 10px;
@@ -25780,31 +25065,31 @@ h1 a, .h1 a {
   border: 2px solid #DCD3CE;
   border-radius: 5px;
 }
-.wrap .signUp-form form .content input:focus {
+section .container .signUp-form form .content input:focus {
   border: 2px solid #B5A39A;
   outline: 0;
 }
-.wrap .signUp-form form .content ::-moz-placeholder {
+section .container .signUp-form form .content ::-moz-placeholder {
   color: #DCD3CE;
 }
-.wrap .signUp-form form .content :-ms-input-placeholder {
+section .container .signUp-form form .content :-ms-input-placeholder {
   color: #DCD3CE;
 }
-.wrap .signUp-form form .content ::placeholder {
+section .container .signUp-form form .content ::placeholder {
   color: #DCD3CE;
 }
-.wrap .signUp-form form .content .fa-regular::before {
+section .container .signUp-form form .content .fa-regular::before {
   color: #A0A0A0;
   font-size: 18px;
 }
-.wrap .signUp-form form .content .fa-regular.green::before {
+section .container .signUp-form form .content .fa-regular.green::before {
   color: #90ee90;
 }
-.wrap .signUp-form form .content .agree-label {
+section .container .signUp-form form .content .agree-label {
   font-size: 18px;
   margin: 10px 0 30px 0;
 }
-.wrap .signUp-form form .content .signUp-button {
+section .container .signUp-form form .content .signUp-button {
   width: 90%;
   padding: 8px 0;
   font-size: 18px;
@@ -25814,21 +25099,21 @@ h1 a, .h1 a {
   color: #FFFFFF;
   margin-bottom: 30px;
 }
-.wrap .signUp-form form .content .signUp-button:hover {
+section .container .signUp-form form .content .signUp-button:hover {
   opacity: 0.8;
 }
 
-.wrap .forgot-password {
+section .container .forgot-password {
   padding: 100px 0;
   background-color: #FAF7F5;
 }
-.wrap .forgot-password h2, .wrap .forgot-password .h2 {
+section .container .forgot-password h2, section .container .forgot-password .h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #6B5A52;
 }
-.wrap .forgot-password form {
-  width: 40%;
+section .container .forgot-password form {
+  width: 60%;
   margin: 0 auto;
   border: 3px solid #6B5A52;
   border-radius: 5px;
@@ -25837,16 +25122,16 @@ h1 a, .h1 a {
   align-items: center;
   padding: 30px 0;
 }
-.wrap .forgot-password form .content {
+section .container .forgot-password form .content {
   width: 50%;
 }
-.wrap .forgot-password form .content .forget-label {
+section .container .forgot-password form .content .forget-label {
   display: block;
   font-size: 20px;
   font-family: Noto Sans TC;
   margin-bottom: 10px;
 }
-.wrap .forgot-password form .content .forget-input {
+section .container .forgot-password form .content .forget-input {
   width: 100%;
   margin-bottom: 30px;
   padding: 10px;
@@ -25854,20 +25139,20 @@ h1 a, .h1 a {
   border: 2px solid #DCD3CE;
   border-radius: 5px;
 }
-.wrap .forgot-password form .content .forget-input:focus {
+section .container .forgot-password form .content .forget-input:focus {
   border: 2px solid #B5A39A;
   outline: 0;
 }
-.wrap .forgot-password form .content ::-moz-placeholder {
+section .container .forgot-password form .content ::-moz-placeholder {
   color: #DCD3CE;
 }
-.wrap .forgot-password form .content :-ms-input-placeholder {
+section .container .forgot-password form .content :-ms-input-placeholder {
   color: #DCD3CE;
 }
-.wrap .forgot-password form .content ::placeholder {
+section .container .forgot-password form .content ::placeholder {
   color: #DCD3CE;
 }
-.wrap .forgot-password form .content .send-verification-button {
+section .container .forgot-password form .content .send-verification-button {
   width: 50%;
   padding: 8px 0;
   font-size: 18px;
@@ -25878,10 +25163,10 @@ h1 a, .h1 a {
   margin-bottom: 30px;
   margin-left: 95px;
 }
-.wrap .forgot-password form .content .send-verification-button:hover {
+section .container .forgot-password form .content .send-verification-button:hover {
   opacity: 0.8;
 }
-.wrap .forgot-password form .content .resetPassword-button {
+section .container .forgot-password form .content .resetPassword-button {
   display: block;
   text-align: center;
   background: #6B5A52;
@@ -25890,16 +25175,16 @@ h1 a, .h1 a {
   font-size: 18px;
   border-radius: 5px;
 }
-.wrap .forgot-password form .content .resetPassword-button:hover {
+section .container .forgot-password form .content .resetPassword-button:hover {
   opacity: 0.8;
 }
-.wrap .forgot-password form .checkCode {
+section .container .forgot-password form .checkCode {
   width: 70%;
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 30px;
 }
-.wrap .forgot-password form .checkCode .code-input {
+section .container .forgot-password form .checkCode .code-input {
   width: 12%;
   text-align: center;
   padding: 10px 0;
@@ -25908,17 +25193,17 @@ h1 a, .h1 a {
   border: 2px solid #B5A39A;
 }
 
-.wrap .reset-password {
+section .container .reset-password {
   padding: 100px 0;
   background-color: #FAF7F5;
 }
-.wrap .reset-password h2, .wrap .reset-password .h2 {
+section .container .reset-password h2, section .container .reset-password .h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #6B5A52;
 }
-.wrap .reset-password form {
-  width: 40%;
+section .container .reset-password form {
+  width: 60%;
   margin: 0 auto;
   border: 3px solid #6B5A52;
   border-radius: 5px;
@@ -25927,17 +25212,17 @@ h1 a, .h1 a {
   align-items: center;
   padding: 30px 0;
 }
-.wrap .reset-password form .content {
+section .container .reset-password form .content {
   width: 50%;
 }
-.wrap .reset-password form .content .new-password-label {
+section .container .reset-password form .content .new-password-label {
   display: block;
   font-size: 20px;
   font-family: Noto Sans TC;
   margin-bottom: 10px;
 }
-.wrap .reset-password form .content .new-password-input {
-  width: 90%;
+section .container .reset-password form .content .new-password-input {
+  width: 85%;
   margin-bottom: 15px;
   margin-right: 10px;
   padding: 10px;
@@ -25945,24 +25230,24 @@ h1 a, .h1 a {
   border: 2px solid #DCD3CE;
   border-radius: 5px;
 }
-.wrap .reset-password form .content input:focus {
+section .container .reset-password form .content input:focus {
   border: 2px solid #B5A39A;
   outline: 0;
 }
-.wrap .reset-password form .content ::-moz-placeholder {
+section .container .reset-password form .content ::-moz-placeholder {
   color: #DCD3CE;
 }
-.wrap .reset-password form .content :-ms-input-placeholder {
+section .container .reset-password form .content :-ms-input-placeholder {
   color: #DCD3CE;
 }
-.wrap .reset-password form .content ::placeholder {
+section .container .reset-password form .content ::placeholder {
   color: #DCD3CE;
 }
-.wrap .reset-password form .content i::before {
+section .container .reset-password form .content i::before {
   color: #A0A0A0;
   font-size: 18px;
 }
-.wrap .reset-password form .content .reset-button {
+section .container .reset-password form .content .reset-button {
   width: 90%;
   padding: 8px 0;
   font-size: 18px;
@@ -25972,7 +25257,7 @@ h1 a, .h1 a {
   color: #FFFFFF;
   margin: 30px 0;
 }
-.wrap .reset-password form .content .reset-button:hover {
+section .container .reset-password form .content .reset-button:hover {
   opacity: 0.8;
 }
 
@@ -26034,6 +25319,14 @@ h1 a, .h1 a {
   color: #333333;
   width: 700px;
   padding-left: 300px;
+}
+
+.avatar-change,
+.cover-change {
+  background-color: #FAF7F5;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .comment-user-photo {
