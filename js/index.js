@@ -64,17 +64,3 @@ var swiper = new Swiper(".mySwiper", {
     keyboard: true,
     },
 });
-
-
-
-
-
-
-//已登入會員nav-bar
-
-// const user = document.getElementById('user');
-// const userBar = document.getElementById('userBar');
-
-// user.addEventListener('click',e=>{
-//     userBar.classList.toggle('d-none')
-// })
