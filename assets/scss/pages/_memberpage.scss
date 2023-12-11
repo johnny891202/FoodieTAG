@@ -89,6 +89,15 @@
 }
 
 //我的收藏 圖片高度
-.collect > div {
+.collection  {
   height: 200px;
+}
+
+.bookmark{
+  color: $primary-400;
+  transition: all 0.2s;
+  &:hover {
+    color: $primary-100;
+    transition: all 0.2s;
+  }
 }
