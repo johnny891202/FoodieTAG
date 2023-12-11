@@ -1,123 +1,113 @@
 /* 驗證 */
-let totalErrors = []
-function check() {
-    /* 電子信箱驗證 */
-    const emailInput = document.querySelector("#email");
-    emailInput.addEventListener("input", function () {
-        let emailValue = emailInput.value;
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailValue.trim() === "") {
-            emailInput.nextElementSibling.textContent = "不能是空的";
-            return totalErrors[0] = "錯誤";
-        } else if (!emailRegex.test(emailValue)) {
-            emailInput.nextElementSibling.textContent = "電子郵件格式不正確";
-            return totalErrors[0] = "錯誤";
-        } else {
-            emailInput.nextElementSibling.textContent = "";
-            return totalErrors[0] = "成功";
+const signUpForm = document.querySelector(".signUpForm");
+const inputs = document.querySelectorAll("input[name]");
+const constraints = {
+    "Email": {
+        presence: {
+            message: "是必填欄位"
+        },
+        email: {
+            message: "格式錯誤"
         }
-    })
-    /* 使用者名稱驗證 */
-    const userNameInput = document.querySelector("#userName");
-    userNameInput.addEventListener("input", function () {
-        let userNameValue = userNameInput.value;
-        if (userNameValue.trim() === "") {
-            userNameInput.nextElementSibling.textContent = "不能是空的";
-            return totalErrors[1] = "錯誤";
-        } else if (userNameValue.length > 10) {
-            userNameInput.nextElementSibling.textContent = "不能超過十個字";
-            return totalErrors[1] = "錯誤";
-        } else {
-            userNameInput.nextElementSibling.textContent = "";
-            return totalErrors[1] = "成功";
+    },
+    "使用者名稱": {
+        presence: {
+            message: "是必填欄位"
+        },
+        length: {
+            maximum: 10,
+            message: "最多10個字"
         }
-    })
-
-    /* 密碼驗證 */
-    const passwordInput = document.querySelector("#password");
-    passwordInput.addEventListener("input", function () {
-        let passwordValue = passwordInput.value.length;
-        if (passwordValue === 0) {
-            passwordInput.nextElementSibling.nextElementSibling.textContent = "不能是空的";
-            document.querySelector(".password-icon").classList.remove("green");
-            return totalErrors[2] = "錯誤";
-        } else if (passwordValue < 8) {
-            passwordInput.nextElementSibling.nextElementSibling.textContent = "長度不能低於8個字";
-            document.querySelector(".password-icon").classList.remove("green");
-            return totalErrors[2] = "錯誤";
-        } else {
-            passwordInput.nextElementSibling.nextElementSibling.textContent = "";
-            document.querySelector(".password-icon").classList.add("green");
-            return totalErrors[2] = "成功";
+    },
+    "密碼": {
+        presence: {
+            message: "是必填欄位"
+        },
+        length: {
+            minimum: 8,
+            message: "需要超過8個字"
         }
-    })
-
-    /* 再次確認密碼驗證 */
-    const confirmPasswordInput = document.querySelector("#confirm-password");
-    confirmPasswordInput.addEventListener("input", function () {
-        let confirmPasswordValue = confirmPasswordInput.value;
-        if (confirmPasswordValue.trim() === "") {
-            confirmPasswordInput.nextElementSibling.nextElementSibling.textContent = "不能是空的";
-            document.querySelector(".confirm-password-icon").classList.remove("green");
-            return totalErrors[3] = "錯誤";
-        } else if (confirmPasswordValue !== passwordInput.value) {
-            confirmPasswordInput.nextElementSibling.nextElementSibling.textContent = "與密碼不相同";
-            document.querySelector(".confirm-password-icon").classList.remove("green");
-            return totalErrors[3] = "錯誤";
-        } else {
-            confirmPasswordInput.nextElementSibling.nextElementSibling.textContent = "";
-            document.querySelector(".confirm-password-icon").classList.add("green");
-            return totalErrors[3] = "成功";
+    },
+    "確認密碼": {
+        presence: {
+            message: "是必填欄位"
+        },
+        equality: {
+            attribute: "密碼",
+            message: "要與密碼相同"
         }
-    })
-
-    return (totalErrors)
+    }
 }
-
-check()
-
-/* 註冊功能 */
-function signUp(userAccount) {
-    axios.post("http://localhost:3000/register", userAccount)
-        .then(response => {
-            console.log(response.data)
-            location.href = "login.html";
-            alert("註冊成功")
-        })
-        .catch(error => {
-            console.log(error.response)
-            if (error.response.data === "Email already exists") {
-                alert("此電子郵件已經被使用過!")
-            }
-        })
-
-}
-
+let totalErrors;
+inputs.forEach(function (item) {
+    item.addEventListener("input", function () {
+        item.nextElementSibling.nextElementSibling.textContent = "";
+        totalErrors = validate(signUpForm, constraints);
+        if (totalErrors) {
+            Object.keys(totalErrors).forEach(function (keys) {
+                document.querySelector(`[data-message = "${keys}"]`).textContent = totalErrors[keys];
+            })
+        }
+    })
+})
+/* 綠勾勾 */
+const passwordInput = document.querySelector("#password");
+passwordInput.addEventListener("input", function () {
+    if (passwordInput.value.length >= 8) {
+        document.querySelector(".password-icon").classList.add("green");
+    } else {
+        document.querySelector(".password-icon").classList.remove("green");
+    }
+})
+const confirmPasswordInput = document.querySelector("#confirm-password");
+confirmPasswordInput.addEventListener("input", function () {
+    if (confirmPasswordInput.value === passwordInput.value) {
+        document.querySelector(".confirm-password-icon").classList.add("green");
+    } else {
+        document.querySelector(".confirm-password-icon").classList.remove("green");
+    }
+})
+/* 註冊 */
 const signUpBtn = document.querySelector(".signUp-button");
 const agree = document.querySelector(".agree-input");
-const userNameInput = document.querySelector("#userName");
+const email = document.querySelector("#email");
+const userName = document.querySelector("#userName");
+const password = document.querySelector("#password");
 signUpBtn.addEventListener("click", function (e) {
-    let totalErrors = check();
-    const inputs = document.querySelectorAll("input");
-    inputs.forEach(function (input, index) {
-        if (input.value.trim() === "") {
-            input.nextElementSibling.nextElementSibling.textContent = "不能是空的";
-            totalErrors[index] = "錯誤"
-        }
-    });
-    const emailInput = document.querySelector("#email");
-    const passwordInput = document.querySelector("#password");
-
-    const userAccount = {
-        "email": emailInput.value,
-        "password": passwordInput.value,
-        "username": userNameInput.value
-    }
-    if (totalErrors.includes("錯誤")) {
-        alert("有錯誤，註冊失敗");
+    e.preventDefault();
+    if (totalErrors) {
+        Swal.fire({
+            title: "目前有錯誤，註冊失敗",
+            icon: "error",
+            confirmButtonText: "確認",
+            confirmButtonColor: "#6B5A52"
+        })
     } else if (agree.checked === false) {
-        alert("沒有同意會員條款，註冊失敗");
+        Swal.fire({
+            title: "沒有勾選同意條款",
+            icon: "error",
+            confirmButtonText: "確認",
+            confirmButtonColor: "#6B5A52"
+        })
     } else {
-        signUp(userAccount)
+        let userAccount = {
+            "email": email.value,
+            "password": password.value,
+            "userName": userName.value,
+        }
+        axios.post("http://localhost:3000/register", userAccount)
+            .then(function (response) {
+                location.href = "login.html";
+                alert("註冊成功")
+
+            })
+            .catch(function (error) {
+                if (error.response.data === "Email already exists") {
+                    Swal.fire({
+                        title: "此電子信箱已經被使用過!",
+                        icon: "error"
+                    })
+                }
+            })
     }
 })
