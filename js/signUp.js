@@ -99,7 +99,6 @@ signUpBtn.addEventListener("click", function (e) {
             .then(function (response) {
                 location.href = "login.html";
                 alert("註冊成功")
-
             })
             .catch(function (error) {
                 if (error.response.data === "Email already exists") {

@@ -5,6 +5,12 @@
       "password": "$2a$10$ZUOafPrzUqreCtHv2X88pe.w1PmTeVtWmc7A8K.HO1IJUxyhLNSkW",
       "userName": "維哲",
       "id": 1
+    },
+    {
+      "email": "johnny2@gmail.com",
+      "password": "$2a$10$XFeTiIaR41iMxCXsYWoH0ucwtDwJVlcqGQ0mqbJ0kO6lJPwkUuUri",
+      "userName": "維哲",
+      "id": 2
     }
   ],
   "resturants": [

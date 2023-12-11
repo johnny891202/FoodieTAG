@@ -1,29 +1,38 @@
 const loginBtn = document.querySelector(".login-button");
-const emailInput = document.querySelector("#email");
-const passwordInput = document.querySelector("#password");
+const email = document.querySelector("#email");
+const password = document.querySelector("#password");
 
 let user = {}
 
-loginBtn.addEventListener("click", e => {
-    user.email = emailInput.value;
-    user.password = passwordInput.value;
-    login();
+loginBtn.addEventListener("click", function (e) {
+    user.email = email.value;
+    user.password = password.value;
 
-})
-
-function login() {
+    console.log(user)
     axios.post("http://localhost:3000/login", user)
-        .then(response => {
-            console.log(response);
-            localStorage.setItem("token", response.data.accessToken);
-            localStorage.setItem("user", JSON.stringify(response.data.user));
-            location.href = "index.html";
+        .then(function (response) {
+            console.log(response.data.accessToken)
+            Swal.fire({
+                title: "登入成功",
+                icon: "success"
+            }).then(function () {
+                localStorage.setItem("token", response.data.accessToken);
+                localStorage.setItem("user", JSON.stringify(response.data.user));
+                location.href = "index.html";
+            })
         })
-        .catch(error => {
+        .catch(function (error) {
+            console.log(error)
             if (error.response.data === "Incorrect password") {
-                alert("密碼錯誤喔");
+                Swal.fire({
+                    title: "密碼錯誤",
+                    icon: "error"
+                })
             } else if (error.response.data === "Cannot find user") {
-                alert("這個信箱沒有註冊過喔");
+                Swal.fire({
+                    title: "這個信箱沒有註冊喔",
+                    icon: "error"
+                })
             }
         })
-}
+})
