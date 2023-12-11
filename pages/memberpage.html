@@ -120,7 +120,7 @@
             </div>
         </section>
 
-        <!-- Modal -->
+        <!-- 編輯個人資訊跳窗 -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
@@ -178,9 +178,9 @@
                 <!-- 頁籤 -->
                 <nav>
                     <div class="nav nav-tabs justify-content-evenly" id="nav-tab" role="tablist">
-                    <button class="nav-link border-0 border-bottom px-20 active" id="nav-comment-tab" data-bs-toggle="tab" data-bs-target="#nav-comment" type="button" role="tab" aria-controls="nav-comment" aria-selected="true">所有評論<span class="fs-6 text-grey-300 ms-3">共<span>2</span>則</span></button>
+                    <button class="nav-link border-0 border-bottom px-20 active" id="nav-comment-tab" data-bs-toggle="tab" data-bs-target="#nav-comment" type="button" role="tab" aria-controls="nav-comment" aria-selected="true">所有評論<span class="fs-6 text-grey-300 ms-3">共<span id="postNum"></span>則</span></button>
 
-                    <button class="nav-link border-0 border-bottom " id="nav-collect-tab" data-bs-toggle="tab" data-bs-target="#nav-collect" type="button" role="tab" aria-controls="nav-collect" aria-selected="false">所有收藏<span class="fs-6 text-grey-300 ms-3">共<span>8</span>間</span></button>
+                    <button class="nav-link border-0 border-bottom " id="nav-collect-tab" data-bs-toggle="tab" data-bs-target="#nav-collect" type="button" role="tab" aria-controls="nav-collect" aria-selected="false">所有收藏<span class="fs-6 text-grey-300 ms-3">共<span id="collectNum"></span>間</span></button>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -209,50 +209,13 @@
                                     <p class="text-end text-grey-300">2023年10月15日  15:10</p>
                                 </div>
                             </div>
-                            <!-- 評論2 -->
-                            <!-- <div class="row justify-content-center align-items-center">
-                                <div class="col-lg-3 comment-user-photo me-10"></div>
-                                <div class="col-lg-9 d-flex flex-column">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center mb-5">
-                                            <div class="me-5">
-                                                <i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i></div>
-                                            <div class="fs-5">鳥藏 燒き鳥居酒屋</div>
-                                        </div>
-                                        <div>
-                                            <a href="#" class="link-grey-400"><i class="fa-solid fa-pen me-3"></i></a>
-                                            <a href="#" class="link-grey-400"><i class="fa-solid fa-x"></i></a>
-                                        </div>
-                                    </div>
-                                    <p>我們剛剛品味了這家居酒屋的美食，經驗絕對精彩。菜單上的選擇豐富多樣，每道菜都經過精心烹飪，味道令人驚艷。服務也非常出色，服務員熱情周到，不厭其煩地為我們提供建議。氛圍愉快，讓人感覺宛如置身日本。這家居酒屋絕對值得一遊，我們期待再次光臨。</p>
-                                    <div>
-                                        <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo.jpeg" alt="comment-photo">
-                                        <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo2.jpeg" alt="comment-photo">
-                                    </div>
-                                    <p class="text-end text-grey-300">2023年10月15日  15:10</p>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
+
+                    <!-- 我的收藏 -->
                     <div class="tab-pane fade" id="nav-collect" role="tabpanel" aria-labelledby="nav-collect-tab">
                         <div class="px-30 py-20">
-                            <div class="row collect-container">
-                                <div class="col-lg-3 position-relative">
-                                    <img class="img-fluid h-100 cover-size rounded-1 " src="https://lh3.googleusercontent.com/p/AF1QipNF0exG0OGWfMuo_TLfoM2Km6uC7YlpAzFtFdKo=s1360-w1360-h1020", alt="resturant-photo">
-                                    <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark"></i></a>
-                                </div>
-                                <!-- <div class="col-lg-3 position-relative">
-                                    <img class="img-fluid h-100 cover-size rounded-1" src="https://lh3.googleusercontent.com/p/AF1QipNF0exG0OGWfMuo_TLfoM2Km6uC7YlpAzFtFdKo=s1360-w1360-h1020", alt="resturant-photo">
-                                    <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark"></i></a>
-                                </div>
-                                <div class="col-lg-3 position-relative">
-                                    <img class="img-fluid h-100 cover-size rounded-1" src="https://lh3.googleusercontent.com/p/AF1QipNF0exG0OGWfMuo_TLfoM2Km6uC7YlpAzFtFdKo=s1360-w1360-h1020", alt="resturant-photo">
-                                    <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark"></i></a>
-                                </div>
-                                <div class="col-lg-3 position-relative">
-                                    <img class="img-fluid h-100 cover-size rounded-1" src="https://lh3.googleusercontent.com/p/AF1QipNF0exG0OGWfMuo_TLfoM2Km6uC7YlpAzFtFdKo=s1360-w1360-h1020", alt="resturant-photo">
-                                    <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark"></i></a>
-                                </div> -->
+                            <div class="row collect-container gy-10">
                             </div>
                         </div>
                     </div>
@@ -285,6 +248,7 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/6ffafbaa63.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/memberpage.js"></script>
 </body>
 </html>

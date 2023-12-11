@@ -25345,6 +25345,15 @@ section .container .reset-password form .content .reset-button:hover {
   margin-right: 36px;
 }
 
-.collect > div {
+.collection {
   height: 200px;
+}
+
+.bookmark {
+  color: #6B5A52;
+  transition: all 0.2s;
+}
+.bookmark:hover {
+  color: #FAF7F5;
+  transition: all 0.2s;
 }/*# sourceMappingURL=all.css.map */

@@ -1,4 +1,5 @@
 // json-server-auth db.json
+
 //已登入會員nav-bar
 const user = document.getElementById('user');
 const userBar = document.getElementById('userBar');
@@ -9,6 +10,7 @@ user.addEventListener('click',e=>{
 
 const url =  `http://localhost:3000`;
 let postData = [];
+let favoriteId=[];
 
 function init(){
     //頁面帶入user資訊
@@ -39,12 +41,12 @@ function init(){
 
     //get收藏資料
     //先取得user資料
-    let favoriteId=[];
     axios.get(`${url}/users/${userObj.id}`)
     .then(function(res){
-        console.log(res.data.restaurant.Name);
-        res.data.favorites.forEach(item=>{
+        console.log(res.data.collection);
+        res.data.collection.forEach(item=>{
             favoriteId.push(item)
+            console.log(favoriteId);
         });
         getFavoriteRestaurants(favoriteId);
     })
@@ -54,57 +56,63 @@ function init(){
 };
 init();
 
-//用?_expand取得餐廳資料（但只能取一間）
-// axios.get(`${url}/users/${userObj.id}?_expand=restaurant`)
-// .then(function(res){
-//     console.log(res.data.restaurant.Name);
-// })
-// .catch(function(error){
-//     console.log(error);
-// })
-
 
 //再取得收藏的餐廳名字＋圖片
 function getFavoriteRestaurants(favoriteId){
     const favoriteItem =[];
 
-    favoriteId.forEach(item=>{
-        axios.get(`${url}/resturants?id=${item}`)
-        .then(function(res){
-            let list = {};
-            list.name = res.data[0].Name;
-            list.picture = res.data[0].Picture[0];
-            favoriteItem.push(list)
-        })
+    // 使用 map 產生一組 promises，然後使用 Promise.all 等待它們全部完成
+    const promises = favoriteId.map(item => {
+        return axios.get(`${url}/restaurants?id=${item}`)
+            .then(function(res){
+                let list = {};
+                list.name = res.data[0].Name;
+                list.picture = res.data[0].Picture[0];
+                list.id = res.data[0].id;
+                favoriteItem.push(list);
+            })
+            .catch(function(error){
+                console.log(error);
+            });
     });
-    renderFavorites(favoriteItem);
 
-    }
+    // 使用 Promise.all 來等待所有 promises 完成
+    Promise.all(promises)
+        .then(() => {
+            renderFavorites(favoriteItem);
+        });
+}
 
 
 //渲染收藏餐廳清單
 const collectContainer = document.querySelector('.collect-container');
+const collectNum = document.getElementById('collectNum')
 
 function renderFavorites(favoriteItem){
-    console.log(favoriteItem);
     let str ="";
+    let collectNums = favoriteItem.length; //顯示幾個收藏
+
     favoriteItem.forEach(function(item){
-        str+=`<div class="col-lg-3 position-relative">
-            <img class="img-fluid h-100 cover-size rounded-1 " src="${item[0].picture}", alt="resturant-photo">
-            <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark"></i></a>
+        str+=`<div class="col-lg-3 position-relative collection">
+            <a href="#" class="d-block h-100 collction">
+            <img class="img-fluid h-100 cover-size rounded-1 " src="${item.picture}", alt="resturant-photo">
+            <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark bookmark" id="collectCancelBtn" data-id="${item.id}"></i></a>
+            <span class="position-absolute top-50 start-50 translate-middle text-center"><a href="#" class="text-decoration-none text-white fw-bold fs-5">${item.name}</a></span>
+            </a>
             </div>`
-
     });
-    collectContainer.innerHTML = str
+    collectContainer.innerHTML = str;
+    collectNum.innerHTML = collectNums;
 }
-
-
 
 //渲染貼文內容
 const postsContainer = document.querySelector('.posts-container');
+const postNum = document.getElementById('postNum');
 
 function renderPost(){
     let str ="";
+    let postNums = postData.length;
+
     postData.forEach(item=>{
         let starShow = "";
         let starTemplate = `<i class="fa-solid fa-star" style="color: #f5cd05;"></i>`;
@@ -137,6 +145,7 @@ function renderPost(){
     </div>`
     });
     postsContainer.innerHTML = str;
+    postNum.innerHTML = postNums;
 };
 
 //刪除貼文
@@ -147,19 +156,61 @@ function renderPost(){
             return
         }
         const postId = e.target.getAttribute('data-id');
-        deletePost(postId);
+        Swal.fire({  //alert套件
+            title: "確定要刪除評論嗎？",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "確定"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "評論已刪除",
+                icon: "success",
+              });
+              deletePost(postId);
+            };
+          });
+
     })
 
 function deletePost(id){
     axios.delete(`${url}/posts/${id}`)
     .then(function(res){
         console.log(res.data);
-        renderPost();
     })
     .catch(function(error){
         console.log(error);
     })
 }
+
+//取消收藏
+collectContainer.addEventListener('click',e=>{
+    e.preventDefault();
+    if(e.target.getAttribute('id') !== "collectCancelBtn"){
+        return
+    }else{
+        let restaurantId = e.target.getAttribute('data-id');
+
+        let otherRestaurantId  = favoriteId.filter((item)=>{
+            return item != restaurantId
+        });
+
+        axios.patch(`${url}/users/${userObj.id}`,
+        {"collection" : otherRestaurantId })
+
+        .then(function(res){
+            console.log(res.data);
+            getFavoriteRestaurants(otherRestaurantId)
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+
+    }
+})
+
 
 //編輯個人頁面跳窗
 //編輯名稱
@@ -168,6 +219,7 @@ function editNameBtnFn(){
     const editNameBtn = document.querySelector('.edit-name-btn');
 
     editNameBtn.addEventListener('click',e=>{
+        e.preventDefault();
         editNameContainer.innerHTML =
         `<div class="d-flex align-items-center">
                 <span class="text-grey-500 fw-bold me-5 ">名稱：</span>
@@ -185,6 +237,7 @@ function editNameCancelFn(){
     const editNameContainer = document.querySelector('.edit-name-container');
     const editNameCancel = document.querySelector('.edit-name-cancel')
     editNameCancel.addEventListener('click',e=>{
+        e.preventDefault();
         editNameContainer.innerHTML = `<div>
         <span class="text-grey-500 fw-bold me-5 ">名稱：</span>
         <span class="userName text-primary-400 fs-5"></span>
