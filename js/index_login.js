@@ -10,7 +10,7 @@ user.addEventListener('click',e=>{
 const userName = document.getElementById('userName');
 userNameStr = localStorage.getItem('user'); //取出localStorage的值(string)
 userNameObj = JSON.parse(userNameStr); // string轉換成物件
- userName.textContent = userNameObj.username; //取得裡面的username屬性，選染到畫面
+ userName.textContent = userNameObj.userName; //取得裡面的username屬性，選染到畫面
 
 
 //地點列表toggle
