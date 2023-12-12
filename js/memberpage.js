@@ -4,15 +4,15 @@
 const user = document.getElementById('user');
 const userBar = document.getElementById('userBar');
 
-user.addEventListener('click',e=>{
+user.addEventListener('click', e => {
     userBar.classList.toggle('d-none')
 })
 
-const url =  `http://localhost:3000`;
+const url = `http://localhost:3000`;
 let postData = [];
-let favoriteId=[];
+let favoriteId = [];
 
-function init(){
+function init() {
     //頁面帶入user資訊
     //menu登入後帶入user名稱
     const userName = document.querySelectorAll('.userName');
@@ -29,48 +29,48 @@ function init(){
 
     //get貼文資料
     axios.get(`${url}/posts?userId=${userObj.id}`)
-    .then(function(res){
-        postData = res.data
-        renderPost();
-    })
-    .catch(function(error){
-        console.log(error);
-    })
+        .then(function (res) {
+            postData = res.data
+            renderPost();
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
 
     //get收藏資料
     //先取得user資料
     axios.get(`${url}/users/${userObj.id}`)
-    .then(function(res){
-        console.log(res.data.collection);
-        res.data.collection.forEach(item=>{
-            favoriteId.push(item)
-            console.log(favoriteId);
-        });
-        getFavoriteRestaurants(favoriteId);
-    })
-    .catch(function(error){
-        console.log(error);
-    })
+        .then(function (res) {
+            console.log(res.data.collection);
+            res.data.collection.forEach(item => {
+                favoriteId.push(item)
+                console.log(favoriteId);
+            });
+            getFavoriteRestaurants(favoriteId);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
 };
 init();
 
 
 //再取得收藏的餐廳名字＋圖片
-function getFavoriteRestaurants(favoriteId){
-    const favoriteItem =[];
+function getFavoriteRestaurants(favoriteId) {
+    const favoriteItem = [];
 
     // 使用 map 產生一組 promises，然後使用 Promise.all 等待它們全部完成
     const promises = favoriteId.map(item => {
         return axios.get(`${url}/restaurants?id=${item}`)
-            .then(function(res){
+            .then(function (res) {
                 let list = {};
                 list.name = res.data[0].Name;
                 list.picture = res.data[0].Picture[0];
                 list.id = res.data[0].id;
                 favoriteItem.push(list);
-                console.log(promises );
+                console.log(promises);
             })
-            .catch(function(error){
+            .catch(function (error) {
                 console.log(error);
             });
     });
@@ -86,12 +86,12 @@ function getFavoriteRestaurants(favoriteId){
 const collectContainer = document.querySelector('.collect-container');
 const collectNum = document.getElementById('collectNum')
 
-function renderFavorites(favoriteItem){
-    let str ="";
+function renderFavorites(favoriteItem) {
+    let str = "";
     let collectNums = favoriteItem.length; //顯示幾個收藏
 
-    favoriteItem.forEach(function(item){
-        str+=`<div class="col-lg-3 position-relative collection">
+    favoriteItem.forEach(function (item) {
+        str += `<div class="col-lg-3 position-relative collection">
             <a href="#" class="d-block h-100 collction">
             <img class="img-fluid h-100 cover-size rounded-1 " src="${item.picture}", alt="resturant-photo">
             <a class="collect-icon h3"><i class="fa-solid fa-bookmark bookmark" id="collectCancelBtn" data-id="${item.id}"></i></a>
@@ -108,18 +108,18 @@ function renderFavorites(favoriteItem){
 const postsContainer = document.querySelector('.posts-container');
 const postNum = document.getElementById('postNum');
 
-function renderPost(){
-    let str ="";
+function renderPost() {
+    let str = "";
     let postNums = postData.length;
 
-    postData.forEach(item=>{
+    postData.forEach(item => {
         let starShow = "";
         let starTemplate = `<i class="fa-solid fa-star" style="color: #f5cd05;"></i>`;
-        for(let i = 0 ; i< item.starNum ; i++){
+        for (let i = 0; i < item.starNum; i++) {
             starShow += starTemplate
         };
 
-        str +=`<div class="row justify-content-center align-items-center mb-15">
+        str += `<div class="row justify-content-center align-items-center mb-15">
         <div class="col-lg-3 comment-user-photo me-10"></div>
         <div class="col-lg-9 d-flex flex-column">
             <div class="d-flex justify-content-between">
@@ -159,49 +159,49 @@ function renderPost(){
             title: "確定要刪除評論嗎？",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#6B5A52",
-            cancelButtonColor: "#A0A0A0",
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
             confirmButtonText: "確定"
-        }).then((result) => {
+          }).then((result) => {
             if (result.isConfirmed) {
-            deletePost(postId);
+              deletePost(postId);
             };
-        });
+          });
 
-    })
+})
 
-function deletePost(id){
+function deletePost(id) {
     axios.delete(`${url}/posts/${id}`)
-    .then(function(res){
-        console.log(res.data);
-    })
-    .catch(function(error){
-        console.log(error);
-    })
+        .then(function (res) {
+            console.log(res.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
 }
 
 //取消收藏
-collectContainer.addEventListener('click',e=>{
+collectContainer.addEventListener('click', e => {
     e.preventDefault();
-    if(e.target.getAttribute('id') !== "collectCancelBtn"){
+    if (e.target.getAttribute('id') !== "collectCancelBtn") {
         return
-    }else{
+    } else {
         let restaurantId = e.target.getAttribute('data-id');
 
-        let otherRestaurantId  = favoriteId.filter((item)=>{
+        let otherRestaurantId = favoriteId.filter((item) => {
             return item != restaurantId
         });
 
         axios.patch(`${url}/users/${userObj.id}`,
-        {"collection" : otherRestaurantId })
+            { "collection": otherRestaurantId })
 
-        .then(function(res){
-            console.log(res.data);
-            getFavoriteRestaurants(otherRestaurantId)
-        })
-        .catch(function(error){
-            console.log(error);
-        })
+            .then(function (res) {
+                console.log(res.data);
+                getFavoriteRestaurants(otherRestaurantId)
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
 
     }
 })
@@ -209,14 +209,14 @@ collectContainer.addEventListener('click',e=>{
 
 //編輯個人頁面跳窗
 //編輯名稱
-function editNameBtnFn(){
+function editNameBtnFn() {
     const editNameContainer = document.querySelector('.edit-name-container');
     const editNameBtn = document.querySelector('.edit-name-btn');
 
-    editNameBtn.addEventListener('click',e=>{
+    editNameBtn.addEventListener('click', e => {
         e.preventDefault();
         editNameContainer.innerHTML =
-        `<div class="d-flex align-items-center">
+            `<div class="d-flex align-items-center">
                 <span class="text-grey-500 fw-bold me-5 ">名稱：</span>
                 <input type="text" class="border-0 border-bottom" placeholder="請輸入">
             </div>
@@ -224,14 +224,14 @@ function editNameBtnFn(){
                 <button type="button" class="btn btn-primary-300 text-decoration-none me-5">確定</button>
                 <a href="#" class="edit-name-cancel text-decoration-none link-grey-300">取消</a>
             </div>`
-    editNameCancelFn();
+        editNameCancelFn();
     });
 }
 
-function editNameCancelFn(){
+function editNameCancelFn() {
     const editNameContainer = document.querySelector('.edit-name-container');
     const editNameCancel = document.querySelector('.edit-name-cancel')
-    editNameCancel.addEventListener('click',e=>{
+    editNameCancel.addEventListener('click', e => {
         e.preventDefault();
         editNameContainer.innerHTML = `<div>
         <span class="text-grey-500 fw-bold me-5 ">名稱：</span>
@@ -241,16 +241,3 @@ function editNameCancelFn(){
     });
     init();
 }
-
-//滑鼠效果
-// function mouseover(){
-//     const collection = document.querySelectorAll('.collection');
-
-
-//     collection.forEach(item=>{
-//         item.addEventListener('mouseenter',e=>{
-//             const collectonText = document.querySelectorAll('.collecton-text');
-//             collectonText.style.color = "yellow"
-//         })
-//     })
-// }
