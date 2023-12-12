@@ -70,12 +70,12 @@ function getFavoriteRestaurants(favoriteId){
                 list.picture = res.data[0].Picture[0];
                 list.id = res.data[0].id;
                 favoriteItem.push(list);
+                console.log(promises );
             })
             .catch(function(error){
                 console.log(error);
             });
     });
-
     // 使用 Promise.all 來等待所有 promises 完成
     Promise.all(promises)
         .then(() => {
