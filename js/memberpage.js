@@ -94,13 +94,14 @@ function renderFavorites(favoriteItem){
         str+=`<div class="col-lg-3 position-relative collection">
             <a href="#" class="d-block h-100 collction">
             <img class="img-fluid h-100 cover-size rounded-1 " src="${item.picture}", alt="resturant-photo">
-            <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark bookmark" id="collectCancelBtn" data-id="${item.id}"></i></a>
-            <span class="position-absolute top-50 start-50 translate-middle text-center"><a href="#" class="text-decoration-none text-white fw-bold fs-5">${item.name}</a></span>
+            <a class="collect-icon h3"><i class="fa-solid fa-bookmark bookmark" id="collectCancelBtn" data-id="${item.id}"></i></a>
+            <span class="position-absolute top-50 start-50 translate-middle text-center"><a href="#" class="text-decoration-none fw-bold fs-5 collecton-text">${item.name}</a></span>
             </a>
             </div>`
     });
     collectContainer.innerHTML = str;
     collectNum.innerHTML = collectNums;
+    // mouseover() 滑鼠效果
 }
 
 //渲染貼文內容
@@ -158,18 +159,14 @@ function renderPost(){
             title: "確定要刪除評論嗎？",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
+            confirmButtonColor: "#6B5A52",
+            cancelButtonColor: "#A0A0A0",
             confirmButtonText: "確定"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire({
-                title: "評論已刪除",
-                icon: "success",
-              });
-              deletePost(postId);
+            deletePost(postId);
             };
-          });
+        });
 
     })
 
@@ -244,3 +241,16 @@ function editNameCancelFn(){
     });
     init();
 }
+
+//滑鼠效果
+// function mouseover(){
+//     const collection = document.querySelectorAll('.collection');
+
+
+//     collection.forEach(item=>{
+//         item.addEventListener('mouseenter',e=>{
+//             const collectonText = document.querySelectorAll('.collecton-text');
+//             collectonText.style.color = "yellow"
+//         })
+//     })
+// }
