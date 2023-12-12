@@ -21,10 +21,9 @@ function init(){
 
     const userEmail = document.querySelector('.userEmail');
     userEmail.textContent = userObj.email;
-
     //因網頁有多個.userName，要用forEach渲染textContent
     userName.forEach(item => {
-        item.textContent = userObj.username;
+        item.textContent = userObj.userName;
     });
     editNameBtnFn()
 
@@ -32,7 +31,6 @@ function init(){
     axios.get(`${url}/posts?userId=${userObj.id}`)
     .then(function(res){
         postData = res.data
-        console.log([postData]);
         renderPost();
     })
     .catch(function(error){
@@ -70,12 +68,12 @@ function getFavoriteRestaurants(favoriteId){
                 list.picture = res.data[0].Picture[0];
                 list.id = res.data[0].id;
                 favoriteItem.push(list);
+                console.log(promises );
             })
             .catch(function(error){
                 console.log(error);
             });
     });
-
     // 使用 Promise.all 來等待所有 promises 完成
     Promise.all(promises)
         .then(() => {
