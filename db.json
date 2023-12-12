@@ -3,13 +3,13 @@
     {
       "email": "johnny@gmail.com",
       "password": "$2a$10$ESzPCU3uTYnmU6trbFka/.3IegH1KFs3k.b.kcqV/tSqOEjKkuyry",
-      "username": "維哲",
+      "userName": "維哲",
       "id": 1
     },
     {
       "email": "pgtest@gmail.com",
       "password": "$2a$10$0KmQ8nbczWOZG4UOqGmzuOMG91iaYcrn.MFjxxryHoBDjLyHuPfN6",
-      "username": "pgtest",
+      "userName": "pgtest",
       "id": 2,
       "collection": [
         10,
@@ -23,7 +23,7 @@
     {
       "email": "pgtest2@gmail.com",
       "password": "$2a$10$5Yrby9iZTkkLCOWw9DP3fO0SdFrqamQEbstm8FDCy0cSV8VVHebTO",
-      "username": "pgtest2",
+      "userName": "pgtest2",
       "id": 3
     },
     {
