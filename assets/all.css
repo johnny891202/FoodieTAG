@@ -24427,6 +24427,17 @@ textarea.form-control-lg {
   transition: all 0.2s ease-in-out;
 }
 
+.btn-hover {
+  background-color: #FAF7F5;
+  color: #6B5A52;
+  transition: all 0.2s ease-in-out;
+}
+.btn-hover:hover {
+  background-color: #6B5A52;
+  color: #FFFFFF;
+  transition: all 0.2s ease-in-out;
+}
+
 .i-icon {
   height: 20px;
   width: 20px;
@@ -24460,6 +24471,17 @@ textarea.form-control-lg {
   right: 18px;
 }
 
+.social-icon {
+  color: #6B5A52;
+  transition: all 0.2s ease-in-out;
+  width: 40px;
+  height: 40px;
+}
+.social-icon:hover {
+  border: 1.5px solid #6B5A52;
+  transition: all 0.2s ease-in-out;
+}
+
 h1 a, .h1 a {
   background-image: url(./images/logo_big.svg);
   display: block;
@@ -24479,7 +24501,6 @@ h1 a, .h1 a {
 }
 .nav-btn:active {
   color: #6B5A52;
-  background-color: #FAF7F5;
 }
 
 .user-icon {
@@ -25364,4 +25385,87 @@ section .container .reset-password form .content .reset-button:hover {
 .bookmark:hover {
   color: #FAF7F5;
   transition: all 0.2s;
+}
+
+.detailPage-banner {
+  background-image: url(https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020);
+  max-width: 2600px;
+  height: 30vw;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.map-photo {
+  width: 200px;
+  height: 200px;
+  background-color: #F5F5F5;
+}
+
+.marquee {
+  width: 100%;
+}
+.marquee .view {
+  width: 100%;
+  overflow: hidden;
+}
+
+.pic-container {
+  display: flex;
+  -webkit-animation: marquee 60s infinite linear;
+          animation: marquee 60s infinite linear;
+}
+.pic-container img {
+  height: 250px;
+  width: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.lightbox {
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -10;
+  opacity: 0;
+}
+.lightbox img {
+  border-radius: 12px;
+  border: 4px solid white;
+}
+
+.lightbox:target {
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
+}
+
+.test {
+  height: 1000px;
 }/*# sourceMappingURL=all.css.map */

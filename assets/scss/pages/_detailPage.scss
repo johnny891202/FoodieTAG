@@ -1,0 +1,75 @@
+//Banner
+.detailPage-banner {
+    background-image: url(https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020);
+    max-width: 2600px;
+    height: 30vw;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+//地圖
+.map-photo {
+    width: 200px;
+    height: 200px;
+    background-color: $grey-100;
+}
+
+//跑馬燈
+.marquee {
+    width: 100%;
+    .view {
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+.pic-container {
+    display: flex;
+    animation: marquee 60s infinite linear;
+    img {
+        height: 250px;
+        width: 250px;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+}
+
+@keyframes marquee {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-(20% * 5));
+    }
+}
+
+//燈箱
+.lightbox {
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000066;
+    z-index: -10;
+    opacity: 0;
+    img {
+        border-radius: 12px;
+        border: 4px solid #ffff;
+    }
+}
+.lightbox:target {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
+}
+
+//測試評論區
+.test {
+    height: 1000px;
+}
