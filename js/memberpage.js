@@ -94,13 +94,14 @@ function renderFavorites(favoriteItem) {
         str += `<div class="col-lg-3 position-relative collection">
             <a href="#" class="d-block h-100 collction">
             <img class="img-fluid h-100 cover-size rounded-1 " src="${item.picture}", alt="resturant-photo">
-            <a class="collect-icon h3 link-primary-400"><i class="fa-solid fa-bookmark bookmark" id="collectCancelBtn" data-id="${item.id}"></i></a>
-            <span class="position-absolute top-50 start-50 translate-middle text-center"><a href="#" class="text-decoration-none text-white fw-bold fs-5">${item.name}</a></span>
+            <a class="collect-icon h3"><i class="fa-solid fa-bookmark bookmark" id="collectCancelBtn" data-id="${item.id}"></i></a>
+            <span class="position-absolute top-50 start-50 translate-middle text-center"><a href="#" class="text-decoration-none fw-bold fs-5 collecton-text">${item.name}</a></span>
             </a>
             </div>`
     });
     collectContainer.innerHTML = str;
     collectNum.innerHTML = collectNums;
+    // mouseover() 滑鼠效果
 }
 
 //渲染貼文內容
@@ -147,29 +148,25 @@ function renderPost() {
 };
 
 //刪除貼文
-postsContainer.addEventListener('click', e => {
-    e.preventDefault();
-    const idName = e.target.getAttribute('id');
-    if (idName !== "deleteBtn") {
-        return
-    }
-    const postId = e.target.getAttribute('data-id');
-    Swal.fire({  //alert套件
-        title: "確定要刪除評論嗎？",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "確定"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: "評論已刪除",
-                icon: "success",
-            });
-            deletePost(postId);
-        };
-    });
+    postsContainer.addEventListener('click',e=>{
+        e.preventDefault();
+        const idName = e.target.getAttribute('id');
+        if(idName !== "deleteBtn"){
+            return
+        }
+        const postId = e.target.getAttribute('data-id');
+        Swal.fire({  //alert套件
+            title: "確定要刪除評論嗎？",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "確定"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              deletePost(postId);
+            };
+          });
 
 })
 
@@ -243,17 +240,4 @@ function editNameCancelFn() {
     <a href="#" class="edit-name-btn text-decoration-none link-grey-300 text-end">編輯</a>`
     });
     init();
-}
-
-//登出後回到未登入的index.html
-const logoutLink = document.querySelector(".logoutLink");
-logoutLink.addEventListener("click", function (e) {
-    e.preventDefault();
-    logout();
-})
-
-function logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    location.href = "index.html";
 }

@@ -1,4 +1,4 @@
-//按紐
+//按紐(橢圓)
 .cta {
     background-color: #6B5A52;
     border-radius: 100px;
@@ -7,6 +7,18 @@
     color: #FFFFFF;
     &:hover {
         background-color: #B5A39A;
+        transition: all 0.2s ease-in-out;
+    }
+}
+
+//按鈕(方形)
+.btn-hover {
+    background-color: $primary-100;
+    color: $primary-400;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: $primary-400;
+        color: #FFFFFF;
         transition: all 0.2s ease-in-out;
     }
 }
@@ -48,3 +60,16 @@
     top: 6px;
     right: 18px;
 }
+
+//社群icon (餐廳詳情頁)
+//footer
+.social-icon {
+    color:$primary-400;
+    transition: all 0.2s ease-in-out;
+    width: 40px;
+    height: 40px;
+    &:hover {
+        border:1.5px solid #6B5A52;
+      transition: all 0.2s ease-in-out;
+    }
+  }
