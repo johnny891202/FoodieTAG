@@ -61,7 +61,7 @@
     right: 18px;
 }
 
-//社群icon (餐廳詳情頁)
+//社群icon
 //footer
 .social-icon {
     color:$primary-400;
@@ -72,4 +72,26 @@
         border:1.5px solid #6B5A52;
       transition: all 0.2s ease-in-out;
     }
+    .fa-facebook::before {
+        margin-left: 2.5px;
+    }
+    .fa-instagram::before {
+        margin-left: 2.5px;
+    }
   }
+
+//Tag樣式
+.tag {
+    font-size: 12px;
+    font-weight: bold;
+    color: $primary-400;
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1.5px solid $primary-400;
+    transition: all 0.2s ease-in-out;
+    &:hover , &:active {
+        background-color: $primary-400;
+        color:$white;
+        transition: all 0.2s ease-in-out;
+    }
+}

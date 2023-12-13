@@ -9,8 +9,8 @@
 
 //地圖
 .map-photo {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 300px;
     background-color: $grey-100;
 }
 
@@ -21,25 +21,24 @@
         width: 100%;
         overflow: hidden;
     }
-}
-
-.pic-container {
-    display: flex;
-    animation: marquee 60s infinite linear;
-    img {
-        height: 250px;
-        width: 250px;
-        object-fit: cover;
-        object-position: 50% 50%;
+    .pic-container {
+        display: flex;
+        animation: marquee 60s infinite linear;
+        img {
+            height: 250px;
+            width: 250px;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
     }
 }
 
 @keyframes marquee {
     0%{
-        transform: translateX(0%);
+        transform: translateX(0);
     }
     100%{
-        transform: translateX(-(20% * 5));
+        transform: translateX(-(16% * 10));
     }
 }
 
@@ -68,8 +67,55 @@
     visibility: visible;
     transition: 0.5s;
 }
+//燈箱右上叉叉
+.btn-close {
+    top: 20px;
+    right: 20px;
+}
 
-//測試評論區
-.test {
-    height: 1000px;
+//評論區
+//高度
+.comment-container {
+    height: 800px;
+}
+
+//照片縮圖
+.comment-pic {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+//新增我的評論視窗
+
+//加入收藏按鈕
+.like-btn {
+    background-color: $primary-300;
+    color: $white;
+    &:hover {
+        background-color: $primary-400;
+        color: $white;
+    }
+    &:active {
+        background-color: $primary-400;
+        color: $white;
+    }
+}
+.like-added {
+    background-color: $primary-400;
+    color: $white;
+}
+
+//增加刪除標籤-動態樣式(我的評論)
+.delete-tag {
+    background-color: $white;
+    color: $primary-400;
+    cursor: pointer;
+}
+
+.add-tag {
+    background-color: $primary-400;
+    color: $white;
+    pointer-events:none;
 }
