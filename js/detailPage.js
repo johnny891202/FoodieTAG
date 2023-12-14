@@ -1,13 +1,30 @@
 //我的評論
 //星星數
 const stars = document.querySelectorAll('.stars i');
+const starContainer = document.querySelector('.star-container');
 
-stars.forEach(item=>{
-    item.addEventListener('click',e=>{
-        e.preventDefault();
-        item.classList.toggle(`fa-solid`)
-    })
-});
+starContainer.addEventListener('click',e=>{
+    e.preventDefault();
+    if (e.target.getAttribute('id') !== "starIcon"){
+        return
+    }else{
+        let starNum = e.target.getAttribute('num-id');
+        for(i= 1 ; i<=5 ; i++){
+            stars.forEach(item=>{
+                //當num-id的值等於e.target的num-id
+                if(item.getAttribute('num-id') == i){
+                    item.classList.add(`fa-solid`);
+                }//當num-id的值小於e.target的num-id
+                if (item.getAttribute('num-id')<=starNum){
+                    item.classList.add(`fa-solid`);
+                    //當num-id的值大於e.target的num-id
+                }else{
+                    item.classList.remove(`fa-solid`)
+                }
+            })
+        }
+    }
+})
 
 //加入收藏按鈕
 const likeBtn = document.getElementById('likeBtn');
