@@ -26912,6 +26912,16 @@ textarea.form-control-lg {
   transition: all 0.2s ease-in-out;
 }
 
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 20%;
+     object-position: 50% 20%;
+}
+
 h1 a, .h1 a {
   background-image: url(./images/logo_big.svg);
   display: block;
@@ -27848,8 +27858,6 @@ section .container .reset-password form .content .reset-button:hover {
 }
 .marquee .pic-container {
   display: flex;
-  -webkit-animation: marquee 60s infinite linear;
-          animation: marquee 60s infinite linear;
 }
 .marquee .pic-container img {
   height: 250px;
@@ -27865,7 +27873,7 @@ section .container .reset-password form .content .reset-button:hover {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-160%);
+    transform: translateX(-190%);
   }
 }
 
@@ -27874,7 +27882,7 @@ section .container .reset-password form .content .reset-button:hover {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-160%);
+    transform: translateX(-190%);
   }
 }
 .lightbox {

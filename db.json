@@ -9,32 +9,94 @@
     {
       "email": "pgtest@gmail.com",
       "password": "$2a$10$0KmQ8nbczWOZG4UOqGmzuOMG91iaYcrn.MFjxxryHoBDjLyHuPfN6",
-      "userName": "pgtest",
-      "id": 2,
+      "userName": "Peggy",
+      "title": "Foodie#學徒",
+      "avatar": "../assets/images/memberPage/avatar.jpeg",
       "collection": [
         10,
         33,
         40,
         70
-      ]
+      ],
+      "id": 2
     },
     {
-      "email": "pgtest2@gmail.com",
+      "email": "ee2@gmail.com",
       "password": "$2a$10$5Yrby9iZTkkLCOWw9DP3fO0SdFrqamQEbstm8FDCy0cSV8VVHebTO",
-      "userName": "pgtest2",
+      "userName": "依依",
+      "title": "Foodie#學徒",
+      "avatar": "../assets/images/memberPage/avatar2.jpeg",
+      "collection": [
+        1,
+        2,
+        3,
+        100
+      ],
       "id": 3
     },
     {
       "email": "ff@gmail.com",
       "password": "$2a$10$atBxmN0pkyToctX4pRG7R.R14DHEgFTL4Wt0entvsguZYgkkOWOLi",
-      "userName": "王小明",
+      "userName": "Peter",
+      "title": "Foodie#學徒",
+      "avatar": "../assets/images/memberPage/avatar3.jpeg",
+      "collection": [
+        57,
+        122,
+        4,
+        57
+      ],
       "id": 4
     },
     {
       "email": "123@gmali.com",
       "password": "$2a$10$r4ESEjMu/SiYA31EOAJDAe3AF3KGjd5SJlH3pvxhS85u.jOsJTw.e",
-      "userName": "台北王小明",
+      "userName": "查理",
+      "title": "Foodie#學徒",
+      "avatar": "../assets/images/memberPage/avatar4.jpeg",
+      "collection": [
+        5,
+        100,
+        105,
+        88
+      ],
       "id": 5
+    },
+    {
+      "email": "peter@gmail.com",
+      "password": "$2a$10$e/vS5KORqt7F7YKreTmKSeVjD7RbPz2QQTEL/cWc.vE51DESkHRAq",
+      "userName": "圓圓",
+      "title": "Foodie#學徒",
+      "avatar": "../assets/images/memberPage/avatar5.jpeg",
+      "collection": [
+        58,
+        45,
+        89,
+        78
+      ],
+      "id": 6
+    },
+    {
+      "email": "judy@gmail.com",
+      "password": "$2a$10$jzextfx5LKQ5XWfCf.WWPuQnRUoTtS7/hWM6s/rcUQolbZbTzA64a",
+      "userName": "啾蒂",
+      "title": "Foodie#學徒",
+      "avatar": "../assets/images/memberPage/avatar6.jpeg",
+      "collection": [
+        45,66
+      ],
+      "id": 7
+    },
+    {
+      "email": "dd@gmail.com",
+      "password": "$2a$10$/wy/M7eW9Nq8bYRBOLGJ1ui1XavQWa2n/QHPPdmV8nRJVJd52zkFS",
+      "userName": "王小美",
+      "title": "Foodie#學徒",
+      "avatar": "../assets/images/memberPage/avatar7.jpeg",
+      "collection": [
+        45,56,87
+      ],
+      "id": 8
     }
   ],
   "comments": [
@@ -43,18 +105,52 @@
       "starNum": 5,
       "commentText": "我們剛剛品味了這家居酒屋的美食，經驗絕對精彩。菜單上的選擇豐富多樣，每道菜都經過精心烹飪，味道令人驚艷。服務也非常出色，服務員熱情周到，不厭其煩地為我們提供建議。氛圍愉快，讓人感覺宛如置身日本。這家居酒屋絕對值得一遊，我們期待再次光臨。",
       "date": "2023年10月3日  12:00",
-      "userId": 2,
+      "photo": [
+        "https://lh3.googleusercontent.com/p/AF1QipMcSkKb5EC-RcRDgWYEPRRsS3U1zGkcJUXLL0K5=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipNWQKd7v88r1_vL9YgF2XDhJ0icM2Mhnf5hulH6=s1360-w1360-h1020"
+      ],
+      "userId": 6,
       "restaurantId": 146,
       "id": 1
     },
     {
       "resturantName": "藝居酒屋",
-      "starNum": 5,
-      "commentText": "我們剛剛品味了這家居酒屋的美食，經驗絕對精彩。",
-      "date": "2023年8月3日  12:00",
-      "userId": 2,
+      "starNum": 3,
+      "commentText": "好吃好吃，下次會再來。",
+      "date": "2023年8月5日  12:00",
+      "photo": [
+        "https://lh3.googleusercontent.com/p/AF1QipMxXcTWCtWWDU0OEcYd9ylJuL13YUauwoDIGCSQ=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipPc2mrFvFZk4lHHw44IGLg36ME580ayGS4SCNTr=s1360-w1360-h1020"
+      ],
+      "userId": 3,
       "restaurantId": 146,
       "id": 2
+    },
+    {
+      "resturantName": "藝居酒屋",
+      "starNum": 4,
+      "commentText": "這家居酒屋真是太棒了！美味的料理、親切的服務，讓我愛不釋手。特色的日式料理和舒適的用餐環境，讓整個用餐體驗非常愉悅。每一口都充滿著新鮮的風味，令人難以忘懷。是個讓人回味無窮的好地方！",
+      "date": "2020年2月1日  12:00",
+      "photo": [
+        "https://lh3.googleusercontent.com/p/AF1QipMFrus6S_cRrCyhDKKgw0Vawomcsz5iP-ONYa9D=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipMxXcTWCtWWDU0OEcYd9ylJuL13YUauwoDIGCSQ=s1360-w1360-h1020"
+      ],
+      "userId": 4,
+      "restaurantId": 146,
+      "id": 3
+    },
+    {
+      "resturantName": "藝居酒屋",
+      "starNum": 5,
+      "commentText": "居酒屋的環境很放鬆，選擇豐富，菜色美味。服務親切，酒單豐富，是與朋友放鬆的好去處。",
+      "date": "2019年4月3日  12:30",
+      "photo": [
+        "https://lh3.googleusercontent.com/p/AF1QipMxXcTWCtWWDU0OEcYd9ylJuL13YUauwoDIGCSQ=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020"
+      ],
+      "userId": 5,
+      "restaurantId": 146,
+      "id": 4
     }
   ],
   "restaurants": [
@@ -5241,7 +5337,7 @@
         "https://lh3.googleusercontent.com/p/AF1QipNWQKd7v88r1_vL9YgF2XDhJ0icM2Mhnf5hulH6=s1360-w1360-h1020",
         "https://lh3.googleusercontent.com/p/AF1QipMxXcTWCtWWDU0OEcYd9ylJuL13YUauwoDIGCSQ=s1360-w1360-h1020"
       ],
-      "collectionNum": "",
+      "collectionNum": "1",
       "Px": 120.308965,
       "Py": 22.623492,
       "Stars": 4.2,
@@ -5256,7 +5352,14 @@
         "電視",
         "WiFi",
         "插座",
-        "老闆幽默"
+        "老闆幽默",
+        "用料實在",
+        "當季時蔬",
+        "適合約會",
+        "山藥",
+        "烏龍麵",
+        "聚餐",
+        "氣氛好"
       ],
       "fbUrl": "https://www.facebook.com/eatizakaga?locale=zh_TW",
       "igUrl": "https://www.instagram.com/gei.izakaya/",

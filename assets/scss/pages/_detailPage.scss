@@ -23,7 +23,7 @@
     }
     .pic-container {
         display: flex;
-        animation: marquee 60s infinite linear;
+        // animation: marquee 60s infinite linear;
         img {
             height: 250px;
             width: 250px;
@@ -38,7 +38,7 @@
         transform: translateX(0);
     }
     100%{
-        transform: translateX(-(16% * 10));
+        transform: translateX(-(19% * 10));
     }
 }
 

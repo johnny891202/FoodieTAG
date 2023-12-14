@@ -12,23 +12,24 @@
     <link rel="stylesheet" href="../assets/all.css" />
   </head>
   <body>
-    <!-- navbar -->
-    <nav class="d-flex justify-content-between px-20 py-5 align-items-center">
-      <h1>
-        <a href="index.html">FoodieTAG#</a>
-      </h1>
-      <ul class="d-flex list-unstyled mb-0">
-        <li class="fs-5 lh-sm px-6 py-1 fw-medium ">
-          <a href="#" class="text-decoration-none nav-btn"> 餐廳列表</a>
-        </li>
-        <li class="fs-5 lh-sm ms-6 px-6 py-1 fw-medium nav-btn">
-          <a href="login.html" class="text-decoration-none nav-btn" > 登入</a>
-        </li>
-        <li class="fs-5 lh-sm ms-6 px-6 py-1 fw-medium nav-btn">
-          <a href="signUp.html" class="text-decoration-none nav-btn" > 註冊</a>
-        </li>
-      </ul>
-    </nav>
+        <!-- navbar -->
+        <nav class="d-flex justify-content-between px-20 py-5 align-items-center shadow-sm">
+          <h1>
+          <a href="index_login.html">FoodieTAG#</a>
+          </h1>
+          <ul class="d-flex list-unstyled mb-0 align-items-center position-relative">
+              <p class="mb-0 fs-5 text-grey-300">嗨！</p><span class="mb-0 fs-5 text-grey-300 mx-2 userName"></span> <p class="mb-0 fs-5 text-grey-300 mx-1">今天想吃什麼？</p>
+          <li class="fs-5 lh-sm fw-medium ms-6"><a href="#" class="text-decoration-none nav-btn px-6 py-1"> 餐廳列表</a></li>
+          <li class="ms-6"><a href="#" class="text-decoration-none nav-btn user-icon p-1 rounded-circle d-block d-flex align-items-center text-center" id="user"><span class="material-symbols-outlined py-3 fs-8">
+              account_circle
+              </span></a>
+          </li>
+              <ul class="position-absolute user-bar list-unstyled d-none" id="userBar">
+                  <li><a href="memberpage.html" class="py-5 px-7 text-grey-500 fs-5 text-start d-block"><img src="../assets/images/user.svg" alt="member-center" class="me-3"><span>會員中心</span></a></li>
+                  <li ><a href="#" class="py-5 px-7 text-grey-500 fs-5 text-start  d-block logoutLink"><img src="../assets/images/logout-icon.svg" alt="logout" class="me-3"><span>登出</span></a></li>
+              </ul>
+          </ul>
+      </nav>
 
     <!-- banner -->
     <div class="detailPage-banner d-flex flex-column justify-content-center align-items-center">
@@ -38,27 +39,8 @@
     
     <!-- tag區 -->
     <div class="container">
-      <div class="d-flex flex-column mt-6 mb-10">
-        <ul class="d-flex list-unstyled">
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">居酒屋</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">500以下</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">啤酒</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">宵夜</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">炸雞</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">有帥哥</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">生魚片</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">醬烤牛肉</li>
-        </ul>
-        <ul class="d-flex list-unstyled ms-15">
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">烏龍麵</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">烤串</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">美味</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">歐伊系</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">山藥</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">有wifi</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">烤雞肉串</li>
-          <li class="fs-4 py-2 px-5 fw-bold me-4 rounded-pill bg-primary-400 text-white border-0">氣氛好</li>
-        </ul>
+      <div class="d-flex flex-column mt-6 mb-10 ">
+        <ul class="tags-container d-flex list-unstyled w-75 flex-wrap"></ul>
       </div>
     </div>
     
@@ -68,37 +50,7 @@
         <!-- <div class="col-lg-1">
           <button type="button" class="btn border border-card border-primary-400 px-8 py-3 lh-lg btn-hover">加<br>入<br>收<br>藏</button>
         </div> -->
-        <div class="col-lg-7">
-          <div class="d-flex align-items-center mb-4">
-            <h2>藝居酒屋</h2>
-            <div class="d-flex list-unstyled ms-2">
-              <a href="#" class="mx-3 d-block d-flex align-items-center social-icon rounded-circle justify-content-center">
-                <i class="fa-brands fa-instagram h3"></i>
-                </a>
-                <a href="#" class="mx-3 d-block d-flex text-center align-items-center social-icon rounded-circle justify-content-center">
-                  <i class="fa-brands fa-facebook h3"></i>
-                </a>
-            </div>
-          </div>
-          <div class="mb-4">
-            <i class="fa-sharp fa-solid fa-star" style="color: #f3b353;"></i>
-            <i class="fa-sharp fa-solid fa-star" style="color: #f3b353;"></i>
-            <i class="fa-sharp fa-solid fa-star" style="color: #f3b353;"></i>
-            <i class="fa-sharp fa-solid fa-star" style="color: #f3b353;"></i>
-            <i class="fa-sharp fa-solid fa-star" style="color: #f3b353;"></i>
-          </div>
-          <p class="d-flex align-items-center">
-            <span class="material-icons me-2"> place </span>
-            地址：新北市新莊區復興路一段197號
-          </p>
-          <p class="d-flex align-items-center">
-            <span class="material-icons me-2"> schedule </span>營業時間：營業中 18:00
-            ~ 24:00
-          </p>
-          <p class="d-flex align-items-center"><span class="material-icons me-2"> call </span>電話：02-89928986</p>
-          <p class="d-flex align-items-center"><span class="material-icons me-2"> paid </span>人均消費：300-600元</p>
-          <p>已被收藏28次</p>
-        </div>
+        <div class="restaurantDetailContainer col-lg-7"></div>
         <!-- 地圖 -->
         <div class="col-5 d-flex align-items-center justify-content-center">
           <div class="map-photo text-grey-400">我是地圖</div>
@@ -110,173 +62,11 @@
     <!-- 跑馬燈圖片 -->
     <section id="marquee" class="marquee mb-25">
       <div class="view">
-        <div class="pic-container">
-          <a  class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic1">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic2">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMcSkKb5EC-RcRDgWYEPRRsS3U1zGkcJUXLL0K5=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic3">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPvOaF2qWqjOvyoFkNJAJJj3KVZFUSAFnzJJAcm=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic4">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMfkhQe1VUEsV3qit-HcW5RgTSUScjyk-2lpTPm=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic5">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPc2mrFvFZk4lHHw44IGLg36ME580ayGS4SCNTr=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic6">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipOb1l4aERXHD2BxqWCWoriEQztcZR7wBBB0dmE0=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic7">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipO-3titvyCa-X72vZdrc7ZDIEDH5R_FJ3qREYnh=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic8">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMFrus6S_cRrCyhDKKgw0Vawomcsz5iP-ONYa9D=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic9">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNWQKd7v88r1_vL9YgF2XDhJ0icM2Mhnf5hulH6=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic10">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMxXcTWCtWWDU0OEcYd9ylJuL13YUauwoDIGCSQ=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a  class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic1">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic2">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMcSkKb5EC-RcRDgWYEPRRsS3U1zGkcJUXLL0K5=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic3">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPvOaF2qWqjOvyoFkNJAJJj3KVZFUSAFnzJJAcm=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic4">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMfkhQe1VUEsV3qit-HcW5RgTSUScjyk-2lpTPm=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic5">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPc2mrFvFZk4lHHw44IGLg36ME580ayGS4SCNTr=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic6">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipOb1l4aERXHD2BxqWCWoriEQztcZR7wBBB0dmE0=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic7">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipO-3titvyCa-X72vZdrc7ZDIEDH5R_FJ3qREYnh=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic8">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMFrus6S_cRrCyhDKKgw0Vawomcsz5iP-ONYa9D=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic9">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNWQKd7v88r1_vL9YgF2XDhJ0icM2Mhnf5hulH6=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-          <a class="pic" data-bs-toggle="modal" data-bs-target="#user1Pic10">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMxXcTWCtWWDU0OEcYd9ylJuL13YUauwoDIGCSQ=s1360-w1360-h1020" alt="pic" style="cursor: pointer">
-          </a>
-        </div>
+        <div class="pic-container"></div>
       </div>
     </section>
     <!-- 互動視窗  -->
-    <div class="modal fade" id="user1Pic1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="pic" id="exampleModalLabel" width="100%" class="position-relative">
-            <button type="button" class="btn-close position-absolute text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="user1Pic2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMcSkKb5EC-RcRDgWYEPRRsS3U1zGkcJUXLL0K5=s1360-w1360-h1020" alt="pic" id="exampleModalLabel" width="100%" class="position-relative">
-            <button type="button" class="btn-close position-absolute text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="user1Pic3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPvOaF2qWqjOvyoFkNJAJJj3KVZFUSAFnzJJAcm=s1360-w1360-h1020" alt="pic" id="exampleModalLabel" width="100%" class="position-relative">
-            <button type="button" class="btn-close position-absolute text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="user1Pic4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMfkhQe1VUEsV3qit-HcW5RgTSUScjyk-2lpTPm=s1360-w1360-h1020" alt="pic" id="exampleModalLabel" width="100%" class="position-relative">
-            <button type="button" class="btn-close position-absolute text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="user1Pic5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPc2mrFvFZk4lHHw44IGLg36ME580ayGS4SCNTr=s1360-w1360-h1020" alt="pic" id="exampleModalLabel" width="100%" class="position-relative">
-            <button type="button" class="btn-close position-absolute text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="user1Pic6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipOb1l4aERXHD2BxqWCWoriEQztcZR7wBBB0dmE0=s1360-w1360-h1020" alt="pic" id="exampleModalLabel" width="100%" class="position-relative">
-            <button type="button" class="btn-close position-absolute text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="user1Pic7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipO-3titvyCa-X72vZdrc7ZDIEDH5R_FJ3qREYnh=s1360-w1360-h1020" alt="pic" id="exampleModalLabel" width="100%" class="position-relative">
-            <button type="button" class="btn-close position-absolute text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="user1Pic8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMFrus6S_cRrCyhDKKgw0Vawomcsz5iP-ONYa9D=s1360-w1360-h1020" alt="pic" id="exampleModalLabel" width="100%" class="position-relative">
-            <button type="button" class="btn-close position-absolute text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="user1Pic9" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNWQKd7v88r1_vL9YgF2XDhJ0icM2Mhnf5hulH6=s1360-w1360-h1020" alt="pic" id="exampleModalLabel" width="100%" class="position-relative">
-            <button type="button" class="btn-close position-absolute text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="user1Pic10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMxXcTWCtWWDU0OEcYd9ylJuL13YUauwoDIGCSQ=s1360-w1360-h1020" alt="pic" id="exampleModalLabel" width="100%" class="position-relative">
-            <button type="button" class="btn-close position-absolute text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="light-box-container"></div>
 
   <!-- 評論區  -->
   <section class="container mb-25">
@@ -284,137 +74,25 @@
     <div class="row justify-content-center">
       <div class="col-lg-9">
         <div class="d-flex justify-content-end mb-6">
-          <input type="button" value="最新" class="btn btn-primary-300 py-3 px-6 fw-bold me-4 rounded-pill text-white border-0 shadow-sm"/>
-          <input type="button" value="最高" class="btn btn btn-primary-300 py-3 px-6 fw-bold me-4 rounded-pill text-white border-0 shadow-sm"/>
-          <input type="button" value="最低" class="btn btn btn-primary-300 py-3 px-6 fw-bold rounded-pill text-white border-0 shadow-sm"/>
+          <input type="button" value="最新" class="sort-new btn btn-primary-300 py-3 px-6 fw-bold me-4 rounded-pill text-white border-0 shadow-sm"/>
+          <input type="button" value="最高" class="sort-high btn btn-primary-300 py-3 px-6 fw-bold me-4 rounded-pill text-white border-0 shadow-sm"/>
+          <input type="button" value="最低" class="sort-low btn btn-primary-300 py-3 px-6 fw-bold rounded-pill text-white border-0 shadow-sm"/>
         </div>
-        <div class="comment-container border d-flex flex-column align-items-center py-8 overflow-auto">
-          <!-- 評論 -->
-          <div class="col-lg-10 d-flex justify-content-evenly align-items-center bg-primary-100 px-8 py-3 my-2">
-            <div class="d-flex flex-column align-items-center me-10">
-              <div class="comment-user-photo mb-3"></div>
-                <p class="mb-1">Peggy</p>
-                <p class="mb-0 text-grey-400 fs-4">Foodie#學徒</p>
-              </div>
-            <div class="d-flex flex-column w-75">
-                <div class="d-flex align-items-center mb-3">
-                    <div class="me-5">
-                        <i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i></div>
-                </div>
-                <p class="mb-3 fs-3">我們剛剛品味了這家居酒屋的美食，經驗絕對精彩。菜單上的選擇豐富多樣，每道菜都經過精心烹飪，味道令人驚艷。服務也非常出色，服務員熱情周到，不厭其煩地為我們提供建議。氛圍愉快，讓人感覺宛如置身日本。這家居酒屋絕對值得一遊，我們期待再次光臨。</p>
-                <div>
-                  <!-- 照片1 -->
-                  <a href="#user1Pic1" class="me-3">
-                    <img src="../assets/images/memberPage/comment-photo.jpeg" alt="Pic" class="comment-pic">
-                  </a>
-                  <a href="#" id="user1Pic1" class="lightbox"><img src="../assets/images/memberPage/comment-photo.jpeg" alt="Pic" width="50%"></a>
-                  <!-- 照片5 -->
-                  <a href="#user1Pic2">
-                    <img src="../assets/images/memberPage/comment-photo2.jpeg" alt="Pic" class="comment-pic">
-                  </a>
-                  <a href="#" id="user1Pic2" class="lightbox"><img src="../assets/images/memberPage/comment-photo2.jpeg" alt="Pic" width="50%"></a>
-                </div>
-                <p class="text-end text-grey-300 mb-0 fs-3">2023年10月15日  15:10</p>
-            </div>
-          </div>
-          <!-- 評論 -->
-          <div class="col-lg-10 d-flex justify-content-evenly align-items-center bg-primary-100 px-8 py-3 my-2">
-            <div class="d-flex flex-column align-items-center me-10">
-              <div class="comment-user-photo mb-3"></div>
-                <p class="mb-1">Peggy</p>
-                <p class="mb-0 text-grey-400 fs-4">Foodie#學徒</p>
-              </div>
-            <div class="d-flex flex-column w-75">
-                <div class="d-flex align-items-center mb-3">
-                    <div class="me-5">
-                        <i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i></div>
-                </div>
-                <p class="mb-3 fs-3">我們剛剛品味了這家居酒屋的美食，經驗絕對精彩。菜單上的選擇豐富多樣，每道菜都經過精心烹飪，味道令人驚艷。服務也非常出色，服務員熱情周到，不厭其煩地為我們提供建議。氛圍愉快，讓人感覺宛如置身日本。這家居酒屋絕對值得一遊，我們期待再次光臨。</p>
-                <div>
-                  <!-- 照片1 -->
-                  <a href="#user1Pic1" class="me-3">
-                    <img src="../assets/images/memberPage/comment-photo.jpeg" alt="Pic" class="comment-pic">
-                  </a>
-                  <a href="#" id="user1Pic1" class="lightbox"><img src="../assets/images/memberPage/comment-photo.jpeg" alt="Pic" width="50%"></a>
-                  <!-- 照片5 -->
-                  <a href="#user1Pic2">
-                    <img src="../assets/images/memberPage/comment-photo2.jpeg" alt="Pic" class="comment-pic">
-                  </a>
-                  <a href="#" id="user1Pic2" class="lightbox"><img src="../assets/images/memberPage/comment-photo2.jpeg" alt="Pic" width="50%"></a>
-                </div>
-                <p class="text-end text-grey-300 mb-0 fs-3">2023年10月15日  15:10</p>
-            </div>
-          </div>
-          <!-- 評論 -->
-          <div class="col-lg-10 d-flex justify-content-evenly align-items-center bg-primary-100 px-8 py-3 my-2">
-            <div class="d-flex flex-column align-items-center me-10">
-              <div class="comment-user-photo mb-3"></div>
-                <p class="mb-1">Peggy</p>
-                <p class="mb-0 text-grey-400 fs-4">Foodie#學徒</p>
-              </div>
-            <div class="d-flex flex-column w-75">
-                <div class="d-flex align-items-center mb-3">
-                    <div class="me-5">
-                        <i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i></div>
-                </div>
-                <p class="mb-3 fs-3">我們剛剛品味了這家居酒屋的美食，經驗絕對精彩。菜單上的選擇豐富多樣，每道菜都經過精心烹飪，味道令人驚艷。服務也非常出色，服務員熱情周到，不厭其煩地為我們提供建議。氛圍愉快，讓人感覺宛如置身日本。這家居酒屋絕對值得一遊，我們期待再次光臨。</p>
-                <div>
-                  <!-- 照片1 -->
-                  <a href="#user1Pic1" class="me-3">
-                    <img src="../assets/images/memberPage/comment-photo.jpeg" alt="Pic" class="comment-pic">
-                  </a>
-                  <a href="#" id="user1Pic1" class="lightbox"><img src="../assets/images/memberPage/comment-photo.jpeg" alt="Pic" width="50%"></a>
-                  <!-- 照片5 -->
-                  <a href="#user1Pic2">
-                    <img src="../assets/images/memberPage/comment-photo2.jpeg" alt="Pic" class="comment-pic">
-                  </a>
-                  <a href="#" id="user1Pic2" class="lightbox"><img src="../assets/images/memberPage/comment-photo2.jpeg" alt="Pic" width="50%"></a>
-                </div>
-                <p class="text-end text-grey-300 mb-0 fs-3">2023年10月15日  15:10</p>
-            </div>
-          </div>
-          <!-- 評論 -->
-          <div class="col-lg-10 d-flex justify-content-evenly align-items-center bg-primary-100 px-8 py-3 my-2">
-            <div class="d-flex flex-column align-items-center me-10">
-              <div class="comment-user-photo mb-3"></div>
-                <p class="mb-1">Peggy</p>
-                <p class="mb-0 text-grey-400 fs-4">Foodie#學徒</p>
-              </div>
-            <div class="d-flex flex-column w-75">
-                <div class="d-flex align-items-center mb-3">
-                    <div class="me-5">
-                        <i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i></div>
-                </div>
-                <p class="mb-3 fs-3">我們剛剛品味了這家居酒屋的美食，經驗絕對精彩。菜單上的選擇豐富多樣，每道菜都經過精心烹飪，味道令人驚艷。服務也非常出色，服務員熱情周到，不厭其煩地為我們提供建議。氛圍愉快，讓人感覺宛如置身日本。這家居酒屋絕對值得一遊，我們期待再次光臨。</p>
-                <div>
-                  <!-- 照片1 -->
-                  <a href="#user1Pic1" class="me-3">
-                    <img src="../assets/images/memberPage/comment-photo.jpeg" alt="Pic" class="comment-pic">
-                  </a>
-                  <a href="#" id="user1Pic1" class="lightbox"><img src="../assets/images/memberPage/comment-photo.jpeg" alt="Pic" width="50%"></a>
-                  <!-- 照片5 -->
-                  <a href="#user1Pic2">
-                    <img src="../assets/images/memberPage/comment-photo2.jpeg" alt="Pic" class="comment-pic">
-                  </a>
-                  <a href="#" id="user1Pic2" class="lightbox"><img src="../assets/images/memberPage/comment-photo2.jpeg" alt="Pic" width="50%"></a>
-                </div>
-                <p class="text-end text-grey-300 mb-0 fs-3">2023年10月15日  15:10</p>
-            </div>
-          </div>
-
-
+        <div class="comment-container border d-flex flex-column align-items-center py-8 overflow-auto"></div>
         </div>
-        <div class=" d-flex justify-content-evenly align-items-center mt-10">
-          <div class="d-flex flex-column align-items-center me-1">
-            <div class="comment-user-photo mb-3"></div>
-            <p class="mb-1 fs-5">Peggy</p>
-            <p class="mb-0 text-grey-400">Foodie#學徒</p>
-          </div>
-          <div class="d-flex flex-column align-items-center">
-            <div class="rounded py-5 px-40 text-grey-500 bg-primary-100 mb-6 text-center">
-              尚未留下評論<br>
-              填寫評論及提供正確標籤可獲得積分！</div>
-            <button type="button" class="btn shadow-sm btn-primary-300 text-white px-10 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#myComment">寫評論</button>
+        <div class="col-lg-7 mx-auto">
+          <div class=" d-flex justify-content-evenly align-items-center mt-10">
+            <div class="d-flex flex-column align-items-center me-1">
+              <div class="avatar-container mb-3"></div>
+              <p class="mb-1 fs-5 userName "></p>
+              <p class="userTitle mb-0 text-grey-400"></p>
+            </div>
+            <div class="d-flex flex-column align-items-center">
+              <div class="rounded py-5 px-40 text-grey-500 bg-primary-100 mb-6 text-center">
+                尚未留下評論<br>
+                填寫評論及提供正確標籤可獲得積分！</div>
+              <button type="button" class="btn shadow-sm btn-primary-300 text-white px-10 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#myComment">寫評論</button>
+            </div>
           </div>
         </div>
       </div>
@@ -433,8 +111,8 @@
         <div class="modal-body col-lg-9 d-flex flex-column mx-auto">
           <div class="d-flex align-items-center mx-10 border-bottom mb-6 pb-3 justify-content-evenly">
             <div class="d-flex flex-column align-items-center me-10">
-              <div class="comment-user-photo mb-3 "></div>
-              <p class="mb-0">Peggy</p>
+              <div class="avatar-container mb-3 "></div>
+              <p class="mb-0 userName"></p>
             </div>
             <div>
               <p class="mb-3 fs-5 fw-bold">整體評分</p>
@@ -525,7 +203,7 @@
           </div>
         </div>
         <div class="modal-footer col-lg-8 border-0 mb-10 d-flex mx-auto">
-          <button type="button" class="btn shadow-sm btn-primary-400 text-white px-3 py-1 fs-3 me-2 fw-bold">送出</button>
+          <button type="button" class="sendCommentBtn btn shadow-sm btn-primary-400 text-white px-3 py-1 fs-3 me-2 fw-bold">送出</button>
           <button type="button" class="btn shadow-sm btn-grey-200 text-grey-400 px-3 py-1 fs-3 fw-bold " data-bs-dismiss="modal">取消</button>
         </div>
       </div>
@@ -562,6 +240,7 @@
     <script src="https://kit.fontawesome.com/6ffafbaa63.js" crossorigin="anonymous"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/detailPage.js"></script>
     <script src="../js/all.js"></script>
   </body> 
