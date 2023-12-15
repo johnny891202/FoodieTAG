@@ -170,6 +170,7 @@ function getComments(){
 //渲染評論
 const commentContainer = document.querySelector('.comment-container');
 const sortNew = document.querySelector('.sort-new');
+let a =[]
 
 //監聽最新按鈕(預設按最新排序)
 sortNew.addEventListener('click',e=>{
@@ -186,7 +187,6 @@ function renderComments(){
 
     let commentStr ="";
     let starIcon = `<i class="fa-solid fa-star" style="color: #f5cd05;"></i>`;
-
     dataSorted.forEach((item,i)=>{
         let starNum = starIcon.repeat(item.starNum); //星星數
 
@@ -195,7 +195,7 @@ function renderComments(){
         <div class="mb-3">
         <img src="${item.user.avatar}" class="user-avatar" alt="user-avatar">
         </div>
-            <p class="mb-1">${item.user.userName}</p>
+            <p  id="name" class=" mb-1" user-id="${item.user.id}">${item.user.userName}</p>
             <p class="mb-0 text-grey-400 fs-3">${item.user.title}</p>
         </div>
         <div class="d-flex flex-column w-75">
@@ -208,6 +208,20 @@ function renderComments(){
     </div>`
     });
     commentContainer.innerHTML = commentStr;
+    a = commentContainer.querySelectorAll('[id="name"]');
+    a.forEach(item=>{
+        let checkId = item.getAttribute('user-id');
+        if(checkId == userObj.id){
+            const textArea = document.querySelector('.text-area');
+            const writeCommentBtn = document.querySelector('.write-comment-btn');
+
+            textArea.textContent = `感謝您留下寶貴的評論！`;
+            writeCommentBtn.style = "pointer-events:none";
+            writeCommentBtn.classList.add('btn-primary-200');
+            writeCommentBtn.textContent = `已完成評論！`;
+        }
+    })
+
 };
 
 //評論排序
@@ -447,7 +461,6 @@ sendCommentBtn.addEventListener('click',e=>{
     sheetData.date =  `${time.getFullYear()}年${month}月${dates}日  ${hours}:${minutes}`;
 
     sheetData.text = myComments.value;
-    console.log(sheetData);
     Swal.fire({  //alert套件
         title: "確定要送出評論嗎？",
         text:"您的標籤將進行審核，約1~3日審核完畢",
@@ -459,8 +472,8 @@ sendCommentBtn.addEventListener('click',e=>{
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire("已送出評論！", "", "success");
-            renewCommentBtn();
-
+            addNewComment();
+            addTags()
         };
     });
 });
@@ -498,19 +511,20 @@ function addTags(){
     });
 };
 
-function renewCommentBtn(){
-    const textArea = document.querySelector('.text-area');
-    const writeCommentBtn = document.querySelector('.write-comment-btn');
+// const writeCommentBtn = document.querySelector('.write-comment-btn');
+// function renewCommentBtn(){
+    // writeCommentBtn.classList.add('commet-done')
+    // addTags();
+    // addNewComment();
+    // };
 
-    textArea.textContent = `感謝您留下寶貴的評論！`;
-    writeCommentBtn.style = "pointer-events:none";
-    writeCommentBtn.classList.add('btn-primary-200');
-    writeCommentBtn.textContent = `已完成評論！`;
+    // const textArea = document.querySelector('.text-area');
+    // const writeCommentBtn = document.querySelector('.write-comment-btn');
 
-    addTags();
-    addNewComment();
-}
-
+    // textArea.textContent = `感謝您留下寶貴的評論！`;
+    // writeCommentBtn.style = "pointer-events:none";
+    // writeCommentBtn.classList.add('btn-primary-200');
+    // writeCommentBtn.textContent = `已完成評論！`;
 
 function deleteTest(){
     axios.delete(`${url}/comments/28`)
