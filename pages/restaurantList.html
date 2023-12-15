@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>餐廳列表</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'/>
+    <link rel="stylesheet" href="../assets/all.css">
+</head>
+<body>
+    <!-- 導覽列 -->
+    <section>
+        <div class="navbar">
+            <!-- LOGO -->
+            <a href="index.html" class="logo">FoodieTag#</a>
+            <!-- 選單 -->
+            <ul class="navbar-menu list-unstyled">
+                <li><a href="index.html">餐廳列表</a></li>
+                <li><a href="login.html">登入</a></li>
+                <li><a href="signUp.html">註冊</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- 搜尋欄位 -->
+    <section>
+        <div class="container">
+            <div class="topbar">
+                <!-- 搜尋區 -->
+                <div class="searchBar">
+                    <input type="text" placeholder="輸入任一關鍵字" class="rounded">
+                    <input type="text" placeholder="輸入地點" class="rounded">
+                    <button class="searchBtn">搜尋</button>
+                </div>
+                <!-- 本周熱門 -->
+                <div class="weeklyTop">
+                    <span>本周熱門:</span>
+                    <div class="weeklyTopTag">
+                        <a href="#">情人節</a>
+                        <a href="#">夜景</a>
+                        <a href="#">浪漫</a>
+                        <a href="#">團體聚餐</a>
+                        <a href="#">茶碗蒸</a>
+                        <a href="#">新北雞排妹</a>
+                        <a href="#">暮藏和牛</a>
+                        <a href="#">生蠔吃到飽</a>
+                        <a href="#">多人聚餐</a>
+                        <a href="#">網美打卡</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 內容 -->
+    <section>
+        <div class="container">
+            <div class="searching-content">
+                <!-- 左邊標籤區 -->
+                <ul class="selectTags list-unstyled">
+                    <li>
+                        <span>美食種類</span>
+                        <div class="allTags">
+                            <a href="#">燒烤</a>
+                            <a href="#">火鍋</a>
+                            <a href="#">居酒屋</a>
+                            <a href="#">餐酒館</a>
+                            <a href="#">吃到飽</a>
+                            <a href="#">海鮮</a>
+                            <a href="#">創意料理</a>
+                            <a href="#">無菜單</a>
+                            <a href="#">拉麵</a>
+                            <a href="#">壽司</a>
+                            <a href="#">咖啡</a>
+                            <a href="#">甜點</a>
+                            <a href="#">港式</a>
+                            <a href="#">日式</a>
+                            <a href="#">韓式</a>
+                            <a href="#">中式</a>
+                            <a href="#">早午餐</a>
+                            <a href="#">下午茶</a>
+                            <a href="#">健身餐</a>
+                            <a href="#">素食</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>店家環境</span>
+                        <div class="allTags">
+                            <a href="#">沙發</a>
+                            <a href="#">6-10人座</a>
+                            <a href="#">寬敞</a>
+                            <a href="#">靠窗</a>
+                            <a href="#">吧檯</a>
+                            <a href="#">落地窗</a>
+                            <a href="#">明亮</a>
+                            <a href="#">裝潢精緻</a>
+                            <a href="#">夜景</a>
+                            <a href="#">安靜</a>
+                            <a href="#">乾淨</a>
+                            <a href="#">好拍照</a>
+                            <a href="#">包廂</a>
+                            <a href="#">網美</a>
+                            <a href="#">復古</a>
+                            <a href="#">高級感</a>
+                            <a href="#">浪漫</a>
+                            <a href="#">寵物友善</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>店家設施</span>
+                        <div class="allTags">
+                            <a href="#">兒童區</a>
+                            <a href="#">WiFi</a>
+                            <a href="#">插座</a>
+                            <a href="#">戶外草皮</a>
+                            <a href="#">電視</a>
+                            <a href="#">投螢幕</a>
+                            <a href="#">無障礙設施</a>
+                            <a href="#">停車場</a>
+                            <a href="#">近捷運</a>
+                            <a href="#">好停車</a>
+                            <a href="#">吸菸區</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Foodie們找什麼</span>
+                        <div class="allTags">
+                            <a href="#">店員帥</a>
+                            <a href="#">服務親切</a>
+                            <a href="#">店員可愛</a>
+                            <a href="#">情人節</a>
+                            <a href="#">甜點好吃</a>
+                            <a href="#">cp值高</a>
+                            <a href="#">老闆幽默</a>
+                            <a href="#">慶生</a>
+                            <a href="#">聚餐</a>
+                            <a href="#">畢業餐會</a>
+                            <a href="#">尾牙</a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- 右邊餐廳列表區 -->
+                <div class="restaurantsList">
+                    <!-- 篩選條件 -->
+                    <div class="restaurantFilter">
+                        <!-- 正在搜尋 -->
+                        <div class="searchingTags">
+                            <span>正在搜尋 :</span>
+                            <a href="#">新北市</a>
+                            <a href="#">燒烤</a>
+                            <a href="#">提供酒水</a>
+                            <a href="#">專人代烤</a>
+                            <a href="#" class="clearAllTag">全部清除</a>
+                        </div>
+                        <!-- 搜尋結果 -->
+                        <div class="searchingCondition">
+                            <span>為您找到共 52 筆</span>
+                            <span>排序:</span>
+                            <select name="" id="">
+                                <option value="評價由高到低">評價由高到低</option>
+                                <option value="評價由低到高">評價由低到高</option>
+                                <option value="價錢由高到低">價錢由高到低</option>
+                                <option value="價錢由低到高">價錢由低到高</option>
+                            </select>
+                            <i class="fa-solid fa-sack-dollar dollar"></i>
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="2000" step="100" value="0" class="slider">
+                                <span class="priceRange"></span>
+                            </div>
+
+                            <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                            <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                            <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                            <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                            <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                            <span>以上</span>
+                        </div>
+                    </div>
+                    <!-- 餐廳列表 -->
+                    <ul class="allList list-unstyled">
+                        <li class="restaurantItem">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
+                            <!-- 餐廳資訊 -->
+                            <div class="restaurantContent">
+                                <a href="#" class="restaurantName">藝居酒屋</a>
+                                <div class="info">
+                                    <p class="opentime">營業時間: <span class="opentimeInfo">18:00–02:00</span></p>
+                                    <p class="averagePrice">均消: <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址: <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="tagsList">
+                                    <a href="#">居酒屋</a>
+                                    <a href="#">有帥哥</a>
+                                    <a href="#">有wifi</a>
+                                    <a href="#">啤酒</a>
+                                    <a href="#">烤串</a>
+                                </div>
+                            </div>
+                            <!-- 星級與收藏 -->
+                            <div class="rating">
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="collect"><i class="fa-regular fa-bookmark"></i></a>
+                            </div>
+                        </li>
+                        <li class="restaurantItem">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
+                            <div class="restaurantContent">
+                                <a href="#" class="restaurantName">藝居酒屋</a>
+                                <div class="info">
+                                    <p class="opentime">營業時間: <span class="opentimeInfo">18:00–02:00</span></p>
+                                    <p class="averagePrice">均消: <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址: <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="tagsList">
+                                    <a href="#">居酒屋</a>
+                                    <a href="#">有帥哥</a>
+                                    <a href="#">有wifi</a>
+                                    <a href="#">啤酒</a>
+                                    <a href="#">烤串</a>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="collect"><i class="fa-regular fa-bookmark"></i></a>
+                            </div>
+                        </li>
+                        <li class="restaurantItem">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
+                            <div class="restaurantContent">
+                                <a href="#" class="restaurantName">藝居酒屋</a>
+                                <div class="info">
+                                    <p class="opentime">營業時間: <span class="opentimeInfo">18:00–02:00</span></p>
+                                    <p class="averagePrice">均消: <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址: <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="tagsList">
+                                    <a href="#">居酒屋</a>
+                                    <a href="#">有帥哥</a>
+                                    <a href="#">有wifi</a>
+                                    <a href="#">啤酒</a>
+                                    <a href="#">烤串</a>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="collect"><i class="fa-regular fa-bookmark"></i></a>
+                            </div>
+                        </li>
+                        <li class="restaurantItem">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
+                            <div class="restaurantContent">
+                                <a href="#" class="restaurantName">藝居酒屋</a>
+                                <div class="info">
+                                    <p class="opentime">營業時間: <span class="opentimeInfo">18:00–02:00</span></p>
+                                    <p class="averagePrice">均消: <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址: <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="tagsList">
+                                    <a href="#">居酒屋</a>
+                                    <a href="#">有帥哥</a>
+                                    <a href="#">有wifi</a>
+                                    <a href="#">啤酒</a>
+                                    <a href="#">烤串</a>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="collect"><i class="fa-regular fa-bookmark"></i></a>
+                            </div>
+                        </li>
+                        <li class="restaurantItem">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
+                            <div class="restaurantContent">
+                                <a href="#" class="restaurantName">藝居酒屋</a>
+                                <div class="info">
+                                    <p class="opentime">營業時間: <span class="opentimeInfo">18:00–02:00</span></p>
+                                    <p class="averagePrice">均消: <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址: <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="tagsList">
+                                    <a href="#">居酒屋</a>
+                                    <a href="#">有帥哥</a>
+                                    <a href="#">有wifi</a>
+                                    <a href="#">啤酒</a>
+                                    <a href="#">烤串</a>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="collect"><i class="fa-regular fa-bookmark"></i></a>
+                            </div>
+                        </li>
+                        <li class="restaurantItem">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
+                            <div class="restaurantContent">
+                                <a href="#" class="restaurantName">藝居酒屋</a>
+                                <div class="info">
+                                    <p class="opentime">營業時間: <span class="opentimeInfo">18:00–02:00</span></p>
+                                    <p class="averagePrice">均消: <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址: <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="tagsList">
+                                    <a href="#">居酒屋</a>
+                                    <a href="#">有帥哥</a>
+                                    <a href="#">有wifi</a>
+                                    <a href="#">啤酒</a>
+                                    <a href="#">烤串</a>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="collect"><i class="fa-regular fa-bookmark"></i></a>
+                            </div>
+                        </li>
+                        <li class="restaurantItem">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
+                            <div class="restaurantContent">
+                                <a href="#" class="restaurantName">藝居酒屋</a>
+                                <div class="info">
+                                    <p class="opentime">營業時間: <span class="opentimeInfo">18:00–02:00</span></p>
+                                    <p class="averagePrice">均消: <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址: <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="tagsList">
+                                    <a href="#">居酒屋</a>
+                                    <a href="#">有帥哥</a>
+                                    <a href="#">有wifi</a>
+                                    <a href="#">啤酒</a>
+                                    <a href="#">烤串</a>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="collect"><i class="fa-regular fa-bookmark"></i></a>
+                            </div>
+                        </li>
+                        <li class="restaurantItem">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
+                            <div class="restaurantContent">
+                                <a href="#" class="restaurantName">藝居酒屋</a>
+                                <div class="info">
+                                    <p class="opentime">營業時間: <span class="opentimeInfo">18:00–02:00</span></p>
+                                    <p class="averagePrice">均消: <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址: <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="tagsList">
+                                    <a href="#">居酒屋</a>
+                                    <a href="#">有帥哥</a>
+                                    <a href="#">有wifi</a>
+                                    <a href="#">啤酒</a>
+                                    <a href="#">烤串</a>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="collect"><i class="fa-regular fa-bookmark"></i></a>
+                            </div>
+                        </li>
+                        <li class="restaurantItem">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
+                            <div class="restaurantContent">
+                                <a href="#" class="restaurantName">藝居酒屋</a>
+                                <div class="info">
+                                    <p class="opentime">營業時間: <span class="opentimeInfo">18:00–02:00</span></p>
+                                    <p class="averagePrice">均消: <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址: <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="tagsList">
+                                    <a href="#">居酒屋</a>
+                                    <a href="#">有帥哥</a>
+                                    <a href="#">有wifi</a>
+                                    <a href="#">啤酒</a>
+                                    <a href="#">烤串</a>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="collect"><i class="fa-regular fa-bookmark"></i></a>
+                            </div>
+                        </li>
+                        <li class="restaurantItem">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
+                            <div class="restaurantContent">
+                                <a href="#" class="restaurantName">藝居酒屋</a>
+                                <div class="info">
+                                    <p class="opentime">營業時間: <span class="opentimeInfo">18:00–02:00</span></p>
+                                    <p class="averagePrice">均消: <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址: <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="tagsList">
+                                    <a href="#">居酒屋</a>
+                                    <a href="#">有帥哥</a>
+                                    <a href="#">有wifi</a>
+                                    <a href="#">啤酒</a>
+                                    <a href="#">烤串</a>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                <a href="#" class="collect"><i class="fa-regular fa-bookmark"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 頁尾 -->
+    <section>
+        <div class="footer">
+            <a href="index.html" class="footer-logo">FoodieTag#</a>
+            <span class="slogan">全台最大美食搜尋平台，你想吃的這裡都有！</span>
+            <div class="logo-content">
+                <ul class="footer-icon list-unstyled">
+                    <li><a href="#" class="ig">instagram</a></li>
+                    <li><a href="#" class="fb">facebook</a></li>
+                </ul>
+                <span class="copyright">FoodieTAG ©2023 COPYRIGHT</span>
+                <span class="logo-mark">本網站僅供個人作品使用，不提供商業用途</span>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/restaurantList.js"></script>
+</body>
+</html>
