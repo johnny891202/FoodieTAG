@@ -1,3 +1,4 @@
+
 //已登入會員nav-bar
 const user = document.getElementById('user');
 const userBar = document.getElementById('userBar');
@@ -9,34 +10,6 @@ user.addEventListener('click', e => {
 const url = `http://localhost:3000`;
 let postData = [];
 let favoriteId = [];
-
-//我的評論
-//星星數
-const stars = document.querySelectorAll('.stars i');
-const starContainer = document.querySelector('.star-container');
-
-starContainer.addEventListener('click',e=>{
-    e.preventDefault();
-    if (e.target.getAttribute('id') !== "starIcon"){
-        return
-    }else{
-        let starNum = e.target.getAttribute('num-id');
-        for(i= 1 ; i<=5 ; i++){
-            stars.forEach(item=>{
-                //當num-id的值等於e.target的num-id
-                if(item.getAttribute('num-id') == i){
-                    item.classList.add(`fa-solid`);
-                }//當num-id的值小於e.target的num-id
-                if (item.getAttribute('num-id')<=starNum){
-                    item.classList.add(`fa-solid`);
-                    //當num-id的值大於e.target的num-id
-                }else{
-                    item.classList.remove(`fa-solid`)
-                }
-            })
-        }
-    }
-})
 
 //加入收藏按鈕
 const likeBtn = document.getElementById('likeBtn');
@@ -50,92 +23,18 @@ likeBtn.addEventListener('click',e=>{
     }
 });
 
-//我的評論
-//加入指定標籤
-const tagsContainer = document.querySelector('.tagsContainer');
-const tagSelect = document.querySelector('.tagSelect');
-
-let tagArr = []; //新增標籤欄內有的標籤
-tagSelect.addEventListener('click',e=>{
-    e.preventDefault();
-    if(e.target.getAttribute('id')!== "tags"){
-        return
-    }else{
-        tagArr.push(e.target.textContent);
-        tagsContainer.innerHTML+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${e.target.textContent}<i class="fa-solid fa-xmark ms-2" value-id="${e.target.textContent}" id="xmark" style="cursor: pointer;"></i></li>`;
-        e.target.classList.add('add-tag')
-    }
-
-});
-
-//刪除標籤
-const tags = document.getElementById('tags');
-
-tagsContainer.addEventListener('click',e=>{
-    e.preventDefault();
-    if(e.target.getAttribute('id')!== "xmark"){
-        return
-    }else{
-        //找要刪除的index
-        let number
-        tagArr.forEach((item,i)=>{
-            if(item === e.target.getAttribute('value-id')){
-                number = i
-            }
-        });
-        //找到被選的標籤
-        //tagsElements為節點清單
-        const tagsElements = document.querySelectorAll('[id="tags"]');
-        tagsElements.forEach(item=>{
-            let valueId =item.getAttribute('value-id');
-            if(valueId ===e.target.getAttribute('value-id')){
-                item.classList.remove('add-tag');
-                item.classList.add('delete-tag');
-            }
-        })
-        tagArr.splice(number,'1');
-        deleteTag();
-    }
-})
-//移除標籤時，重新渲染tagsContainer
-function deleteTag(){
-    let str="";
-    tagArr.forEach(item=>{
-        str+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${item}<i class="fa-solid fa-xmark ms-2" value-id="${item}" id="xmark" style="cursor: pointer;"></i></li>`
-    });
-    tagsContainer.innerHTML =str;
-}
-
-//新增自訂標籤
-const newTag = document.getElementById('newTag');
-const addTag = document.getElementById('addTag');
-
-addTag.addEventListener('click',e=>{
-    e.preventDefault();
-    let newTagWord = newTag.value.trim();
-    if(newTagWord === "" || newTagWord === undefined){
-        return
-    }else{
-        tagArr.push(newTagWord);
-        tagsContainer.innerHTML+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${newTagWord}<i class="fa-solid fa-xmark ms-2" value-id="${newTagWord}" id="xmark" style="cursor: pointer;"></i></li>`;
-        newTag.value="";
-    }
-})
-
-
-//渲染餐廳資訊
+//取得餐廳資訊
 const testName = "藝居酒屋";
 const userAvatar = document.querySelectorAll('.avatar-container');
+//取得localstorage資料
+const userName = document.querySelectorAll('.userName');
+const userTitle = document.querySelector('.userTitle')
+userStr = localStorage.getItem('user'); //取出localStorage的值(string)
+userObj = JSON.parse(userStr); // string轉換成物件
 
 let restaurantDetail = [];
 function init(){
     //頁面帶入user資訊
-    //menu登入後帶入user名稱
-    const userName = document.querySelectorAll('.userName');
-    const userTitle = document.querySelector('.userTitle')
-    userStr = localStorage.getItem('user'); //取出localStorage的值(string)
-    userObj = JSON.parse(userStr); // string轉換成物件
-
     //因網頁有多個.userName，要用forEach渲染textContent
     userName.forEach(item => {
         item.textContent = userObj.userName;
@@ -160,10 +59,12 @@ function init(){
 }
 init();
 
-//渲染餐廳資料
+//渲染餐廳資訊
 const detailPageBanner = document.querySelector('.detailPage-banner');
 const restaurantDetailContainer = document.querySelector('.restaurantDetailContainer');
 const title = document.querySelector('.detailPage-banner h2');
+const myCommentLabel = document.getElementById('myCommentLabel');
+let tagsShow = [];
 
 function renderRestaurantDetail(){
     //Banner標題+圖片
@@ -210,8 +111,7 @@ function renderRestaurantDetail(){
 
     //tag區
     const tagsContainer = document.querySelector('.tags-container');
-    let newArr = [...restaurantDetail.Tags] //淺拷貝
-    let tagsShow = newArr.splice(2); //刪除前兩個標籤
+    tagsShow = restaurantDetail.Tags;
 
     let tagStr = "";
     tagsShow.forEach(item=>{
@@ -248,8 +148,10 @@ function renderRestaurantDetail(){
     </a>`
     });
     picContainer.innerHTML = picStr+picStr;
-};
 
+    //我的評論 餐廳名稱
+    myCommentLabel.textContent = restaurantDetail.Name
+};
 //取得評論
 const testRestaurantId = 146;
 
@@ -269,15 +171,18 @@ function getComments(){
 const commentContainer = document.querySelector('.comment-container');
 const sortNew = document.querySelector('.sort-new');
 
-//監聽最新按鈕
+//監聽最新按鈕(預設按最新排序)
 sortNew.addEventListener('click',e=>{
     renderComments ();
 });
 
 function renderComments(){
     let dataSorted = commentsData.sort((a,b)=>{
-        return a['Date(date)'] > b['Date(date)'] ? -1 :1
+        let dateA = a.date;
+        let dateB = b.date;
+        return dateA > dateB ? -1 :1
     });
+
 
     let commentStr ="";
     let starIcon = `<i class="fa-solid fa-star" style="color: #f5cd05;"></i>`;
@@ -298,12 +203,6 @@ function renderComments(){
                 <div class="me-5">${starNum}</div>
             </div>
             <p class="mb-3 fs-3">${item.commentText}</p>
-            <div>
-            <!-- 照片1 -->
-            <img src="${item.photo[0]}" alt="photo" class="comment-pic me-3">
-            <!-- 照片2 -->
-            <img src="${item.photo[1]}" alt="photo" class="comment-pic me-3">
-            </div>
             <p class="text-end text-grey-300 mb-0 fs-3">${item.date}</p>
         </div>
     </div>`
@@ -350,18 +249,19 @@ function rendersortHigh (){
                 <div class="me-5">${starNum}</div>
             </div>
             <p class="mb-3 fs-3">${item.commentText}</p>
-            <div>
-            <!-- 照片1 -->
-            <img src="${item.photo[0]}" alt="photo" class="comment-pic me-3">
-            <!-- 照片2 -->
-            <img src="${item.photo[1]}" alt="photo" class="comment-pic me-3">
-            </div>
             <p class="text-end text-grey-300 mb-0 fs-3">${item.date}</p>
         </div>
     </div>`
     });
     commentContainer.innerHTML = commentStr;
 }
+//評論內假圖片格式
+// <div>
+// <!-- 照片1 -->
+// <img src="${item.photo[0]}" alt="photo" class="comment-pic me-3">
+// <!-- 照片2 -->
+// <img src="${item.photo[1]}" alt="photo" class="comment-pic me-3">
+// </div>
 
 //最低
 const sortLow = document.querySelector('.sort-low');
@@ -401,12 +301,6 @@ function rendersortLow (){
                 <div class="me-5">${starNum}</div>
             </div>
             <p class="mb-3 fs-3">${item.commentText}</p>
-            <div>
-            <!-- 照片1 -->
-            <img src="${item.photo[0]}" alt="photo" class="comment-pic me-3">
-            <!-- 照片2 -->
-            <img src="${item.photo[1]}" alt="photo" class="comment-pic me-3">
-            </div>
             <p class="text-end text-grey-300 mb-0 fs-3">${item.date}</p>
         </div>
     </div>`
@@ -414,11 +308,146 @@ function rendersortLow (){
     commentContainer.innerHTML = commentStr;
 };
 
+//我的評論
+//星星數
+const stars = document.querySelectorAll('.stars i');
+const starContainer = document.querySelector('.star-container');
+let sheetData ={}; //存放表單資料
+
+starContainer.addEventListener('click',e=>{
+    e.preventDefault();
+    if (e.target.getAttribute('id') !== "starIcon"){
+        return
+    }else{
+        sheetData.starNum = e.target.getAttribute('num-id');
+        let starNum = e.target.getAttribute('num-id');
+        for(i= 1 ; i<=5 ; i++){
+            stars.forEach(item=>{
+                //當num-id的值等於e.target的num-id
+                if(item.getAttribute('num-id') == i){
+                    item.classList.add(`fa-solid`);
+                }//當num-id的值小於e.target的num-id
+                if (item.getAttribute('num-id')<=starNum){
+                    item.classList.add(`fa-solid`);
+                    //當num-id的值大於e.target的num-id
+                }else{
+                    item.classList.remove(`fa-solid`)
+                }
+            })
+        }
+    }
+})
+
+//加入指定標籤
+const tagsContainer = document.querySelector('.tagsContainer');
+const tagSelect = document.querySelector('.tagSelect');
+
+let tagArr = []; //新增標籤欄內有的標籤
+tagSelect.addEventListener('click',e=>{
+    e.preventDefault();
+    if(e.target.getAttribute('id')!== "tags"){
+        return
+    }else{
+        tagArr.push(e.target.textContent);
+        tagsContainer.innerHTML+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${e.target.textContent}<i class="fa-solid fa-xmark ms-2" value-id="${e.target.textContent}" id="xmark" style="cursor: pointer;"></i></li>`;
+        e.target.classList.add('add-tag')
+    }
+});
+
+//刪除標籤
+const tags = document.getElementById('tags');
+
+tagsContainer.addEventListener('click',e=>{
+    e.preventDefault();
+    if(e.target.getAttribute('id')!== "xmark"){
+        return
+    }else{
+        //找要刪除的index
+        let number
+        tagArr.forEach((item,i)=>{
+            if(item === e.target.getAttribute('value-id')){
+                number = i
+            }
+        });
+        //找到被選的標籤
+        //tagsElements為節點清單
+        const tagsElements = document.querySelectorAll('[id="tags"]');
+        tagsElements.forEach(item=>{
+            let valueId =item.getAttribute('value-id');
+            if(valueId ===e.target.getAttribute('value-id')){
+                item.classList.remove('add-tag');
+                item.classList.add('delete-tag');
+            }
+        })
+        tagArr.splice(number,'1');
+        deleteTag();
+    }
+})
+
+//移除標籤時，重新渲染tagsContainer
+function deleteTag(){
+    let str="";
+    tagArr.forEach(item=>{
+        str+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${item}<i class="fa-solid fa-xmark ms-2" value-id="${item}" id="xmark" style="cursor: pointer;"></i></li>`
+    });
+    tagsContainer.innerHTML =str;
+}
+
+//新增自訂標籤
+const newTag = document.getElementById('newTag');
+const addTag = document.getElementById('addTag');
+
+addTag.addEventListener('click',e=>{
+    e.preventDefault();
+    let newTagWord = newTag.value.trim();
+    if(newTagWord === "" || newTagWord === undefined){
+        return
+    }else{
+        tagArr.push(newTagWord);
+        tagsContainer.innerHTML+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${newTagWord}<i class="fa-solid fa-xmark ms-2" value-id="${newTagWord}" id="xmark" style="cursor: pointer;"></i></li>`;
+        newTag.value="";
+    }
+})
+
 
 //送出我的評論
 const sendCommentBtn = document.querySelector('.sendCommentBtn');
-
+let newTagsShow
 sendCommentBtn.addEventListener('click',e=>{
+    const myComments = document.getElementById('myComments');
+    const addedTag = tagsContainer.querySelectorAll('i'); //標籤內的叉叉
+    addedTag.forEach(item=>{
+        let a = item.getAttribute('value-id');
+        tagsShow.push(a)
+    });
+    newTagsShow = Array.from(new Set(tagsShow)); //排除重複的標籤
+
+    //取得當前時間
+    let time = new Date()
+    //判斷分鐘位數
+    let minutes = time.getMinutes();
+    let montharr = time.getMonth();
+    month = montharr+1;
+    let dates = time.getDate();
+    let hours = time.getHours();
+
+    if (minutes <10){
+        minutes = `0${time.getMinutes()}`
+    };
+    if (month <10){
+        month = `0${time.getMonth()}`
+    };
+    if (dates <10){
+        dates = `0${time.getDate()}`
+    };
+    if (hours <10){
+        hours = `0${time.getHours()}`
+    };
+
+    sheetData.date =  `${time.getFullYear()}年${month}月${dates}日  ${hours}:${minutes}`;
+
+    sheetData.text = myComments.value;
+    console.log(sheetData);
     Swal.fire({  //alert套件
         title: "確定要送出評論嗎？",
         text:"您的標籤將進行審核，約1~3日審核完畢",
@@ -430,9 +459,65 @@ sendCommentBtn.addEventListener('click',e=>{
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire("已送出評論！", "", "success");
-            if (result.isConfirmed) {
-                console.log(123);
-            }
+            renewCommentBtn();
+
         };
     });
-})
+});
+
+function addNewComment(){
+    //db.json新增評論
+    axios.post(`${url}/comments`,
+    {
+        "resturantName": restaurantDetail.Name,
+        "starNum":sheetData.starNum,
+        "commentText": sheetData.text,
+        "date": sheetData.date,
+        "userId": userObj.id,
+        "restaurantId":restaurantDetail.id ,
+    })
+    .then(res=>{
+        console.log(res.data);
+    })
+    .catch(error=>{
+        console.log(error);
+    });
+}
+
+function addTags(){
+    //db.json新增餐廳標籤
+    axios.patch(`${url}/restaurants/${restaurantDetail.id}`,
+    {
+        "Tags": newTagsShow,
+    })
+    .then(res=>{
+        console.log(res)
+    })
+    .catch(error=>{
+        console.log(error)
+    });
+};
+
+function renewCommentBtn(){
+    const textArea = document.querySelector('.text-area');
+    const writeCommentBtn = document.querySelector('.write-comment-btn');
+
+    textArea.textContent = `感謝您留下寶貴的評論！`;
+    writeCommentBtn.style = "pointer-events:none";
+    writeCommentBtn.classList.add('btn-primary-200');
+    writeCommentBtn.textContent = `已完成評論！`;
+
+    addTags();
+    addNewComment();
+}
+
+
+function deleteTest(){
+    axios.delete(`${url}/comments/28`)
+    .then(res=>{
+        console.log(res);
+    })
+    .catch(error=>{
+        console.log(error);
+    })
+}
