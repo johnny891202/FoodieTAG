@@ -7,31 +7,38 @@ const userBar = document.getElementById('userBar');
 user.addEventListener('click', e => {
     userBar.classList.toggle('d-none')
 })
-
 const url = `http://localhost:3000`;
 let postData = [];
 let favoriteId = [];
 
+//頁面帶入user資訊
+//menu登入後帶入user名稱
+const userName = document.querySelectorAll('.userName');
+userStr = localStorage.getItem('user'); //取出localStorage的值(string)
+userObj = JSON.parse(userStr); // string轉換成物件
+
+const userEmail = document.querySelector('.userEmail');
+userEmail.textContent = userObj.email;
+//因網頁有多個.userName，要用forEach渲染textContent
+userName.forEach(item => {
+    item.textContent = userObj.userName;
+});
+const avatarContainer = document.querySelectorAll('.avatar-container');
+avatarContainer.forEach(item=>{
+    item.innerHTML = `<img src="${userObj.avatar}" alt="avatar" class="avatar">`
+});
+
+const titleContainer = document.querySelector('.title-container ');
+titleContainer.textContent = userObj.title;
+
+
 function init() {
-    //頁面帶入user資訊
-    //menu登入後帶入user名稱
-    const userName = document.querySelectorAll('.userName');
-    userStr = localStorage.getItem('user'); //取出localStorage的值(string)
-    userObj = JSON.parse(userStr); // string轉換成物件
-
-    const userEmail = document.querySelector('.userEmail');
-    userEmail.textContent = userObj.email;
-    //因網頁有多個.userName，要用forEach渲染textContent
-    userName.forEach(item => {
-        item.textContent = userObj.userName;
-    });
-    editNameBtnFn()
-
     //get貼文資料
-    axios.get(`${url}/posts?userId=${userObj.id}`)
+    axios.get(`${url}/comments?userId=${userObj.id}`)
         .then(function (res) {
             postData = res.data
             renderPost();
+            console.log(postData);
         })
         .catch(function (error) {
             console.log(error);
@@ -41,11 +48,13 @@ function init() {
     //先取得user資料
     axios.get(`${url}/users/${userObj.id}`)
         .then(function (res) {
-            console.log(res.data.collection);
-            res.data.collection.forEach(item => {
-                favoriteId.push(item)
-                console.log(favoriteId);
-            });
+            if(res.data.collection.length === 0){
+                renderFavorites(0);
+            }else{
+                res.data.collection.forEach(item => {
+                    favoriteId.push(item)
+                });
+            }
             getFavoriteRestaurants(favoriteId);
         })
         .catch(function (error) {
@@ -53,6 +62,7 @@ function init() {
         })
 };
 init();
+editNameBtnFn();
 
 
 //再取得收藏的餐廳名字＋圖片
@@ -87,21 +97,24 @@ const collectContainer = document.querySelector('.collect-container');
 const collectNum = document.getElementById('collectNum')
 
 function renderFavorites(favoriteItem) {
-    let str = "";
-    let collectNums = favoriteItem.length; //顯示幾個收藏
-
-    favoriteItem.forEach(function (item) {
-        str += `<div class="col-lg-3 position-relative collection">
-            <a href="#" class="d-block h-100 collction">
-            <img class="img-fluid h-100 cover-size rounded-1 " src="${item.picture}", alt="resturant-photo">
-            <a class="collect-icon h3"><i class="fa-solid fa-bookmark bookmark" id="collectCancelBtn" data-id="${item.id}"></i></a>
-            <span class="position-absolute top-50 start-50 translate-middle text-center"><a href="#" class="text-decoration-none fw-bold fs-5 collecton-text">${item.name}</a></span>
-            </a>
-            </div>`
-    });
+    let str ="";
+    let collectNums = "";
+    if(favoriteItem === 0){
+        str = "<div>還沒有任何收藏</div>"
+    }else{
+        collectNums = favoriteItem.length; //顯示幾個收藏
+        favoriteItem.forEach(function (item) {
+            str += `<div class="col-lg-3 position-relative collection">
+                <a href="#" class="d-block h-100 collction">
+                <img class="img-fluid h-100 cover-size rounded-1 " src="${item.picture}", alt="resturant-photo">
+                <a class="collect-icon h3"><i class="fa-solid fa-bookmark bookmark" id="collectCancelBtn" data-id="${item.id}"></i></a>
+                <span class="position-absolute top-50 start-50 translate-middle text-center"><a href="#" class="text-decoration-none fw-bold fs-5 collecton-text">${item.name}</a></span>
+                </a>
+                </div>`
+        });
+    };
     collectContainer.innerHTML = str;
     collectNum.innerHTML = collectNums;
-    // mouseover() 滑鼠效果
 }
 
 //渲染貼文內容
@@ -111,6 +124,9 @@ const postNum = document.getElementById('postNum');
 function renderPost() {
     let str = "";
     let postNums = postData.length;
+    if(postData.length === 0){
+        str = `還沒有任何評論，寫下你的第一則評論，獲取積分！`
+    }
 
     postData.forEach(item => {
         let starShow = "";
@@ -119,33 +135,35 @@ function renderPost() {
             starShow += starTemplate
         };
 
-        str += `<div class="row justify-content-center align-items-center mb-15">
-        <div class="col-lg-3 comment-user-photo me-10"></div>
+        str += `<div class="d-flex justify-content-center align-items-center mb-15 w-75">
+        <div class="col-lg-3"><img class="comment-avatar" src="${userObj.avatar}" alt="avatar"></div>
         <div class="col-lg-9 d-flex flex-column">
             <div class="d-flex justify-content-between">
                 <div class="d-flex align-items-center mb-5">
                     <div class="me-5">
                     ${starShow}
                         </div>
-                    <div class="fs-5">${item.resturantName}</div>
+                    <div class="fs-4">${item.resturantName}</div>
                 </div>
                 <div>
                     <a href="#" class="link-grey-400"><i class="fa-solid fa-pen me-3"></i></a>
                     <a href="#" class="link-grey-400"><i class="fa-solid fa-x" id="deleteBtn" data-id = "${item.id}"></i></a>
                 </div>
             </div>
-            <p>${item.commentText}</p>
-            <div>
-                <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo.jpeg" alt="comment-photo">
-                <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo2.jpeg" alt="comment-photo">
-            </div>
-            <p class="text-end text-grey-300">${item.date}</p>
+            <p class="fs-4">${item.commentText}</p>
+            <p class="text-end text-grey-300 fs-3">${item.date}</p>
         </div>
     </div>`
     });
     postsContainer.innerHTML = str;
     postNum.innerHTML = postNums;
 };
+
+//評論假圖片
+/* <div>
+<img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo.jpeg" alt="comment-photo">
+<img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo2.jpeg" alt="comment-photo">
+</div> */
 
 //刪除貼文
     postsContainer.addEventListener('click',e=>{
@@ -171,7 +189,7 @@ function renderPost() {
 })
 
 function deletePost(id) {
-    axios.delete(`${url}/posts/${id}`)
+    axios.delete(`${url}/comments/${id}`)
         .then(function (res) {
             console.log(res.data);
         })
