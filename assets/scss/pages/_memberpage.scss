@@ -1,13 +1,13 @@
 //封面圖片
 .user-cover {
   background-image: url(../../assets/images/memberPage/user-cover2.jpeg);
-  height: 250px;
+  height: 200px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 .cover-height {
-  height: 550px;
+  height: 450px;
 }
 
 //個人資訊
@@ -18,8 +18,17 @@
 
 //頭貼
 .avatar {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 0 10%;
+}
+
+//評論頭貼
+.comment-avatar {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   object-position: 0 10%;

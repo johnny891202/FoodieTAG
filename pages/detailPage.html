@@ -12,30 +12,47 @@
     <link rel="stylesheet" href="../assets/all.css" />
   </head>
   <body>
-        <!-- navbar -->
-        <nav class="d-flex justify-content-between px-20 py-5 align-items-center shadow-sm">
-          <h1>
-          <a href="index_login.html">FoodieTAG#</a>
-          </h1>
-          <ul class="d-flex list-unstyled mb-0 align-items-center position-relative">
-              <p class="mb-0 fs-5 text-grey-300">嗨！</p><span class="mb-0 fs-5 text-grey-300 mx-2 userName"></span> <p class="mb-0 fs-5 text-grey-300 mx-1">今天想吃什麼？</p>
-          <li class="fs-5 lh-sm fw-medium ms-6"><a href="#" class="text-decoration-none nav-btn px-6 py-1"> 餐廳列表</a></li>
-          <li class="ms-6"><a href="#" class="text-decoration-none nav-btn user-icon p-1 rounded-circle d-block d-flex align-items-center text-center" id="user"><span class="material-symbols-outlined py-3 fs-8">
-              account_circle
-              </span></a>
+    <!-- navbar -->
+    <nav class="d-flex justify-content-between px-20 py-5 align-items-center">
+        <h1>
+          <a href="index.html">FoodieTAG#</a>
+        </h1>
+        <ul class="d-flex list-unstyled mb-0">
+          <li class="fs-5 lh-sm px-6 py-1 fw-medium">
+            <a href="#" class="text-decoration-none nav-btn" > 餐廳列表</a>
           </li>
-              <ul class="position-absolute user-bar list-unstyled d-none" id="userBar">
-                  <li><a href="memberpage.html" class="py-5 px-7 text-grey-500 fs-5 text-start d-block"><img src="../assets/images/user.svg" alt="member-center" class="me-3"><span>會員中心</span></a></li>
-                  <li ><a href="#" class="py-5 px-7 text-grey-500 fs-5 text-start  d-block logoutLink"><img src="../assets/images/logout-icon.svg" alt="logout" class="me-3"><span>登出</span></a></li>
-              </ul>
-          </ul>
+          <li class="fs-5 lh-sm ms-6 px-6 py-1 fw-medium">
+            <a href="login.html" class="text-decoration-none nav-btn"> 登入</a>
+          </li>
+          <li class="fs-5 lh-sm ms-6 px-6 py-1 fw-medium">
+            <a href="signUp.html" class="text-decoration-none nav-btn"> 註冊</a>
+          </li>
+        </ul>
       </nav>
+      <!-- banner -->
 
     <!-- banner -->
     <div class="detailPage-banner d-flex flex-column justify-content-center align-items-center">
       <h2 class="text-white mb-5"></h2>
-      <input type="button" value="加入收藏" class="btn like-btn d-inline shadow-sm px-10 py-3 fw-bold" id="likeBtn"/>
+      <input type="button" value="加入收藏" class="btn like-btn d-inline shadow-sm px-10 py-3 fw-bold" id="likeBtn" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
     </div>
+
+    <!-- 加入收藏跳窗 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+            <button type="button" class="btn-close p-4" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        <div class="modal-body d-flex justify-content-center pt-5">
+          <p class="fw-bold fs-5">請先登入會員</p>
+        </div>
+        <div class="modal-footer border-0 p-5 d-flex justify-content-center">
+          <button type="button" class="login-btn btn shadow-sm btn-primary-400 text-white px-6 py-3 fs-3 me-2 fw-bold fs-4">確定</button>
+        </div>
+      </div>
+    </div>
+  </div>
     
     <!-- tag區 -->
     <div class="container">
@@ -78,20 +95,16 @@
           <input type="button" value="最高" class="sort-high btn btn-primary-300 py-3 px-6 fw-bold me-4 rounded-pill text-white border-0 shadow-sm"/>
           <input type="button" value="最低" class="sort-low btn btn-primary-300 py-3 px-6 fw-bold rounded-pill text-white border-0 shadow-sm"/>
         </div>
-        <div class="comment-container border d-flex flex-column align-items-center py-8 overflow-auto"></div>
+        <div class="comment-container border d-flex flex-column align-items-center py-8 overflow-auto">
+        </div>
         </div>
         <div class="col-lg-7 mx-auto">
           <div class=" d-flex justify-content-evenly align-items-center mt-10">
-            <div class="d-flex flex-column align-items-center me-1">
-              <div class="avatar-container mb-3"></div>
-              <p class="mb-1 fs-5 userName "></p>
-              <p class="userTitle mb-0 text-grey-400"></p>
-            </div>
             <div class="d-flex flex-column align-items-center">
               <div class="text-area rounded py-5 px-40 text-grey-500 bg-primary-100 mb-6 text-center">
-                尚未留下評論<br>
-                填寫評論及提供正確標籤可獲得積分！</div>
-              <button type="button" class="write-comment-btn btn shadow-sm btn-primary-300 text-white px-10 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#myComment">寫評論</button>
+                登入會員才能寫評論唷！
+            </div>
+              <button type="button" class="write-comment-btn btn shadow-sm btn-primary-200 text-white px-10 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#myComment" disabled>寫評論</button>
             </div>
           </div>
         </div>
@@ -100,7 +113,7 @@
   </section>
 
   <!-- 寫評論跳窗 -->
-  <div class="modal fade" id="myComment" tabindex="-1" aria-labelledby="myCommentLabel" aria-hidden="true">
+  <!-- <div class="modal fade" id="myComment" tabindex="-1" aria-labelledby="myCommentLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content row">
         <div class="modal-header border-0 mt-10 mb-3 col-lg-8 mx-auto">
@@ -207,7 +220,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 <!-- footer -->
 <section class="bg-grey-500">

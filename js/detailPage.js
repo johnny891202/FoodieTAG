@@ -1,50 +1,19 @@
-
-//已登入會員nav-bar
-const user = document.getElementById('user');
-const userBar = document.getElementById('userBar');
-
-user.addEventListener('click', e => {
-    userBar.classList.toggle('d-none')
+//加入收藏按鈕
+//導至登入頁
+const loginBtn = document.querySelector('.login-btn');
+loginBtn.addEventListener('click',e=>{
+    window.location.href = `login.html`
 })
 
 const url = `http://localhost:3000`;
 let postData = [];
 let favoriteId = [];
 
-//加入收藏按鈕
-const likeBtn = document.getElementById('likeBtn');
-
-likeBtn.addEventListener('click',e=>{
-    likeBtn.classList.toggle('like-added')
-    if (likeBtn.value === "加入收藏"){
-        likeBtn.value = "已加入收藏！"
-    }else{
-        likeBtn.value = "加入收藏"
-    }
-});
-
 //取得餐廳資訊
-const testName = "藝居酒屋";
-const userAvatar = document.querySelectorAll('.avatar-container');
-//取得localstorage資料
-const userName = document.querySelectorAll('.userName');
-const userTitle = document.querySelector('.userTitle')
-userStr = localStorage.getItem('user'); //取出localStorage的值(string)
-userObj = JSON.parse(userStr); // string轉換成物件
+const testName = "禾園小吃";
 
 let restaurantDetail = [];
 function init(){
-    //頁面帶入user資訊
-    //因網頁有多個.userName，要用forEach渲染textContent
-    userName.forEach(item => {
-        item.textContent = userObj.userName;
-    });
-    //頭銜
-    userTitle.innerHTML = userObj.title;
-    //頭像
-    userAvatar.forEach(item=>{
-        item.innerHTML = `<img src="${userObj.avatar}" class="user-avatar" alt="user-avatar">`
-    })
 
     axios.get(`${url}/restaurants?Name=${testName}`)
     .then(function(res){
@@ -52,6 +21,7 @@ function init(){
         console.log(restaurantDetail);
         renderRestaurantDetail();
         getComments();
+        // getUserData();
     })
     .catch(function(error){
         console.log(error);
@@ -150,14 +120,38 @@ function renderRestaurantDetail(){
     picContainer.innerHTML = picStr+picStr;
 
     //我的評論 餐廳名稱
-    myCommentLabel.textContent = restaurantDetail.Name
+    // myCommentLabel.textContent = restaurantDetail.Name;
 };
-//取得評論
-const testRestaurantId = 146;
 
+//取得使用者資料
+const likeBtn = document.getElementById('likeBtn');
+
+let userData = [];
+function getUserData(){
+    axios.get(`${url}/users/${userObj.id}`)
+    .then(res=>{
+        userData = res.data;
+        renderCollectionBtn()
+    })
+};
+//加入收藏按鈕狀態
+function renderCollectionBtn(){
+    userData.collection.forEach(item=>{
+        if(item === restaurantDetail.id){
+            likeBtn.value = "已加入收藏！";
+            likeBtn.classList.add('like-added')
+        }else{
+            likeBtn.value = "加入收藏";
+            likeBtn.classList.remove('like-added')
+        }
+    })
+}
+
+//取得評論
 let commentsData =[];
 function getComments(){
-    axios.get(`${url}/comments?_restaurantId=${testRestaurantId}&_expand=user`)
+    const RestaurantId = restaurantDetail.id;
+    axios.get(`${url}/comments?restaurantId=${RestaurantId}&_expand=user`)
     .then(function(res){
         commentsData = res.data;
         renderComments();
@@ -184,45 +178,47 @@ function renderComments(){
         return dateA > dateB ? -1 :1
     });
 
-
     let commentStr ="";
     let starIcon = `<i class="fa-solid fa-star" style="color: #f5cd05;"></i>`;
-    dataSorted.forEach((item,i)=>{
+    if(dataSorted.length === 0){
+        commentStr =`<div><p>還沒有人評論過Q_Q 我要當第一位評論者！</p> </div>`
+    }
+    dataSorted.forEach((item,i,array)=>{
         let starNum = starIcon.repeat(item.starNum); //星星數
-
-        commentStr += `<div class="col-lg-10 d-flex justify-content-evenly align-items-center bg-primary-100 px-8 py-3 my-2">
-        <div class="d-flex flex-column align-items-center me-10">
-        <div class="mb-3">
-        <img src="${item.user.avatar}" class="user-avatar" alt="user-avatar">
-        </div>
-            <p  id="name" class=" mb-1" user-id="${item.user.id}">${item.user.userName}</p>
-            <p class="mb-0 text-grey-400 fs-3">${item.user.title}</p>
-        </div>
-        <div class="d-flex flex-column w-75">
-            <div class="d-flex align-items-center mb-3">
-                <div class="me-5">${starNum}</div>
+            commentStr += `<div class="col-lg-10 d-flex justify-content-evenly align-items-center bg-primary-100 px-8 py-3 my-2">
+            <div class="d-flex flex-column align-items-center me-10">
+            <div class="mb-3">
+            <img src="${item.user.avatar}" class="user-avatar" alt="user-avatar">
             </div>
-            <p class="mb-3 fs-3">${item.commentText}</p>
-            <p class="text-end text-grey-300 mb-0 fs-3">${item.date}</p>
-        </div>
-    </div>`
+                <p  id="name" class=" mb-1" user-id="${item.user.id}">${item.user.userName}</p>
+                <p class="mb-0 text-grey-400 fs-3">${item.user.title}</p>
+            </div>
+            <div class="d-flex flex-column w-75">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="me-5">${starNum}</div>
+                </div>
+                <p class="mb-3 fs-3">${item.commentText}</p>
+                <p class="text-end text-grey-300 mb-0 fs-3">${item.date}</p>
+            </div>
+        </div>`
     });
     commentContainer.innerHTML = commentStr;
-    a = commentContainer.querySelectorAll('[id="name"]');
-    a.forEach(item=>{
-        let checkId = item.getAttribute('user-id');
-        if(checkId == userObj.id){
-            const textArea = document.querySelector('.text-area');
-            const writeCommentBtn = document.querySelector('.write-comment-btn');
 
-            textArea.textContent = `感謝您留下寶貴的評論！`;
-            writeCommentBtn.style = "pointer-events:none";
-            writeCommentBtn.classList.add('btn-primary-200');
-            writeCommentBtn.textContent = `已完成評論！`;
-        }
-    })
+    //查看評論區是否已有該使用者評論，有則改變寫評論按鈕樣式
+//     a = commentContainer.querySelectorAll('[id="name"]');
+//     a.forEach(item=>{
+//         let checkId = item.getAttribute('user-id');
+//         if(checkId == userObj.id){
+//             const textArea = document.querySelector('.text-area');
+//             const writeCommentBtn = document.querySelector('.write-comment-btn');
 
-};
+//             textArea.textContent = `感謝您留下寶貴的評論！`;
+//             writeCommentBtn.style = "pointer-events:none";
+//             writeCommentBtn.classList.add('btn-primary-200');
+//             writeCommentBtn.textContent = `已完成評論！`;
+//         }
+//     });
+// };
 
 //評論排序
 //最高
@@ -324,214 +320,295 @@ function rendersortLow (){
 
 //我的評論
 //星星數
-const stars = document.querySelectorAll('.stars i');
-const starContainer = document.querySelector('.star-container');
-let sheetData ={}; //存放表單資料
+// const stars = document.querySelectorAll('.stars i');
+// const starContainer = document.querySelector('.star-container');
+// let sheetData ={}; //存放表單資料
 
-starContainer.addEventListener('click',e=>{
-    e.preventDefault();
-    if (e.target.getAttribute('id') !== "starIcon"){
-        return
-    }else{
-        sheetData.starNum = e.target.getAttribute('num-id');
-        let starNum = e.target.getAttribute('num-id');
-        for(i= 1 ; i<=5 ; i++){
-            stars.forEach(item=>{
-                //當num-id的值等於e.target的num-id
-                if(item.getAttribute('num-id') == i){
-                    item.classList.add(`fa-solid`);
-                }//當num-id的值小於e.target的num-id
-                if (item.getAttribute('num-id')<=starNum){
-                    item.classList.add(`fa-solid`);
-                    //當num-id的值大於e.target的num-id
-                }else{
-                    item.classList.remove(`fa-solid`)
-                }
-            })
-        }
-    }
-})
+// starContainer.addEventListener('click',e=>{
+//     e.preventDefault();
+//     if (e.target.getAttribute('id') !== "starIcon"){
+//         return
+//     }else{
+//         sheetData.starNum = e.target.getAttribute('num-id');
+//         let starNum = e.target.getAttribute('num-id');
+//         for(i= 1 ; i<=5 ; i++){
+//             stars.forEach(item=>{
+//                 //當num-id的值等於e.target的num-id
+//                 if(item.getAttribute('num-id') == i){
+//                     item.classList.add(`fa-solid`);
+//                 }//當num-id的值小於e.target的num-id
+//                 if (item.getAttribute('num-id')<=starNum){
+//                     item.classList.add(`fa-solid`);
+//                     //當num-id的值大於e.target的num-id
+//                 }else{
+//                     item.classList.remove(`fa-solid`)
+//                 }
+//             })
+//         }
+//     }
+// })
 
-//加入指定標籤
-const tagsContainer = document.querySelector('.tagsContainer');
-const tagSelect = document.querySelector('.tagSelect');
+// //加入指定標籤
+// const tagsContainer = document.querySelector('.tagsContainer');
+// const tagSelect = document.querySelector('.tagSelect');
 
-let tagArr = []; //新增標籤欄內有的標籤
-tagSelect.addEventListener('click',e=>{
-    e.preventDefault();
-    if(e.target.getAttribute('id')!== "tags"){
-        return
-    }else{
-        tagArr.push(e.target.textContent);
-        tagsContainer.innerHTML+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${e.target.textContent}<i class="fa-solid fa-xmark ms-2" value-id="${e.target.textContent}" id="xmark" style="cursor: pointer;"></i></li>`;
-        e.target.classList.add('add-tag')
-    }
-});
+// let tagArr = []; //新增標籤欄內有的標籤
+// tagSelect.addEventListener('click',e=>{
+//     e.preventDefault();
+//     if(e.target.getAttribute('id')!== "tags"){
+//         return
+//     }else{
+//         tagArr.push(e.target.textContent);
+//         tagsContainer.innerHTML+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${e.target.textContent}<i class="fa-solid fa-xmark ms-2" value-id="${e.target.textContent}" id="xmark" style="cursor: pointer;"></i></li>`;
+//         e.target.classList.add('add-tag')
+//     }
+// });
 
-//刪除標籤
-const tags = document.getElementById('tags');
+// //刪除標籤
+// const tags = document.getElementById('tags');
 
-tagsContainer.addEventListener('click',e=>{
-    e.preventDefault();
-    if(e.target.getAttribute('id')!== "xmark"){
-        return
-    }else{
-        //找要刪除的index
-        let number
-        tagArr.forEach((item,i)=>{
-            if(item === e.target.getAttribute('value-id')){
-                number = i
-            }
-        });
-        //找到被選的標籤
-        //tagsElements為節點清單
-        const tagsElements = document.querySelectorAll('[id="tags"]');
-        tagsElements.forEach(item=>{
-            let valueId =item.getAttribute('value-id');
-            if(valueId ===e.target.getAttribute('value-id')){
-                item.classList.remove('add-tag');
-                item.classList.add('delete-tag');
-            }
-        })
-        tagArr.splice(number,'1');
-        deleteTag();
-    }
-})
+// tagsContainer.addEventListener('click',e=>{
+//     e.preventDefault();
+//     if(e.target.getAttribute('id')!== "xmark"){
+//         return
+//     }else{
+//         //找要刪除的index
+//         let number
+//         tagArr.forEach((item,i)=>{
+//             if(item === e.target.getAttribute('value-id')){
+//                 number = i
+//             }
+//         });
+//         //找到被選的標籤
+//         //tagsElements為節點清單
+//         const tagsElements = document.querySelectorAll('[id="tags"]');
+//         tagsElements.forEach(item=>{
+//             let valueId =item.getAttribute('value-id');
+//             if(valueId ===e.target.getAttribute('value-id')){
+//                 item.classList.remove('add-tag');
+//                 item.classList.add('delete-tag');
+//             }
+//         })
+//         tagArr.splice(number,'1');
+//         deleteTag();
+//     }
+// })
 
-//移除標籤時，重新渲染tagsContainer
-function deleteTag(){
-    let str="";
-    tagArr.forEach(item=>{
-        str+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${item}<i class="fa-solid fa-xmark ms-2" value-id="${item}" id="xmark" style="cursor: pointer;"></i></li>`
-    });
-    tagsContainer.innerHTML =str;
-}
+// //移除標籤時，重新渲染tagsContainer
+// function deleteTag(){
+//     let str="";
+//     tagArr.forEach(item=>{
+//         str+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${item}<i class="fa-solid fa-xmark ms-2" value-id="${item}" id="xmark" style="cursor: pointer;"></i></li>`
+//     });
+//     tagsContainer.innerHTML =str;
+// }
 
-//新增自訂標籤
-const newTag = document.getElementById('newTag');
-const addTag = document.getElementById('addTag');
+// //新增自訂標籤
+// const newTag = document.getElementById('newTag');
+// const addTag = document.getElementById('addTag');
 
-addTag.addEventListener('click',e=>{
-    e.preventDefault();
-    let newTagWord = newTag.value.trim();
-    if(newTagWord === "" || newTagWord === undefined){
-        return
-    }else{
-        tagArr.push(newTagWord);
-        tagsContainer.innerHTML+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${newTagWord}<i class="fa-solid fa-xmark ms-2" value-id="${newTagWord}" id="xmark" style="cursor: pointer;"></i></li>`;
-        newTag.value="";
-    }
-})
+// addTag.addEventListener('click',e=>{
+//     e.preventDefault();
+//     let newTagWord = newTag.value.trim();
+//     if(newTagWord === "" || newTagWord === undefined){
+//         return
+//     }else{
+//         tagArr.push(newTagWord);
+//         tagsContainer.innerHTML+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${newTagWord}<i class="fa-solid fa-xmark ms-2" value-id="${newTagWord}" id="xmark" style="cursor: pointer;"></i></li>`;
+//         newTag.value="";
+//     }
+// })
 
 
-//送出我的評論
-const sendCommentBtn = document.querySelector('.sendCommentBtn');
-let newTagsShow
-sendCommentBtn.addEventListener('click',e=>{
-    const myComments = document.getElementById('myComments');
-    const addedTag = tagsContainer.querySelectorAll('i'); //標籤內的叉叉
-    addedTag.forEach(item=>{
-        let a = item.getAttribute('value-id');
-        tagsShow.push(a)
-    });
-    newTagsShow = Array.from(new Set(tagsShow)); //排除重複的標籤
+// //送出我的評論
+// const sendCommentBtn = document.querySelector('.sendCommentBtn');
+// let newTagsShow
+// sendCommentBtn.addEventListener('click',e=>{
+//     const myComments = document.getElementById('myComments');
+//     const addedTag = tagsContainer.querySelectorAll('i'); //標籤內的叉叉
+//     addedTag.forEach(item=>{
+//         let a = item.getAttribute('value-id');
+//         tagsShow.push(a)
+//     });
+//     newTagsShow = Array.from(new Set(tagsShow)); //排除重複的標籤
 
-    //取得當前時間
-    let time = new Date()
-    //判斷分鐘位數
-    let minutes = time.getMinutes();
-    let montharr = time.getMonth();
-    month = montharr+1;
-    let dates = time.getDate();
-    let hours = time.getHours();
+//     //取得當前時間
+//     let time = new Date()
+//     //判斷分鐘位數
+//     let minutes = time.getMinutes();
+//     let montharr = time.getMonth();
+//     month = montharr+1;
+//     let dates = time.getDate();
+//     let hours = time.getHours();
 
-    if (minutes <10){
-        minutes = `0${time.getMinutes()}`
-    };
-    if (month <10){
-        month = `0${time.getMonth()}`
-    };
-    if (dates <10){
-        dates = `0${time.getDate()}`
-    };
-    if (hours <10){
-        hours = `0${time.getHours()}`
-    };
+//     if (minutes <10){
+//         minutes = `0${time.getMinutes()}`
+//     };
+//     if (month <10){
+//         month = `0${time.getMonth()}`
+//     };
+//     if (dates <10){
+//         dates = `0${time.getDate()}`
+//     };
+//     if (hours <10){
+//         hours = `0${time.getHours()}`
+//     };
 
-    sheetData.date =  `${time.getFullYear()}年${month}月${dates}日  ${hours}:${minutes}`;
+//     sheetData.date =  `${time.getFullYear()}年${month}月${dates}日  ${hours}:${minutes}`;
 
-    sheetData.text = myComments.value;
-    Swal.fire({  //alert套件
-        title: "確定要送出評論嗎？",
-        text:"您的標籤將進行審核，約1~3日審核完畢",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "確定"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire("已送出評論！", "", "success");
-            addNewComment();
-            addTags()
-        };
-    });
-});
+//     sheetData.text = myComments.value;
+//     Swal.fire({  //alert套件
+//         title: "確定要送出評論嗎？",
+//         text:"您的標籤將進行審核，約1~3日審核完畢",
+//         icon: "warning",
+//         showCancelButton: true,
+//         confirmButtonColor: "#3085d6",
+//         cancelButtonColor: "#d33",
+//         confirmButtonText: "確定"
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             Swal.fire("已送出評論！", "", "success");
+//             addNewComment();
+//             addTags()
+//         };
+//     });
+// });
 
-function addNewComment(){
-    //db.json新增評論
-    axios.post(`${url}/comments`,
-    {
-        "resturantName": restaurantDetail.Name,
-        "starNum":sheetData.starNum,
-        "commentText": sheetData.text,
-        "date": sheetData.date,
-        "userId": userObj.id,
-        "restaurantId":restaurantDetail.id ,
-    })
-    .then(res=>{
-        console.log(res.data);
-    })
-    .catch(error=>{
-        console.log(error);
-    });
-}
+// function addNewComment(){
+//     //db.json新增評論
+//     axios.post(`${url}/comments`,
+//     {
+//         "resturantName": restaurantDetail.Name,
+//         "starNum":sheetData.starNum,
+//         "commentText": sheetData.text,
+//         "date": sheetData.date,
+//         "userId": userObj.id,
+//         "restaurantId":restaurantDetail.id ,
+//     })
+//     .then(res=>{
+//         console.log(res.data);
+//     })
+//     .catch(error=>{
+//         console.log(error);
+//     });
+// }
 
-function addTags(){
-    //db.json新增餐廳標籤
-    axios.patch(`${url}/restaurants/${restaurantDetail.id}`,
-    {
-        "Tags": newTagsShow,
-    })
-    .then(res=>{
-        console.log(res)
-    })
-    .catch(error=>{
-        console.log(error)
-    });
-};
+// function addTags(){
+//     //db.json新增餐廳標籤
+//     axios.patch(`${url}/restaurants/${restaurantDetail.id}`,
+//     {
+//         "Tags": newTagsShow,
+//     })
+//     .then(res=>{
+//         console.log(res)
+//     })
+//     .catch(error=>{
+//         console.log(error)
+//     });
+// };
 
-// const writeCommentBtn = document.querySelector('.write-comment-btn');
-// function renewCommentBtn(){
-    // writeCommentBtn.classList.add('commet-done')
-    // addTags();
-    // addNewComment();
-    // };
+// function deleteTest(){
+//     axios.delete(`${url}/comments/28`)
+//     .then(res=>{
+//         console.log(res);
+//     })
+//     .catch(error=>{
+//         console.log(error);
+//     })
+// }
 
-    // const textArea = document.querySelector('.text-area');
-    // const writeCommentBtn = document.querySelector('.write-comment-btn');
+// 加入收藏按鈕
+// let usercollection =[];
+// likeBtn.addEventListener('click',e=>{
+//     if(likeBtn.value === "加入收藏"){
+//         addUsercollection();
+//     }else if(likeBtn.value === "已加入收藏！"){
+//         removeUsercollection();
+//     }
+// });
 
-    // textArea.textContent = `感謝您留下寶貴的評論！`;
-    // writeCommentBtn.style = "pointer-events:none";
-    // writeCommentBtn.classList.add('btn-primary-200');
-    // writeCommentBtn.textContent = `已完成評論！`;
+// function addUsercollection(){
+//     usercollection = userData.collection;
+//     usercollection.push(restaurantDetail.id);
+//     patchUserCollectionAdd(usercollection)
+// }
 
-function deleteTest(){
-    axios.delete(`${url}/comments/28`)
-    .then(res=>{
-        console.log(res);
-    })
-    .catch(error=>{
-        console.log(error);
-    })
+// function removeUsercollection(){
+//     usercollection = userData.collection;
+//     let b = usercollection.filter(function(item){
+//         return item !== restaurantDetail.id
+//     });
+//     patchUserCollectionRemove(b)
+// }
+
+// function patchUserCollectionRemove(arr){
+//     axios.patch(`${url}/users/${userObj.id}`,
+//     {
+//         collection : arr
+//     })
+//     .then(res=>{
+//         console.log(res);
+//         getRestaurantcollectionNumRemove();
+//     })
+//     .catch(error=>{
+//         console.log(error);
+//     })
+// }
+
+// function getRestaurantcollectionNumRemove(){
+//     axios.get(`${url}/restaurants/${restaurantDetail.id}`)
+//     .then(res=>{
+//         let num = res.data.collectionNum;
+//         patchRestaurantcollectionNumRemove(num)
+//     })
+// }
+
+// function patchRestaurantcollectionNumRemove(num){
+//     axios.patch(`${url}/restaurants/${restaurantDetail.id}`,
+//     {
+//         collectionNum : parseInt(num)-1
+//     })
+//     .then(res=>{
+//         console.log(res);
+//     })
+//     .catch(function(error){
+//         console.log(error);
+//     })
+// }
+
+// function patchUserCollectionAdd(arr){
+//     axios.patch(`${url}/users/${userObj.id}`,
+//     {
+//         collection : arr
+//     })
+//     .then(res=>{
+//         console.log(res);
+//         getRestaurantcollectionNumAdd();
+//     })
+//     .catch(error=>{
+//         console.log(error);
+//     })
+// }
+
+
+// function getRestaurantcollectionNumAdd(){
+//     axios.get(`${url}/restaurants/${restaurantDetail.id}`)
+//     .then(res=>{
+//         let num = res.data.collectionNum;
+//         patchRestaurantcollectionNumAdd(num)
+//     })
+// }
+
+
+// function patchRestaurantcollectionNumAdd(num){
+//     axios.patch(`${url}/restaurants/${restaurantDetail.id}`,
+//     {
+//         collectionNum : parseInt(num)+1
+//     })
+//     .then(res=>{
+//         console.log(res);
+//     })
+//     .catch(function(error){
+//         console.log(error);
+//     })
 }

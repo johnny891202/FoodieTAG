@@ -30,21 +30,21 @@
         <!-- 使用者資訊 -->
         <section class="cover-height">
             <div class="user-cover d-block w-100 position-relative">
-                <button type="button" class="btn btn-primary-200 position-absolute user-edit-icon fs-6 link-grey-400 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-primary-200 position-absolute user-edit-icon fs-4 link-grey-400 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <i class="fa-solid fa-pen"></i>
                     <span class="ms-2">編輯個人資訊</span></button>
                 <div class="container pt-30">
                     <div class="d-flex justify-content-evenly">
                         <div class="d-flex flex-column align-items-center">
-                            <img src="../assets/images/memberPage/avatar.jpeg" alt="avatar" class="avatar">
-                            <div>
-                                <p class="h5 text-primary-400 my-3 userName" id=""></p>
+                            <div class="avatar-container"></div>
+                            <div class="d-flex flex-column align-items-center">
+                                <p class="fs-5 fw-bold text-primary-400 my-2 userName"></p>
                                 <div class="d-inline-block">
                                     <div class="position-relative score-sheet-open">
                                         <span class="d-block position-absolute i-icon top-0 start-100 translate-middle text-center d-flex align-items-center justify-content-center font-monospace">i</span>
-                                        <p class="fs-6 text-grey-300 position-relative pe-3 font-monospace">Foodie#學徒</p>
+                                        <p class="title-container fs-4 text-grey-300 position-relative pe-3 font-monospace mb-2"></p>
                                         <!-- 積分說明表 -->
-                                        <table class="position-absolute score-sheet align-middle text-center table table-striped font-monospace">
+                                        <table class="position-absolute score-sheet align-middle text-center table table-striped font-monospace fs-3">
                                             <tr>
                                                 <th>頭銜門檻</th>
                                                 <th>頭銜種類</th>
@@ -90,7 +90,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <span class="d-block mb-4 fs-6 text-grey-300 font-monospace">#已貢獻 <span class="tags-num fs-6 text-grey-300">3</span>個TAG！</span>
+                                <span class="d-block mb-3 fs-4 text-grey-300 font-monospace">#已貢獻<span class="tags-num fs-4 text-grey-300">3</span>個TAG！</span>
                                 <div class="position-relative">
                                     <div class="position-relative d-inline-block pe-5">
                                         <span class="d-block position-absolute i-icon score-imformation top-0 start-100 translate-middle text-center d-flex align-items-center justify-content-center font-monospace">i</span>
@@ -103,13 +103,13 @@
                         </div>
                         <div class="d-flex mt-20">
                             <div>
-                                <a href="# " class="mt-32 fs-5 link-primary-400 d-flex align-items-center">
+                                <a href="# " class="mt-18 fs-5 link-primary-400 d-flex align-items-center">
                                 <i class="fa-brands fa-instagram me-3 h3"></i>
                                 <span class="border-end pe-25">example123</span>
                                 </a>
                             </div>
                             <div>
-                                <a href="# " class="mt-32 fs-5 link-primary-400 d-flex align-items-center ms-25">
+                                <a href="# " class="mt-18 fs-5 link-primary-400 d-flex align-items-center ms-25">
                                 <i class="fa-brands fa-facebook me-3 h3"></i>
                                 <span class=" pe-25">example123</span>
                                 </a>
@@ -137,14 +137,14 @@
                         <div class="edit-name-container d-flex justify-content-between mx-30 mb-5">
                             <div>
                                 <span class="text-grey-500 fw-bold me-5 ">名稱：</span>
-                                <span class="userName text-primary-400 fs-5"></span>
+                                <span class="userName text-primary-400 fs-4"></span>
                             </div>
                             <a href="#" class="edit-name-btn text-decoration-none link-grey-300 text-end">編輯</a>
                         </div>
                         <div class="d-flex justify-content-between mx-30 mb-5">
                             <div>
                                 <span class="text-grey-500 fw-bold me-5 ">Email：</span>
-                                <span class="userEmail text-primary-400 fs-5"></span>
+                                <span class="userEmail text-primary-400 fs-4"></span>
                             </div>
                             <a href="#" class="text-decoration-none link-grey-300 ">編輯</a>
                         </div>
@@ -178,38 +178,14 @@
                 <!-- 頁籤 -->
                 <nav>
                     <div class="nav nav-tabs justify-content-evenly" id="nav-tab" role="tablist">
-                    <button class="nav-link border-0 border-bottom px-20 active" id="nav-comment-tab" data-bs-toggle="tab" data-bs-target="#nav-comment" type="button" role="tab" aria-controls="nav-comment" aria-selected="true">所有評論<span class="fs-6 text-grey-300 ms-3">共<span id="postNum">0</span>則</span></button>
+                    <button class="nav-link border-0 border-bottom px-20 active fs-5" id="nav-comment-tab" data-bs-toggle="tab" data-bs-target="#nav-comment" type="button" role="tab" aria-controls="nav-comment" aria-selected="true">所有評論<span class="fs-4 text-grey-300 ms-3">共 <span id="postNum">0</span> 則</span></button>
 
-                    <button class="nav-link border-0 border-bottom " id="nav-collect-tab" data-bs-toggle="tab" data-bs-target="#nav-collect" type="button" role="tab" aria-controls="nav-collect" aria-selected="false">所有收藏<span class="fs-6 text-grey-300 ms-3">共<span id="collectNum">0</span>間</span></button>
+                    <button class="nav-link border-0 border-bottom fs-5" id="nav-collect-tab" data-bs-toggle="tab" data-bs-target="#nav-collect" type="button" role="tab" aria-controls="nav-collect" aria-selected="false">所有收藏<span class="fs-4 text-grey-300 ms-3">共 <span id="collectNum">0</span> 間</span></button>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
-                        <div class="posts-container px-30 py-20">
-                            <!-- 評論1 -->
-                            <div class="row justify-content-center align-items-center mb-15">
-                                <div class="col-lg-3 comment-user-photo me-10"></div>
-                                <div class="col-lg-9 d-flex flex-column">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center mb-5">
-                                            <div class="me-5">
-                                                <i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i><i class="fa-solid fa-star" style="color: #f5cd05;"></i></div>
-                                            <div class="fs-5">鳥藏 燒き鳥居酒屋</div>
-                                        </div>
-                                        <div>
-                                            <a href="#" class="link-grey-400"><i class="fa-solid fa-pen me-3"></i></a>
-                                            <a href="#" class="link-grey-400"><i class="fa-solid fa-x"></i></a>
-                                        </div>
-                                    </div>
-                                    <p>我們剛剛品味了這家居酒屋的美食，經驗絕對精彩。菜單上的選擇豐富多樣，每道菜都經過精心烹飪，味道令人驚艷。服務也非常出色，服務員熱情周到，不厭其煩地為我們提供建議。氛圍愉快，讓人感覺宛如置身日本。這家居酒屋絕對值得一遊，我們期待再次光臨。</p>
-                                    <div>
-                                        <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo.jpeg" alt="comment-photo">
-                                        <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo2.jpeg" alt="comment-photo">
-                                    </div>
-                                    <p class="text-end text-grey-300">2023年10月15日  15:10</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="posts-container px-40 py-20 d-flex flex-column align-items-center"></div>
                     </div>
 
                     <!-- 我的收藏 -->
