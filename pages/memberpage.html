@@ -120,6 +120,44 @@
             </div>
         </section>
 
+        <!-- 編輯評論跳窗 -->
+<div class="modal fade" id="myComment" tabindex="-1" aria-labelledby="myCommentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content row">
+          <div class="modal-header border-0 mt-10 mb-3 col-lg-8 mx-auto">
+            <h4 class="modal-title" id="myCommentLabel"></h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body col-lg-9 d-flex flex-column mx-auto">
+            <div class="d-flex align-items-center mx-10 border-bottom mb-6 pb-3 justify-content-evenly">
+              <div class="d-flex flex-column align-items-center me-10">
+                <div class="avatar-container mb-3 "></div>
+                <p class="mb-0 userName"></p>
+              </div>
+              <div>
+                <p class="mb-3 fs-5 fw-bold">整體評分</p>
+                <div class="d-flex align-items-center mb-3">
+                  <div class="me-5 star-container">
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="1"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="2"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="3"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="4"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="5"></i></a>
+
+                    </div>
+                </div>
+              </div>
+            </div>
+            <textarea name="myComments" id="myComments" rows="3" class="border-primary-300 p-3 rounded fs-3 mx-10" placeholder="請輸入評論內容" style="resize:none"></textarea>
+          </div>
+          <div class="modal-footer col-lg-8 border-0 mb-10 d-flex mx-auto">
+            <button type="button" class="sendCommentBtn btn shadow-sm btn-primary-400 text-white px-3 py-1 fs-3 me-2 fw-bold">送出</button>
+            <button type="button" class="btn shadow-sm btn-grey-200 text-grey-400 px-3 py-1 fs-3 fw-bold " data-bs-dismiss="modal">取消</button>
+          </div>
+        </div>
+      </div>
+</div>
+
         <!-- 編輯個人資訊跳窗 -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
@@ -183,6 +221,7 @@
                     <button class="nav-link border-0 border-bottom fs-5" id="nav-collect-tab" data-bs-toggle="tab" data-bs-target="#nav-collect" type="button" role="tab" aria-controls="nav-collect" aria-selected="false">所有收藏<span class="fs-4 text-grey-300 ms-3">共 <span id="collectNum">0</span> 間</span></button>
                     </div>
                 </nav>
+                <!-- 我的評論 -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
                         <div class="posts-container px-40 py-20 d-flex flex-column align-items-center"></div>

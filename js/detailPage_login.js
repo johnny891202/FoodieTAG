@@ -11,7 +11,7 @@ let postData = [];
 let favoriteId = [];
 
 //取得餐廳資訊
-const testName = "泰味廚房";
+const testName = "紫藤花藝村";
 const userAvatar = document.querySelectorAll('.avatar-container');
 //取得localstorage資料
 const userName = document.querySelectorAll('.userName');
@@ -217,7 +217,7 @@ function renderComments(){
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-5">${starNum}</div>
                 </div>
-                <p class="mb-3 fs-3">${item.commentText}</p>
+                <p class="mb-3 fs-4">${item.commentText}</p>
                 <p class="text-end text-grey-300 mb-0 fs-3">${item.date}</p>
             </div>
         </div>`
@@ -250,7 +250,7 @@ sortHigh.addEventListener('click',e=>{
 });
 let sortHighData = [];
 function getsortHigh (){
-    axios.get(`${url}/comments?_sort=starNum&_order=desc&?_restaurantId=${RestaurantId}&_expand=user`)
+    axios.get(`${url}/comments?_sort=starNum&_order=desc&restaurantId=${RestaurantId}&_expand=user`)
     .then(function(res){
         sortHighData=res.data;
         rendersortHigh ()
@@ -279,7 +279,7 @@ function rendersortHigh (){
             <div class="d-flex align-items-center mb-3">
                 <div class="me-5">${starNum}</div>
             </div>
-            <p class="mb-3 fs-3">${item.commentText}</p>
+            <p class="mb-3 fs-4">${item.commentText}</p>
             <p class="text-end text-grey-300 mb-0 fs-3">${item.date}</p>
         </div>
     </div>`
@@ -303,7 +303,7 @@ sortLow.addEventListener('click',e=>{
 let sortLowData = [];
 function getsortLow (){
     RestaurantId = restaurantDetail.id;
-    axios.get(`${url}/comments?_sort=starNum&_order=asc&?_restaurantId=${RestaurantId}&_expand=user`)
+    axios.get(`${url}/comments?_sort=starNum&_order=asc&restaurantId=${RestaurantId}&_expand=user`)
     .then(function(res){
         sortLowData=res.data;
         rendersortLow ()
@@ -332,7 +332,7 @@ function rendersortLow (){
             <div class="d-flex align-items-center mb-3">
                 <div class="me-5">${starNum}</div>
             </div>
-            <p class="mb-3 fs-3">${item.commentText}</p>
+            <p class="mb-3 fs-4">${item.commentText}</p>
             <p class="text-end text-grey-300 mb-0 fs-3">${item.date}</p>
         </div>
     </div>`

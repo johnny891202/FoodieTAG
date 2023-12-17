@@ -11,7 +11,8 @@ const url = `http://localhost:3000`;
 let postData = [];
 let favoriteId = [];
 
-//頁面帶入user資訊
+function init() {
+    //頁面帶入user資訊
 //menu登入後帶入user名稱
 const userName = document.querySelectorAll('.userName');
 userStr = localStorage.getItem('user'); //取出localStorage的值(string)
@@ -26,13 +27,12 @@ userName.forEach(item => {
 const avatarContainer = document.querySelectorAll('.avatar-container');
 avatarContainer.forEach(item=>{
     item.innerHTML = `<img src="${userObj.avatar}" alt="avatar" class="avatar">`
+
 });
 
 const titleContainer = document.querySelector('.title-container ');
 titleContainer.textContent = userObj.title;
 
-
-function init() {
     //get貼文資料
     axios.get(`${url}/comments?userId=${userObj.id}`)
         .then(function (res) {
@@ -134,7 +134,6 @@ function renderPost() {
         for (let i = 0; i < item.starNum; i++) {
             starShow += starTemplate
         };
-
         str += `<div class="d-flex justify-content-center align-items-center mb-15 w-75">
         <div class="col-lg-3"><img class="comment-avatar" src="${userObj.avatar}" alt="avatar"></div>
         <div class="col-lg-9 d-flex flex-column">
@@ -146,8 +145,8 @@ function renderPost() {
                     <div class="fs-4">${item.resturantName}</div>
                 </div>
                 <div>
-                    <a href="#" class="link-grey-400"><i class="fa-solid fa-pen me-3"></i></a>
-                    <a href="#" class="link-grey-400"><i class="fa-solid fa-x" id="deleteBtn" data-id = "${item.id}"></i></a>
+                    <a href="#" class="link-grey-400" data-bs-toggle="modal" data-bs-target="#myComment" id="pen" restaurant-id="${item.restaurantId}" data-id="${item.id}"><i class="fa-solid fa-pen me-3" id="pen" restaurant-id="${item.restaurantId}" data-id="${item.id}"></i></a>
+                    <a href="#" class="link-grey-400"><i class="fa-solid fa-x" id="deleteBtn" data-id = "${item.id}" ></i></a>
                 </div>
             </div>
             <p class="fs-4">${item.commentText}</p>
@@ -164,6 +163,160 @@ function renderPost() {
 <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo.jpeg" alt="comment-photo">
 <img class="img-fluid comment-photo" src="../assets/images/memberPage/comment-photo2.jpeg" alt="comment-photo">
 </div> */
+
+//編輯貼文按鈕
+const myComment = document.getElementById('myComment');
+let postId ="";
+postsContainer.addEventListener('click',e=>{
+    e.preventDefault();
+    if(e.target.getAttribute('id') !== "pen"){
+        return
+    }else{
+        let id = e.target.getAttribute('restaurant-id');
+        getEditComment(id);
+        postId = e.target.getAttribute('data-id');
+    }
+});
+
+//取得貼文
+function getEditComment(id){
+    let str = "";
+    let starIcon = `<a href="#" class="stars"><i class="fa-solid fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="1"></i></a>`;
+    let starIconRegular =  `<a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="1"></i></a>`;
+    let index = "";
+    postData.forEach((item,i)=>{
+        if(item.restaurantId != id){
+            return
+        }else if(item.restaurantId == id){
+            index = i;
+            str=`<div class="modal-dialog modal-lg">
+            <div class="modal-content row">
+              <div class="modal-header border-0 mt-10 mb-3 col-lg-8 mx-auto">
+                <h4 class="modal-title" id="myCommentLabel"></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body col-lg-9 d-flex flex-column mx-auto">
+                <div class="d-flex align-items-center mx-10 border-bottom mb-6 pb-3 justify-content-evenly">
+                  <div class="d-flex flex-column align-items-center me-10">
+                    <div class="avatar-container mb-3 "><img src="${userObj.avatar}" alt="avatar" class="avatar"></div>
+                    <p class="mb-0 userName">${userObj.userName}</p>
+                  </div>
+                  <div>
+                    <p class="mb-3 fs-5 fw-bold">整體評分</p>
+                    <div class="d-flex align-items-center mb-3">
+                      <div class="me-5 star-container">
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="1"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="2"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="3"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="4"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="5"></i></a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <textarea name="myComments" id="myComments" value="${item.commentText}" rows="3" class="border-primary-300 p-3 rounded fs-3 mx-10" style="resize:none">${item.commentText}</textarea>
+              </div>
+              <div class="modal-footer col-lg-8 border-0 mb-10 d-flex mx-auto">
+                <button type="button" class="editCommentBtn btn shadow-sm btn-primary-400 text-white px-3 py-1 fs-3 me-2 fw-bold">修改</button>
+                <button type="button" class="btn shadow-sm btn-grey-200 text-grey-400 px-3 py-1 fs-3 fw-bold " data-bs-dismiss="modal">取消</button>
+              </div>
+            </div>
+          </div> `
+        }
+        renderEditComment(str,index);
+    })
+}
+
+//渲染指定貼文
+function renderEditComment(str,index){
+    myComment.innerHTML = str;
+    renderStar(index);
+}
+
+//渲染我的評論星星數
+function renderStar(index){
+    const stars = document.querySelectorAll('.stars i');
+
+    for(i= 1 ; i<=5 ; i++){
+        stars.forEach(item=>{
+            //當num-id的值等於e.target的num-id
+            if(item.getAttribute('num-id') == i){
+                item.classList.add(`fa-solid`);
+            }//當num-id的值小於e.target的num-id
+            if (item.getAttribute('num-id')<= postData[index].starNum){
+                item.classList.add(`fa-solid`);
+                //當num-id的值大於e.target的num-id
+            }else{
+                item.classList.remove(`fa-solid`)
+            }
+        })
+    };
+    editComment();
+    goEditComment(index);
+}
+
+
+//編輯星星
+let sheetData ={}; //存放表單資料
+
+function editComment(){
+    const stars = document.querySelectorAll('.stars i');
+    const starContainer = document.querySelector('.star-container');
+
+    starContainer.addEventListener('click',e=>{
+        e.preventDefault();
+        if (e.target.getAttribute('id') !== "starIcon"){
+            return
+        }else{
+            sheetData.starNum = e.target.getAttribute('num-id');
+            for(i= 1 ; i<=5 ; i++){
+                stars.forEach(item=>{
+                    //當num-id的值等於e.target的num-id
+                    if(item.getAttribute('num-id') == i){
+                        item.classList.add(`fa-solid`);
+                    }//當num-id的值小於e.target的num-id
+                    if (item.getAttribute('num-id')<=sheetData.starNum){
+                        item.classList.add(`fa-solid`);
+                        //當num-id的值大於e.target的num-id
+                    }else{
+                        item.classList.remove(`fa-solid`)
+                    }
+                })
+            }
+        };console.log(sheetData.starNum);
+    })
+};
+
+//監聽修改按鈕
+function goEditComment(index){
+    const editCommentBtn = document.querySelector('.editCommentBtn');
+    const myComments = document.getElementById('myComments');
+
+    editCommentBtn.addEventListener('click',e=>{
+        let editData = {};
+        if(sheetData.starNum === undefined){
+            editData.star = postData[index].starNum
+        }else{
+            editData.star = sheetData.starNum;
+        }
+        editData.text = myComments.value;
+        patchComment(editData);
+    })
+};
+
+function patchComment(data){
+    axios.patch(`${url}/comments?id=${postId}`,
+    {
+        "starNum" : data.star,
+        "commentText" : data.text
+    })
+    .then(res=>{
+        console.log(res);
+    })
+    .catch(error=>{
+        console.log(error);
+    })
+}
 
 //刪除貼文
     postsContainer.addEventListener('click',e=>{
@@ -223,7 +376,6 @@ collectContainer.addEventListener('click', e => {
 
     }
 })
-
 
 //編輯個人頁面跳窗
 //編輯名稱
