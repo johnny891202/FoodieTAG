@@ -27802,6 +27802,9 @@ section .container .reset-password form .content .reset-button:hover {
   color: #FFFFFF;
   border-radius: 20px;
 }
+.searching-content .selectTags .allTags a:hover {
+  background-color: #B5A39A;
+}
 .searching-content .restaurantsList {
   width: 70%;
   /* 篩選條件 */
@@ -27827,8 +27830,15 @@ section .container .reset-password form .content .reset-button:hover {
   border-radius: 20px;
   margin-right: 5px;
 }
-.searching-content .restaurantsList .restaurantFilter .searchingTags .clearAllTag {
+.searching-content .restaurantsList .restaurantFilter .searchingTags a:hover {
   background-color: #B5A39A;
+}
+.searching-content .restaurantsList .restaurantFilter .searchingTags .clearAllTag {
+  background-color: #ca3a32;
+}
+.searching-content .restaurantsList .restaurantFilter .searchingTags .clearAllTag:hover {
+  background-color: #ca3a32;
+  opacity: 0.8;
 }
 .searching-content .restaurantsList .restaurantFilter .searchingCondition {
   display: flex;

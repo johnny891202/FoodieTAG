@@ -78,6 +78,9 @@
                 color: #FFFFFF;
                 border-radius: 20px;
             }
+            a:hover{
+                background-color: #B5A39A;
+            }
         }
 
     }
@@ -102,8 +105,15 @@
                     border-radius: 20px;
                     margin-right: 5px;
                 }
-                .clearAllTag{
+                a:hover{
                     background-color: #B5A39A;
+                }
+                .clearAllTag{
+                    background-color: #ca3a32;
+                }
+                .clearAllTag:hover{
+                    background-color: #ca3a32;
+                    opacity: 0.8;
                 }
             }
             /* 搜尋結果 */
