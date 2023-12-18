@@ -61,16 +61,17 @@
       "id": 7
     },
     {
-      "email": "dd@gmail.com",
+      "email": "abc@gmail.com",
       "password": "$2a$10$/wy/M7eW9Nq8bYRBOLGJ1ui1XavQWa2n/QHPPdmV8nRJVJd52zkFS",
-      "userName": "王小美",
+      "userName": "小美",
       "title": "Foodie#學徒",
       "avatar": "../assets/images/memberPage/avatar7.jpeg",
       "collection": [
-        146,
-        107,
-        102
+        102,
+        146
       ],
+      "fbUrl": "test",
+      "igUrl": "test",
       "id": 8
     }
   ],
@@ -3430,7 +3431,7 @@
         "https://lh3.googleusercontent.com/p/AF1QipO7SQ29CVenv7r77yYTGCc75jSC8_5mvITMT_Gh=s1360-w1360-h1020",
         "https://lh3.googleusercontent.com/p/AF1QipNYW7qo0p6Cjo4gWV0dpdSGIELG1HcajJ12mo8l=s1360-w1360-h1020"
       ],
-      "collectionNum": 1,
+      "collectionNum": 2,
       "Px": 121.40663,
       "Py": 25.12533,
       "Stars": 4.5,
@@ -3441,7 +3442,8 @@
         "午餐",
         "沙發",
         "園區",
-        "台北美食"
+        "台北美食",
+        "有免費停車"
       ],
       "fbUrl": "https://www.facebook.com/wisteria.taipei?locale=zh_TW",
       "igUrl": "",
@@ -5033,7 +5035,7 @@
         "https://lh3.googleusercontent.com/p/AF1QipNWQKd7v88r1_vL9YgF2XDhJ0icM2Mhnf5hulH6=s1360-w1360-h1020",
         "https://lh3.googleusercontent.com/p/AF1QipMxXcTWCtWWDU0OEcYd9ylJuL13YUauwoDIGCSQ=s1360-w1360-h1020"
       ],
-      "collectionNum": 22,
+      "collectionNum": 24,
       "Px": 120.308965,
       "Py": 22.623492,
       "Stars": 4.2,

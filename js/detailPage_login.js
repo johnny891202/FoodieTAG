@@ -7,11 +7,12 @@ user.addEventListener('click', e => {
 })
 
 const url = `http://localhost:3000`;
+// const resname = decodeURI(location.href.split("=")[1]);
 let postData = [];
 let favoriteId = [];
 
 //取得餐廳資訊
-const testName = "紫藤花藝村";
+const testName = "藝居酒屋";
 const userAvatar = document.querySelectorAll('.avatar-container');
 //取得localstorage資料
 const userName = document.querySelectorAll('.userName');
@@ -21,19 +22,7 @@ userObj = JSON.parse(userStr); // string轉換成物件
 
 let restaurantDetail = [];
 function init(){
-    //頁面帶入user資訊
-    //因網頁有多個.userName，要用forEach渲染textContent
-    userName.forEach(item => {
-        item.textContent = userObj.userName;
-    });
-    //頭銜
-    userTitle.innerHTML = userObj.title;
-    //頭像
-    userAvatar.forEach(item=>{
-        item.innerHTML = `<img src="${userObj.avatar}" class="user-avatar" alt="user-avatar">`
-    })
-
-    axios.get(`${url}/restaurants?Name=${testName}`)
+    axios.get(`${url}/restaurants?q=${testName}`)
     .then(function(res){
         restaurantDetail = res.data[0];
         console.log(restaurantDetail);
@@ -149,9 +138,24 @@ function getUserData(){
     axios.get(`${url}/users/${userObj.id}`)
     .then(res=>{
         userData = res.data;
-        renderCollectionBtn()
+        renderCollectionBtn();
+        renderUserData()
     })
 };
+
+function renderUserData(){
+    //頁面帶入user資訊
+    //因網頁有多個.userName，要用forEach渲染textContent
+    userName.forEach(item => {
+        item.textContent = userData.userName;
+    });
+    //頭銜
+    userTitle.innerHTML = userData.title;
+    //頭像
+    userAvatar.forEach(item=>{
+        item.innerHTML = `<img src="${userData.avatar}" class="user-avatar" alt="user-avatar">`
+    })
+}
 //加入收藏按鈕狀態
 function renderCollectionBtn(){
     userData.collection.forEach(item=>{
@@ -189,7 +193,7 @@ let a =[]
 sortNew.addEventListener('click',e=>{
     renderComments ();
 });
-
+const writeCommentBtn = document.querySelector('.write-comment-btn');
 function renderComments(){
     let dataSorted = commentsData.sort((a,b)=>{
         let dateA = a.date;
@@ -230,7 +234,6 @@ function renderComments(){
         let checkId = item.getAttribute('user-id');
         if(checkId == userObj.id){
             const textArea = document.querySelector('.text-area');
-            const writeCommentBtn = document.querySelector('.write-comment-btn');
 
             textArea.textContent = `感謝您留下寶貴的評論！`;
             writeCommentBtn.style = "pointer-events:none";
@@ -340,6 +343,8 @@ function rendersortLow (){
     commentContainer.innerHTML = commentStr;
 };
 
+
+
 //我的評論
 //星星數
 const stars = document.querySelectorAll('.stars i');
@@ -351,6 +356,7 @@ starContainer.addEventListener('click',e=>{
     if (e.target.getAttribute('id') !== "starIcon"){
         return
     }else{
+        starContainer.setAttribute('click-star','done')
         sheetData.starNum = e.target.getAttribute('num-id');
         let starNum = e.target.getAttribute('num-id');
         for(i= 1 ; i<=5 ; i++){
@@ -439,15 +445,21 @@ addTag.addEventListener('click',e=>{
         tagsContainer.innerHTML+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${newTagWord}<i class="fa-solid fa-xmark ms-2" value-id="${newTagWord}" id="xmark" style="cursor: pointer;"></i></li>`;
         newTag.value="";
     }
-})
+});
 
-
-//送出我的評論
 const sendCommentBtn = document.querySelector('.sendCommentBtn');
-let newTagsShow
+//送出我的評論
+let newTagsShow;
 sendCommentBtn.addEventListener('click',e=>{
     const myComments = document.getElementById('myComments');
     const addedTag = tagsContainer.querySelectorAll('i'); //標籤內的叉叉
+
+    //判斷使用者是否有新增標籤
+    if(tagsContainer.childElementCount !== 0){
+        tagsContainer.setAttribute('add-tag','done')
+    }else{
+        tagsContainer.setAttribute('add-tag','none')
+    }
     addedTag.forEach(item=>{
         let a = item.getAttribute('value-id');
         tagsShow.push(a)
@@ -477,23 +489,39 @@ sendCommentBtn.addEventListener('click',e=>{
     };
 
     sheetData.date =  `${time.getFullYear()}年${month}月${dates}日  ${hours}:${minutes}`;
-
     sheetData.text = myComments.value;
-    Swal.fire({  //alert套件
-        title: "確定要送出評論嗎？",
-        text:"您的標籤將進行審核，約1~3日審核完畢",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "確定"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire("已送出評論！", "", "success");
-            addNewComment();
-            addTags()
-        };
-    });
+
+    //驗證
+    const starValidate = document.querySelector('.star-validate');
+    const tagValidate = document.querySelector('.tag-validate');
+
+    if(starContainer.getAttribute('click-star') !== "done" && tagsContainer.getAttribute('add-tag') === "done"){
+        starValidate.innerHTML = `整體評分為必填`;
+    }else if(starContainer.getAttribute('click-star') === "done" && tagsContainer.getAttribute('add-tag') !== "done"){
+        tagValidate.innerHTML = `新增標籤為必填`
+    }else if(starContainer.getAttribute('click-star') !== "done" && tagsContainer.getAttribute('add-tag') !== "done"){
+        starValidate.innerHTML = `整體評分為必填`;
+        tagValidate.innerHTML = `新增標籤為必填`
+    }else{
+        starValidate.innerHTML = ``;
+        tagValidate.innerHTML =``;
+        Swal.fire({  //alert套件
+            title: "確定要送出評論嗎？",
+            text:"您的標籤將進行審核，約1~3日審核完畢",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "確定"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire("已送出評論！", "", "success");
+                addNewComment();
+                addTags()
+            };
+        });
+    }
+
 });
 
 function addNewComment(){

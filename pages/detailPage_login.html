@@ -116,17 +116,17 @@
               <p class="mb-0 userName"></p>
             </div>
             <div>
-              <p class="mb-3 fs-5 fw-bold">整體評分</p>
-              <div class="d-flex align-items-center mb-3">
+              <span class="mb-3 fs-5 fw-bold">整體評分</span><span class="fst-italic fs-3 text-grey-400">  必填</span>
+              <div class="d-flex align-items-center">
                 <div class="me-5 star-container">
                     <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="1"></i></a>
                     <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="2"></i></a>
                     <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="3"></i></a>
                     <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="4"></i></a>
                     <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="5"></i></a>
-
                   </div>
               </div>
+              <div class="star-validate"></div>
             </div>
           </div>
           <button type="button" class="btn w-25 mx-auto shadow-sm btn-primary-300 text-white px-10 py-3 fw-bold fs-3 mb-3">新增照片</button>
@@ -192,9 +192,10 @@
             </div>
           </div>
           <div class="d-flex flex-column mx-10">
-            <p class="d-inline fw-bold mb-2">新增的標籤</p>
-            <ul class="tagsContainer overflow-auto bg-primary-100 mb-4 list-unstyled p-3 d-flex flex-wrap">
+            <div><span class="d-inline fw-bold mb-2">新增的標籤</span><span class="fst-italic fs-3 text-grey-400">  必填</span></div>
+            <ul class="tagsContainer overflow-auto bg-primary-100 list-unstyled p-3 d-flex flex-wrap mb-0">
             </ul>
+            <span class="tag-validate mb-4"></span>
             <p class="d-inline fw-bold mb-2">動手輸入自訂標籤！</p>
             <div class="d-flex">
               <input type="text" placeholder="請輸入文字" class="border border-primary-300 rounded me-2 p-1 text-grey-400 fs-3" id="newTag">
@@ -205,7 +206,7 @@
           </div>
         </div>
         <div class="modal-footer col-lg-8 border-0 mb-10 d-flex mx-auto">
-          <button type="button" class="sendCommentBtn btn shadow-sm btn-primary-400 text-white px-3 py-1 fs-3 me-2 fw-bold">送出</button>
+          <button type="button" class="sendCommentBtn btn shadow-sm btn-primary-400 text-white px-3 py-1 fs-3 me-2 fw-bold" >送出</button>
           <button type="button" class="btn shadow-sm btn-grey-200 text-grey-400 px-3 py-1 fs-3 fw-bold " data-bs-dismiss="modal">取消</button>
         </div>
       </div>
@@ -243,6 +244,7 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
     <script src="../js/detailPage_login.js"></script>
     <script src="../js/all.js"></script>
   </body> 

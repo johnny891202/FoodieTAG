@@ -32,7 +32,7 @@
             <div class="user-cover d-block w-100 position-relative">
                 <button type="button" class="btn btn-primary-200 position-absolute user-edit-icon fs-4 link-grey-400 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <i class="fa-solid fa-pen"></i>
-                    <span class="ms-2">編輯個人資訊</span></button>
+                    <span class="ms-2" id="editBtn">編輯個人資訊</span></button>
                 <div class="container pt-30">
                     <div class="d-flex justify-content-evenly">
                         <div class="d-flex flex-column align-items-center">
@@ -101,19 +101,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex mt-20">
-                            <div>
-                                <a href="# " class="mt-18 fs-5 link-primary-400 d-flex align-items-center">
-                                <i class="fa-brands fa-instagram me-3 h3"></i>
-                                <span class="border-end pe-25">example123</span>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="# " class="mt-18 fs-5 link-primary-400 d-flex align-items-center ms-25">
-                                <i class="fa-brands fa-facebook me-3 h3"></i>
-                                <span class=" pe-25">example123</span>
-                                </a>
-                            </div>
+                        <div class="d-flex mt-20" id="social-container">
                         </div>
                     </div>
                 </div>
@@ -161,55 +149,24 @@
         <!-- 編輯個人資訊跳窗 -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-            <h5 class="modal-title m-3 text-primary-400" id="exampleModalLabel"><i class="fa-solid fa-pen me-3 text-primary-400"></i>個人資訊</h5>
-            </div>
-            <div class="modal-body">
-                <div>
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                <h5 class="modal-title m-3 text-primary-400" id="exampleModalLabel"><i class="fa-solid fa-pen me-3 text-primary-400"></i>個人資訊</h5>
+                </div>
+                <div class="modal-body">
                     <div class="d-flex justify-content-evenly my-5">
-                        <div class="avatar-change d-flex align-items-center justify-content-center"><a href="#" class="text-decoration-none text-primary-300">更換頭像</a></div>
-                        <div class="cover-change d-flex align-items-center justify-content-center"><a href="#" class="text-decoration-none text-primary-300">更換封面</a></div>
+                        <div class="d-flex align-items-center justify-content-center position-relative">
+                            <div class="avatar-container d-inline"></div> <a href="#" class="text-decoration-none text-white position-absolute top-50 start-50 translate-middle ">更換頭像</a></div>
+                        <div class="cover-change d-flex align-items-center justify-content-center position-relative"><img src="../assets/images/memberPage/user-cover2.jpeg" class="avatar" alt="avatar"><a href="#" class="text-decoration-none text-primary-300 position-absolute top-50 start-50 translate-middle">更換封面</a></div>
                     </div>
-                    <div class="mx-10 my-5 py-5 border-top d-flex flex-column ">
-                        <div class="edit-name-container d-flex justify-content-between mx-30 mb-5">
-                            <div>
-                                <span class="text-grey-500 fw-bold me-5 ">名稱：</span>
-                                <span class="userName text-primary-400 fs-4"></span>
-                            </div>
-                            <a href="#" class="edit-name-btn text-decoration-none link-grey-300 text-end">編輯</a>
-                        </div>
-                        <div class="d-flex justify-content-between mx-30 mb-5">
-                            <div>
-                                <span class="text-grey-500 fw-bold me-5 ">Email：</span>
-                                <span class="userEmail text-primary-400 fs-4"></span>
-                            </div>
-                            <a href="#" class="text-decoration-none link-grey-300 ">編輯</a>
-                        </div>
-                        <div class="d-flex justify-content-between mx-30 mb-5">
-                            <div>
-                                <span class="text-grey-500 fw-bold me-5 ">Facebook：</span>
-                                <span class=" text-grey-300">未設定</span>
-                            </div>
-                            <a href="#" class="text-decoration-none link-grey-300 text-end">編輯</a>
-                        </div>
-                        <div class="d-flex justify-content-between mx-30 mb-5">
-                            <div>
-                                <span class="text-grey-500 fw-bold me-5 ">Instagram：</span>
-                                <span class=" text-grey-300 ">未設定</span>
-                            </div>
-                            <a href="#" class="text-decoration-none link-grey-300 text-end">編輯</a>
-                        </div>
+                    <div class="edit-container mx-10 mt-5 py-5 border-top d-flex flex-column" id="editContainer">
                     </div>
                 </div>
             </div>
-            <div class="modal-footer px-5 py-2 border-0">
-            <button type="button" class="btn btn-primary-300">保存</button>
-            <button type="button" class="btn btn-grey-300 text-white" data-bs-dismiss="modal">取消</button>
-            </div>
-        </div>
         </div>
     </div>
+
+
 
         <section>
             <div class="container">

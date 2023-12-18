@@ -119,3 +119,10 @@
     color: $white;
     pointer-events:none;
 }
+
+//驗證
+.star-validate,.tag-validate {
+    color: 	#CE0000;
+    font-size: 13px;
+    font-style: italic;
+}
