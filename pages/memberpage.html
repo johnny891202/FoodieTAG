@@ -32,7 +32,7 @@
             <div class="user-cover d-block w-100 position-relative">
                 <button type="button" class="btn btn-primary-200 position-absolute user-edit-icon fs-4 link-grey-400 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <i class="fa-solid fa-pen"></i>
-                    <span class="ms-2">編輯個人資訊</span></button>
+                    <span class="ms-2" id="editBtn">編輯個人資訊</span></button>
                 <div class="container pt-30">
                     <div class="d-flex justify-content-evenly">
                         <div class="d-flex flex-column align-items-center">
@@ -101,77 +101,72 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex mt-20">
-                            <div>
-                                <a href="# " class="mt-18 fs-5 link-primary-400 d-flex align-items-center">
-                                <i class="fa-brands fa-instagram me-3 h3"></i>
-                                <span class="border-end pe-25">example123</span>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="# " class="mt-18 fs-5 link-primary-400 d-flex align-items-center ms-25">
-                                <i class="fa-brands fa-facebook me-3 h3"></i>
-                                <span class=" pe-25">example123</span>
-                                </a>
-                            </div>
+                        <div class="d-flex mt-20" id="social-container">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- 編輯評論跳窗 -->
+<div class="modal fade" id="myComment" tabindex="-1" aria-labelledby="myCommentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content row">
+          <div class="modal-header border-0 mt-10 mb-3 col-lg-8 mx-auto">
+            <h4 class="modal-title" id="myCommentLabel"></h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body col-lg-9 d-flex flex-column mx-auto">
+            <div class="d-flex align-items-center mx-10 border-bottom mb-6 pb-3 justify-content-evenly">
+              <div class="d-flex flex-column align-items-center me-10">
+                <div class="avatar-container mb-3 "></div>
+                <p class="mb-0 userName"></p>
+              </div>
+              <div>
+                <p class="mb-3 fs-5 fw-bold">整體評分</p>
+                <div class="d-flex align-items-center mb-3">
+                  <div class="me-5 star-container">
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="1"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="2"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="3"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="4"></i></a>
+                      <a href="#" class="stars"><i class="fa-regular fa-star fs-5" id="starIcon" style="color: #f5cd05;" num-id="5"></i></a>
+
+                    </div>
+                </div>
+              </div>
+            </div>
+            <textarea name="myComments" id="myComments" rows="3" class="border-primary-300 p-3 rounded fs-3 mx-10" placeholder="請輸入評論內容" style="resize:none"></textarea>
+          </div>
+          <div class="modal-footer col-lg-8 border-0 mb-10 d-flex mx-auto">
+            <button type="button" class="sendCommentBtn btn shadow-sm btn-primary-400 text-white px-3 py-1 fs-3 me-2 fw-bold">送出</button>
+            <button type="button" class="btn shadow-sm btn-grey-200 text-grey-400 px-3 py-1 fs-3 fw-bold " data-bs-dismiss="modal">取消</button>
+          </div>
+        </div>
+      </div>
+</div>
+
         <!-- 編輯個人資訊跳窗 -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-            <h5 class="modal-title m-3 text-primary-400" id="exampleModalLabel"><i class="fa-solid fa-pen me-3 text-primary-400"></i>個人資訊</h5>
-            </div>
-            <div class="modal-body">
-                <div>
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                <h5 class="modal-title m-3 text-primary-400" id="exampleModalLabel"><i class="fa-solid fa-pen me-3 text-primary-400"></i>個人資訊</h5>
+                </div>
+                <div class="modal-body">
                     <div class="d-flex justify-content-evenly my-5">
-                        <div class="avatar-change d-flex align-items-center justify-content-center"><a href="#" class="text-decoration-none text-primary-300">更換頭像</a></div>
-                        <div class="cover-change d-flex align-items-center justify-content-center"><a href="#" class="text-decoration-none text-primary-300">更換封面</a></div>
+                        <div class="d-flex align-items-center justify-content-center position-relative">
+                            <div class="avatar-container d-inline"></div> <a href="#" class="text-decoration-none text-white position-absolute top-50 start-50 translate-middle ">更換頭像</a></div>
+                        <div class="cover-change d-flex align-items-center justify-content-center position-relative"><img src="../assets/images/memberPage/user-cover2.jpeg" class="avatar" alt="avatar"><a href="#" class="text-decoration-none text-primary-300 position-absolute top-50 start-50 translate-middle">更換封面</a></div>
                     </div>
-                    <div class="mx-10 my-5 py-5 border-top d-flex flex-column ">
-                        <div class="edit-name-container d-flex justify-content-between mx-30 mb-5">
-                            <div>
-                                <span class="text-grey-500 fw-bold me-5 ">名稱：</span>
-                                <span class="userName text-primary-400 fs-4"></span>
-                            </div>
-                            <a href="#" class="edit-name-btn text-decoration-none link-grey-300 text-end">編輯</a>
-                        </div>
-                        <div class="d-flex justify-content-between mx-30 mb-5">
-                            <div>
-                                <span class="text-grey-500 fw-bold me-5 ">Email：</span>
-                                <span class="userEmail text-primary-400 fs-4"></span>
-                            </div>
-                            <a href="#" class="text-decoration-none link-grey-300 ">編輯</a>
-                        </div>
-                        <div class="d-flex justify-content-between mx-30 mb-5">
-                            <div>
-                                <span class="text-grey-500 fw-bold me-5 ">Facebook：</span>
-                                <span class=" text-grey-300">未設定</span>
-                            </div>
-                            <a href="#" class="text-decoration-none link-grey-300 text-end">編輯</a>
-                        </div>
-                        <div class="d-flex justify-content-between mx-30 mb-5">
-                            <div>
-                                <span class="text-grey-500 fw-bold me-5 ">Instagram：</span>
-                                <span class=" text-grey-300 ">未設定</span>
-                            </div>
-                            <a href="#" class="text-decoration-none link-grey-300 text-end">編輯</a>
-                        </div>
+                    <div class="edit-container mx-10 mt-5 py-5 border-top d-flex flex-column" id="editContainer">
                     </div>
                 </div>
             </div>
-            <div class="modal-footer px-5 py-2 border-0">
-            <button type="button" class="btn btn-primary-300">保存</button>
-            <button type="button" class="btn btn-grey-300 text-white" data-bs-dismiss="modal">取消</button>
-            </div>
-        </div>
         </div>
     </div>
+
+
 
         <section>
             <div class="container">
@@ -183,6 +178,7 @@
                     <button class="nav-link border-0 border-bottom fs-5" id="nav-collect-tab" data-bs-toggle="tab" data-bs-target="#nav-collect" type="button" role="tab" aria-controls="nav-collect" aria-selected="false">所有收藏<span class="fs-4 text-grey-300 ms-3">共 <span id="collectNum">0</span> 間</span></button>
                     </div>
                 </nav>
+                <!-- 我的評論 -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
                         <div class="posts-container px-40 py-20 d-flex flex-column align-items-center"></div>

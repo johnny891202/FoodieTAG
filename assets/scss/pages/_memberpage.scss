@@ -72,13 +72,8 @@
 }
 
 //編輯個人資訊跳窗
-//頭像
-.avatar-change,
-.cover-change {
-  background-color: $primary-100;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.input-set {
+  outline: none;
 }
 
 //我的評論

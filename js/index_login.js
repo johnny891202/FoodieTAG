@@ -8,9 +8,9 @@ user.addEventListener('click', e => {
 
 //menu登入後帶入user名稱
 const userName = document.getElementById('userName');
-userNameStr = localStorage.getItem('user'); //取出localStorage的值(string)
-userNameObj = JSON.parse(userNameStr); // string轉換成物件
-userName.textContent = userNameObj.userName; //取得裡面的username屬性，選染到畫面
+userStr = localStorage.getItem('user'); //取出localStorage的值(string)
+userObj = JSON.parse(userStr); // string轉換成物件
+let userData={};
 
 //登出後回到未登入的index.html
 const logoutLink = document.querySelector(".logoutLink");
@@ -57,7 +57,6 @@ window.addEventListener('click', e => {
 
 })
 
-//搜尋bar
 const _url = "http://localhost:3000";
 const searchBtn = document.getElementById('searchBtn');
 
@@ -67,6 +66,15 @@ function init() {
         .then(function (response) {
             resturantData = response.data;
         })
+        .catch(error=>{
+            console.log(error);
+        })
+    axios.get(`${_url}/users/${userObj.id}`)
+    .then(res=>{
+        userData = res.data;
+        userName.textContent = userData.userName
+    })
+
 };
 
 searchBtn.addEventListener('click', function (e) {

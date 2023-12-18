@@ -61,16 +61,17 @@
       "id": 7
     },
     {
-      "email": "dd@gmail.com",
+      "email": "abc@gmail.com",
       "password": "$2a$10$/wy/M7eW9Nq8bYRBOLGJ1ui1XavQWa2n/QHPPdmV8nRJVJd52zkFS",
-      "userName": "王小美",
+      "userName": "小美",
       "title": "Foodie#學徒",
       "avatar": "../assets/images/memberPage/avatar7.jpeg",
       "collection": [
-        146,
-        107,
-        102
+        102,
+        146
       ],
+      "fbUrl": "test",
+      "igUrl": "test",
       "id": 8
     }
   ],
@@ -128,13 +129,13 @@
       "id": 4
     },
     {
-      "resturantName": "藝居酒屋",
-      "starNum": "3",
-      "commentText": "迷人的居酒屋散發著誘人的美味香氣，各式美味料理結合著精釀酒品，令人陶醉於美好的用餐體驗中。",
-      "date": "2023年12月16日  22:55",
+      "resturantName": "泰味廚房",
+      "starNum": "4",
+      "commentText": "這家泰式餐廳風格獨特，每一道菜都散發出正宗泰國風味，香料與香草交織出誘人的香氣。辛香酸甜的口感完美平衡，令人陶醉。質感豐富的菜色與獨特的烹飪技巧，讓用餐成為一場美妙的泰式美食冒險。",
+      "date": "2023年12月17日  00:10",
       "userId": 8,
-      "restaurantId": 146,
-      "id": 6
+      "restaurantId": 102,
+      "id": 7
     }
   ],
   "restaurants": [
@@ -3430,7 +3431,7 @@
         "https://lh3.googleusercontent.com/p/AF1QipO7SQ29CVenv7r77yYTGCc75jSC8_5mvITMT_Gh=s1360-w1360-h1020",
         "https://lh3.googleusercontent.com/p/AF1QipNYW7qo0p6Cjo4gWV0dpdSGIELG1HcajJ12mo8l=s1360-w1360-h1020"
       ],
-      "collectionNum": 1,
+      "collectionNum": 2,
       "Px": 121.40663,
       "Py": 25.12533,
       "Stars": 4.5,
@@ -3441,7 +3442,8 @@
         "午餐",
         "沙發",
         "園區",
-        "台北美食"
+        "台北美食",
+        "有免費停車"
       ],
       "fbUrl": "https://www.facebook.com/wisteria.taipei?locale=zh_TW",
       "igUrl": "",
@@ -3478,7 +3480,8 @@
         "聚餐",
         "老闆幽默",
         "茶碗蒸",
-        "台北美食"
+        "台北美食",
+        "冷氣很涼"
       ],
       "fbUrl": "https://www.facebook.com/profile.php?id=100063772581923&locale=zh_TW",
       "igUrl": "",
@@ -5032,7 +5035,7 @@
         "https://lh3.googleusercontent.com/p/AF1QipNWQKd7v88r1_vL9YgF2XDhJ0icM2Mhnf5hulH6=s1360-w1360-h1020",
         "https://lh3.googleusercontent.com/p/AF1QipMxXcTWCtWWDU0OEcYd9ylJuL13YUauwoDIGCSQ=s1360-w1360-h1020"
       ],
-      "collectionNum": 22,
+      "collectionNum": 24,
       "Px": 120.308965,
       "Py": 22.623492,
       "Stars": 4.2,

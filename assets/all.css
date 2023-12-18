@@ -27800,12 +27800,8 @@ section .container .reset-password form .content .reset-button:hover {
   padding-left: 300px;
 }
 
-.avatar-change,
-.cover-change {
-  background-color: #FAF7F5;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.input-set {
+  outline: none;
 }
 
 .comment-user-photo {
@@ -27967,6 +27963,12 @@ section .container .reset-password form .content .reset-button:hover {
   background-color: #6B5A52;
   color: #FFFFFF;
   pointer-events: none;
+}
+
+.star-validate, .tag-validate {
+  color: #CE0000;
+  font-size: 13px;
+  font-style: italic;
 }
 
 /* 搜尋欄位 */
