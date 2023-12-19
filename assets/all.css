@@ -26922,6 +26922,14 @@ textarea.form-control-lg {
      object-position: 50% 20%;
 }
 
+#swal2-title {
+  font-size: 20px;
+}
+
+#swal2-html-container {
+  font-size: 16px;
+}
+
 h1 a, .h1 a {
   background-image: url(./images/logo_big.svg);
   display: block;

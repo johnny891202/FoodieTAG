@@ -1,3 +1,5 @@
+//json-server-auth db.json
+
 //已登入會員nav-bar
 const user = document.getElementById('user');
 const userBar = document.getElementById('userBar');
@@ -29,6 +31,7 @@ function init(){
         renderRestaurantDetail();
         getComments();
         getUserData();
+        getTagData()
     })
     .catch(function(error){
         console.log(error);
@@ -187,7 +190,8 @@ function getComments(){
 const commentContainer = document.querySelector('.comment-container');
 const sortNew = document.querySelector('.sort-new');
 const commentNum = document.getElementById('commentNum');
-let a =[]
+let a =[];
+let tagData = [];
 
 //監聽最新按鈕(預設按最新排序)
 sortNew.addEventListener('click',e=>{
@@ -242,6 +246,23 @@ function renderComments(){
         }
     });
 };
+
+//取得資料庫所有標籤
+let allTagNameData = []; //資料庫所有標籤名
+
+function getTagData(){
+    axios.get(`${url}/allTags`)
+    .then(res=>{
+        tagData = res.data;
+        console.log(tagData);
+        tagData.forEach(item=>{
+            allTagNameData.push(item.TagName);
+        })
+    })
+    .catch(error=>{
+        console.log(error.data);
+    })
+}
 
 //評論排序
 //最高
@@ -372,8 +393,13 @@ starContainer.addEventListener('click',e=>{
                     item.classList.remove(`fa-solid`)
                 }
             })
+        };
+        if(starValidate.textContent === `整體評分為必填`){
+            starValidate.style.display = "none"
+        }else{
+            starValidate.style.display = "block"
         }
-    }
+    };
 })
 
 //加入指定標籤
@@ -388,7 +414,12 @@ tagSelect.addEventListener('click',e=>{
     }else{
         tagArr.push(e.target.textContent);
         tagsContainer.innerHTML+=`<li class="d-inline me-4 mb-2 fs-3 fw-bold text-white bg-primary-400 py-1 px-3 rounded-pill">${e.target.textContent}<i class="fa-solid fa-xmark ms-2" value-id="${e.target.textContent}" id="xmark" style="cursor: pointer;"></i></li>`;
-        e.target.classList.add('add-tag')
+        e.target.classList.add('add-tag');
+
+        if(tagValidate.textContent === `新增標籤為必選`){
+            tagValidate.style.display = "none";
+            tagsContainer.setAttribute('add-tag',"done");
+        }
     }
 });
 
@@ -448,9 +479,14 @@ addTag.addEventListener('click',e=>{
 });
 
 const sendCommentBtn = document.querySelector('.sendCommentBtn');
+const starValidate = document.querySelector('.star-validate');
+const tagValidate = document.querySelector('.tag-validate');
 //送出我的評論
 let newTagsShow;
+let newResult=[]; //資料庫內還沒有的標籤
+let oldTag = [];//資料庫內有的標籤
 sendCommentBtn.addEventListener('click',e=>{
+    let newallTagName=[];
     const myComments = document.getElementById('myComments');
     const addedTag = tagsContainer.querySelectorAll('i'); //標籤內的叉叉
 
@@ -462,9 +498,20 @@ sendCommentBtn.addEventListener('click',e=>{
     }
     addedTag.forEach(item=>{
         let a = item.getAttribute('value-id');
-        tagsShow.push(a)
+        tagsShow.push(a);
+        newallTagName.push(a);
     });
     newTagsShow = Array.from(new Set(tagsShow)); //排除重複的標籤
+
+    let result = newallTagName.filter(item=>{
+        return !allTagNameData.includes(item);
+    });
+    newResult = Array.from(new Set(result)) //使用者新增沒有在資料庫的標籤
+
+    let history = newallTagName.filter(item=>{
+        return allTagNameData.includes(item);
+    });
+    oldTag = Array.from(new Set(history)) //使用者新增已經有在資料庫的標籤
 
     //取得當前時間
     let time = new Date()
@@ -492,16 +539,15 @@ sendCommentBtn.addEventListener('click',e=>{
     sheetData.text = myComments.value;
 
     //驗證
-    const starValidate = document.querySelector('.star-validate');
-    const tagValidate = document.querySelector('.tag-validate');
 
     if(starContainer.getAttribute('click-star') !== "done" && tagsContainer.getAttribute('add-tag') === "done"){
         starValidate.innerHTML = `整體評分為必填`;
     }else if(starContainer.getAttribute('click-star') === "done" && tagsContainer.getAttribute('add-tag') !== "done"){
-        tagValidate.innerHTML = `新增標籤為必填`
+        tagValidate.style.display = `block`;
+        tagValidate.innerHTML = `新增標籤為必選`
     }else if(starContainer.getAttribute('click-star') !== "done" && tagsContainer.getAttribute('add-tag') !== "done"){
         starValidate.innerHTML = `整體評分為必填`;
-        tagValidate.innerHTML = `新增標籤為必填`
+        tagValidate.innerHTML = `新增標籤為必選`
     }else{
         starValidate.innerHTML = ``;
         tagValidate.innerHTML =``;
@@ -509,23 +555,81 @@ sendCommentBtn.addEventListener('click',e=>{
             title: "確定要送出評論嗎？",
             text:"您的標籤將進行審核，約1~3日審核完畢",
             icon: "warning",
+            iconColor:"#6B5A52",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "確定"
+            confirmButtonColor: "#6B5A52",
+            confirmButtonText: "確定",
+            cancelButtonColor: "#A0A0A0",
+            cancelButtonText:"取消"
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire("已送出評論！", "", "success");
-                addNewComment();
-                addTags()
+                Swal.fire({
+                    text:"已送出評論！",
+                    icon:  "success",
+                    iconColor:"#6B5A52",
+                    confirmButtonColor: "#6B5A52",
+                });
+                addNewComment(); //資料庫新增評論
+                addTags(); //資料庫新增餐廳標籤
+                userAddTagg(); //資料庫增加使用者貢獻標籤數
+                addAllTag(); //資料庫增加未增加過的標籤
+                plusTagNum(); //資料庫已有的標籤，被上標籤數量增加
             };
         });
     }
 
 });
 
+function plusTagNum(){
+    let arr =[];
+    console.log(oldTag);
+    for(let el of oldTag){
+        tagData.forEach(item=>{
+            if (el === item.TagName){
+                let obj = {};
+                obj.tagName = item.TagName;
+                obj.addNum = item.addNum+=1;
+                obj.id = item.id
+                arr.push(obj)
+            }
+        });console.log(arr);
+    };
+    patchTagNum(arr)
+};
+
+function patchTagNum(arr){
+    arr.forEach(item=>{
+        axios.patch(`${url}/allTags/${item.id}`,
+        {
+            TagName: item.tagName,
+            addNum : item.addNum
+        })
+    })
+    .then(res=>{
+        console.log(res);
+    })
+    .catch(error=>{
+        console.log(error.data);
+    })
+}
+
+function addAllTag(){
+    newResult.forEach(item=>{
+        axios.post(`${url}/allTags`,
+        {
+            "TagName":item,
+            "addNum":1
+        })
+    })
+    .then(res=>{
+        console.log(res);
+    })
+    .catch(error=>{
+        console.log(error.data);
+    })
+}
+
 function addNewComment(){
-    //db.json新增評論
     axios.post(`${url}/comments`,
     {
         "resturantName": restaurantDetail.Name,
@@ -544,7 +648,6 @@ function addNewComment(){
 }
 
 function addTags(){
-    //db.json新增餐廳標籤
     axios.patch(`${url}/restaurants/${restaurantDetail.id}`,
     {
         "Tags": newTagsShow,
@@ -557,8 +660,22 @@ function addTags(){
     });
 };
 
+function userAddTagg(){
+    let userAddNum = tagsContainer.childElementCount;
+    axios.patch(`${url}/users/${userData.id}`,
+    {
+        "addTagNum" : userAddNum + userData.addTagNum
+    })
+    .then(res=>{
+        console.log(res);
+    })
+    .catch(error=>{
+        console.log(error.data);
+    })
+}
+
 // function deleteTest(){
-//     axios.delete(`${url}/comments/28`)
+//     axios.delete(`${url}/comments/5`)
 //     .then(res=>{
 //         console.log(res);
 //     })
@@ -566,6 +683,8 @@ function addTags(){
 //         console.log(error);
 //     })
 // }
+// deleteTest()
+
 
 //加入收藏按鈕
 let usercollection =[];
@@ -662,3 +781,25 @@ function patchRestaurantcollectionNumAdd(num){
         console.log(error);
     })
 }
+
+
+//推薦既有標籤
+const recommendTagsContainer = document.querySelector('.recommendTagsContainer');
+
+newTag.addEventListener('input',e=>{
+    let newTagValue = newTag.value
+    console.log( newTagValue);
+
+    let count = 0;
+    // recommendTagsContainer.innerHTML=``
+    tagData.forEach(item=>{
+        if(count<3 &&item.TagName.includes(newTagValue &&newTagValue.length>2)){
+            recommendTagsContainer.innerHTML+=`<a href="#">
+            <li class="tag me-4 mb-2 bg-primary-400 text-white" id="tags" value-id="${item.TagName}">${item.TagName}</li></a>`;
+            count++;}
+        // }else if(newTagValue ===""){
+        //     recommendTagsContainer.innerHTML=``;
+        // }
+
+    })
+})
