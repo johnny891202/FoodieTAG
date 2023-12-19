@@ -72,6 +72,7 @@
       ],
       "fbUrl": "test",
       "igUrl": "test",
+      "addTagNum": 14,
       "id": 8
     }
   ],
@@ -127,15 +128,6 @@
       "userId": 5,
       "restaurantId": 146,
       "id": 4
-    },
-    {
-      "resturantName": "泰味廚房",
-      "starNum": "4",
-      "commentText": "這家泰式餐廳風格獨特，每一道菜都散發出正宗泰國風味，香料與香草交織出誘人的香氣。辛香酸甜的口感完美平衡，令人陶醉。質感豐富的菜色與獨特的烹飪技巧，讓用餐成為一場美妙的泰式美食冒險。",
-      "date": "2023年12月17日  00:10",
-      "userId": 8,
-      "restaurantId": 102,
-      "id": 7
     }
   ],
   "restaurants": [
@@ -5055,7 +5047,12 @@
         "店員親切",
         "服務到位",
         "桌椅乾淨",
-        "好美味"
+        "好美味",
+        "廁所乾淨",
+        "慶生活動",
+        "裝潢精緻",
+        "有帥哥",
+        "包廂"
       ],
       "fbUrl": "https://www.facebook.com/eatizakaga?locale=zh_TW",
       "igUrl": "https://www.instagram.com/gei.izakaya/",
@@ -6719,6 +6716,73 @@
       "fbUrl": "https://www.facebook.com/wangancafe/?locale=zh_TW",
       "igUrl": "",
       "id": 198
+    }
+  ],
+  "allTags": [
+    {
+      "TagName": "服務親切",
+      "addNum": 1,
+      "id": 1
+    },
+    {
+      "TagName": "店員都很帥",
+      "addNum": 1,
+      "id": 2
+    },
+    {
+      "TagName": "有帥哥",
+      "addNum": 2,
+      "id": 3
+    },
+    {
+      "TagName": "店員很可愛",
+      "addNum": 1,
+      "id": 4
+    },
+    {
+      "TagName": "高級感",
+      "addNum": 1,
+      "id": 6
+    },
+    {
+      "TagName": "裝潢精緻,",
+      "addNum": 1,
+      "id": 7
+    },
+    {
+      "TagName": "服務到位,",
+      "addNum": 1,
+      "id": 8
+    },
+    {
+      "TagName": "插座",
+      "addNum": 1,
+      "id": 9
+    },
+    {
+      "TagName": "服務到位",
+      "addNum": 1,
+      "id": 10
+    },
+    {
+      "TagName": "裝潢精緻",
+      "addNum": 1,
+      "id": 11
+    },
+    {
+      "TagName": "慶生活動",
+      "addNum": 1,
+      "id": 12
+    },
+    {
+      "TagName": "店員親切",
+      "addNum": 1,
+      "id": 13
+    },
+    {
+      "TagName": "包廂",
+      "addNum": 1,
+      "id": 14
     }
   ]
 }

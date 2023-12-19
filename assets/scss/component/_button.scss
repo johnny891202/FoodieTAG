@@ -104,3 +104,12 @@
     object-fit: cover;
     object-position: 50% 20%;
 }
+
+//sweetalert 文字大小
+#swal2-title { //標題
+    font-size: 20px;
+};
+
+#swal2-html-container{ //內文
+    font-size: 16px;
+}

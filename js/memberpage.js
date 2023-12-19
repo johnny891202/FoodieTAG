@@ -16,6 +16,7 @@ userObj = JSON.parse(userStr); // string轉換成物件
 let postData = [];
 let favoriteId = [];
 let userData={};
+const tagsNum =document.querySelector('.tags-num ');
 
 function init() {
     //get貼文資料
@@ -120,6 +121,9 @@ function getUserData(userData){
         <span class=" pe-25">Facebook</span>
         </a>
         </div>`
+
+    //渲染已貢獻Tag數
+    tagsNum.textContent = userData.addTagNum;
 }
 
 //再取得收藏的餐廳名字＋圖片
@@ -256,7 +260,7 @@ function getEditComment(id){
                 <div class="d-flex align-items-center mx-10 border-bottom mb-6 pb-3 justify-content-evenly">
                   <div class="d-flex flex-column align-items-center me-10">
                     <div class="avatar-container mb-3 "><img src="${userObj.avatar}" alt="avatar" class="avatar"></div>
-                    <p class="mb-0 userName">${userObj.userName}</p>
+                    <p class="mb-0 userName">${userData.userName}</p>
                   </div>
                   <div>
                     <p class="mb-3 fs-5 fw-bold">整體評分</p>
@@ -390,15 +394,17 @@ function patchComment(data){
         Swal.fire({  //alert套件
             title: "確定要刪除評論嗎？",
             icon: "warning",
+            iconColor:"#6B5A52",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "確定"
-          }).then((result) => {
+            confirmButtonColor: "#6B5A52",
+            confirmButtonText: "確定",
+            cancelButtonColor: "#A0A0A0",
+            cancelButtonText:"取消"
+        }).then((result) => {
             if (result.isConfirmed) {
-              deletePost(postId);
+            deletePost(postId);
             };
-          });
+        });
 
 })
 
@@ -481,4 +487,169 @@ function startSaveBtn(){
             console.log(error);
         })
     }
-}
+};
+
+
+//上傳頭像
+// const imgurToken = `f68808c048d71ea123185d81896ed818f28f892b`
+// const uploadAvatarBtn = document.querySelector('.upload-avatar-btn');
+// const albumHash = `8HOvJPE`;
+// let formData = new FormData();
+
+//  formData.append('image', this.file); //required
+//  formData.append('title', 'test'); //optional
+//  formData.append('description', 'test'); //optional
+
+// uploadAvatarBtn.addEventListener("click",e=>{
+//     e.preventDefault();
+//     uploadAvatarFn ()
+// })
+
+// function uploadAvatarFn (){
+//     axios({
+//         method: 'POST',
+//         url: 'https://api.imgur.com/3/upload',
+//         data: formData,
+//         headers: {
+//         Authorization: `Client-ID e6e94c313573945` //放置你剛剛申請的Client-ID
+//         },
+//         mimeType: 'multipart/form-data'
+//         }).then(res => {
+//           console.log(res)
+//         }).catch(e => {
+//           console.log(e)
+//      })
+
+// }
+
+// formData.append('file-to-upload', e.target.form[0].files[0]);
+// axios.post('/api/v1/upload', formData, {
+// headers: {
+//   'Content-Type': 'multipart/form-data',
+// },
+// })
+// .then((data) => {
+// console.log(data)
+// })
+// .catch(error => console.log(error));
+
+// //multer
+// const upload = multer({
+//     limits: {
+//       fileSize: 2 * 1024 * 1024,
+//     },
+//     fileFilter(req, file, cb) {
+//       const ext = path.extname(file.originalname).toLowerCase();
+//       if (ext !== '.jpg' && ext !== '.png' && ext !== '.jpeg') {
+//         cb('檔案格式錯誤，僅限上傳 jpg、jpeg 與 png 格式。');
+//       }
+//       cb(null, true);
+//     },
+//   }).any();
+
+
+// const { ImgurClient } = require('imgur');
+
+// router.post('/', function(req, res, next) {
+//   upload(req, res, async () => {
+//     const client = new ImgurClient({
+//       clientId: process.env.e6e94c313573945,
+//       clientSecret: process.env.IMGUR_CLIENT_SECRET,
+//       refreshToken: process.env.IMGUR_REFRESH_TOKEN,
+//     });
+//     const response = await client.upload({
+//       image: req.files[0].buffer.toString('base64'),
+//       type: 'base64',
+//       album: process.env.IMGUR_ALBUM_ID
+//     });
+//     res.send({ url: response.data.link });
+//   })
+// });
+
+
+// // multer.js
+// const multer = require('multer')
+
+// const upload = multer({ dest: 'public/avataruploads/' }) // 指定圖片存放在伺服器的哪裡
+
+// module.exports = upload
+
+// const upload = require('../../middleware/multer') // 引入中間件 upload
+
+// // 以下是我的路由
+// NewsRouter.post(
+//   '/contentImg',
+//   upload.single('file'), // 使用中間件
+//   NewsController.postContentImg
+// )
+
+// // 以下是我的 controller
+// postContentImg: async (req, res) => {
+//     try {
+//       const { file } = req // 從 req 中提取 upload 處理好的圖片資訊
+//       // ↓ 透過 imgurFileHandler 將圖片上傳後，獲取圖片的雲端位址
+//       const filePath = await imgurFileHandler(file)
+//       if (filePath) {
+//         return res.json({
+//           status: 'success',
+//           msg: '上傳圖片成功！',
+//           imgUrl: filePath, // 回傳圖片的雲端位址給前端
+//         })
+//       }
+//       return res.json({ status: 'error', msg: '上傳圖片失敗！' })
+//     } catch (error) {
+//       res.json({ status: 'error', msg: '發生未知錯誤，請稍後再試！' })
+//       return console.error(error)
+//     }
+//   }
+
+// const fs = require('fs')
+// const { ImgurClient } = require('imgur')
+// const refreshToken = ``
+
+// // 創建一個 client 物件
+// const client = new ImgurClient({
+//   clientId: process.env.e6e94c313573945, // CLIENT_ID
+//   clientSecret: process.env.b39af1d50be0a0c0cd517e1a9f9e9c1bf8a73696, // CLIENT_SECRET
+//   refreshToken: process.env.IMGUR_REFRESH_TOKEN, // REFRESH_TOKEN
+// })
+
+// // 儲存於imgur
+// const imgurFileHandler = file => {
+//   return new Promise((resolve, reject) => {
+//     if (!file) return resolve(null)
+//     return client // 使用物件上傳圖片
+//       .upload({
+//         image: fs.createReadStream(`${file.path}`), // 從文件路徑中讀取圖片
+//         type: 'stream', // 上傳的數據類型
+//         album: process.env.IMGUR_ALBUM_ID, // ALBUM_ID
+//       })
+//       .then(img => {
+//         resolve(img ? img.data.link : null)
+//       })
+//       .catch(err => reject(err))
+//   })
+// }
+
+// module.exports = {
+//   imgurFileHandler,
+// }
+
+// const localFileHandler = file => {
+//     return new Promise((resolve, reject) => {
+//       if (!file) return resolve(null)
+//       const copyFileName = `upload/${file.originalname}` // 複製的文件地址和名稱
+//       return fs.promises
+//         .readFile(file.path) // 讀取 multer 處理完的檔案
+//         // ↓ 將 public/avataruploads/ 裡的圖檔複寫一份至 upload 資料夾中
+//         .then(tempFile => fs.promises.writeFile(copyFileName, tempFile))
+//         .then(() => {
+//           resolve(`/${copyFileName}`) // 回傳複製好的圖片檔地址
+//         })
+//         .catch(err => reject(err))
+//     })
+//   }
+
+// const path = require('path')
+
+// app.use('/upload', express.static(path.join(__dirname, 'upload')))
