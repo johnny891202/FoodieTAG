@@ -92,10 +92,21 @@
             /* 正在搜尋 */
             .searchingTags{
                 display: flex;
+                align-items: start;
                 margin-bottom: 20px;
                 span{
+                    width: 10%;
                     font-size: 18px;
                     margin-right: 10px;
+                }
+                .selectedTags{
+                    width: 80%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    a{
+                        margin-right: 15px;
+                        margin-bottom: 10px;
+                    }
                 }
                 a{
                     display: block;
@@ -109,6 +120,8 @@
                     background-color: #B5A39A;
                 }
                 .clearAllTag{
+                    width: 10%;
+                    text-align: center;
                     background-color: #ca3a32;
                 }
                 .clearAllTag:hover{
@@ -193,12 +206,6 @@
                     }
                     .restaurantName:hover{
                         opacity: 0.8;
-                    }
-                    .info{
-                        display: flex;
-                        .opentime{
-                            margin-right: 15px;
-                        }
                     }
                     .tagsList{
                         display: flex;

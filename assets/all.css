@@ -27816,11 +27816,22 @@ section .container .reset-password form .content .reset-button:hover {
 }
 .searching-content .restaurantsList .restaurantFilter .searchingTags {
   display: flex;
+  align-items: start;
   margin-bottom: 20px;
 }
 .searching-content .restaurantsList .restaurantFilter .searchingTags span {
+  width: 10%;
   font-size: 18px;
   margin-right: 10px;
+}
+.searching-content .restaurantsList .restaurantFilter .searchingTags .selectedTags {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.searching-content .restaurantsList .restaurantFilter .searchingTags .selectedTags a {
+  margin-right: 15px;
+  margin-bottom: 10px;
 }
 .searching-content .restaurantsList .restaurantFilter .searchingTags a {
   display: block;
@@ -27834,6 +27845,8 @@ section .container .reset-password form .content .reset-button:hover {
   background-color: #B5A39A;
 }
 .searching-content .restaurantsList .restaurantFilter .searchingTags .clearAllTag {
+  width: 10%;
+  text-align: center;
   background-color: #ca3a32;
 }
 .searching-content .restaurantsList .restaurantFilter .searchingTags .clearAllTag:hover {
@@ -27919,12 +27932,6 @@ section .container .reset-password form .content .reset-button:hover {
 }
 .searching-content .restaurantsList .allList .restaurantItem .restaurantContent .restaurantName:hover {
   opacity: 0.8;
-}
-.searching-content .restaurantsList .allList .restaurantItem .restaurantContent .info {
-  display: flex;
-}
-.searching-content .restaurantsList .allList .restaurantItem .restaurantContent .info .opentime {
-  margin-right: 15px;
 }
 .searching-content .restaurantsList .allList .restaurantItem .restaurantContent .tagsList {
   display: flex;
