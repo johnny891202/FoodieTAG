@@ -10,7 +10,7 @@
 <body>
     <!-- 導覽列 -->
     <section>
-        <div class="navbar">
+        <div class="navbar shadow-sm">
             <!-- LOGO -->
             <a href="index.html" class="logo">FoodieTag#</a>
             <!-- 選單 -->
@@ -22,18 +22,18 @@
         </div>
     </section>
     <!-- 搜尋欄位 -->
-    <section>
+    <section class="bg-primary-100">
         <div class="container">
             <div class="topbar">
                 <!-- 搜尋區 -->
                 <div class="searchBar">
-                    <input type="text" placeholder="輸入任一關鍵字" class="rounded">
-                    <input type="text" placeholder="輸入地點" class="rounded">
+                    <input type="text" placeholder="輸入任一關鍵字" class="rounded shadow-sm">
+                    <input type="text" placeholder="輸入地點" class="rounded shadow-sm">
                     <button class="searchBtn">搜尋</button>
                 </div>
                 <!-- 本周熱門 -->
-                <div class="weeklyTop">
-                    <span>本周熱門:</span>
+                <div class="weeklyTop ">
+                    <span class="me-2">本周熱門：</span>
                     <div class="weeklyTopTag">
                         <a href="#">情人節</a>
                         <a href="#">夜景</a>
@@ -47,17 +47,25 @@
                         <a href="#">網美打卡</a>
                     </div>
                 </div>
+                <div class="searchingTags">
+                    <span class="me-2">正在搜尋：</span>
+                    <a href="#">新北市<i class="fa-solid fa-x fa-sm ms-2"></i></a>
+                    <a href="#">燒烤<i class="fa-solid fa-x fa-sm ms-2"></i></a>
+                    <a href="#">提供酒水<i class="fa-solid fa-x fa-sm ms-2"></i></a>
+                    <a href="#">專人代烤<i class="fa-solid fa-x fa-sm ms-2"></i></a>
+                    <a href="#" class="clearAllTag btn-primary-300">全部清除</a>
+                </div>
             </div>
         </div>
     </section>
     <!-- 內容 -->
-    <section>
+    <section class="py-8">
         <div class="container">
             <div class="searching-content">
                 <!-- 左邊標籤區 -->
                 <!-- 以下有修改 -->
                 <div class="selectTags">
-                    <div>
+                    <div class="mb-8">
                         <span>美食種類</span>
                         <div>
                             <ul class="d-flex justify-content-between list-unstyled allTags">
@@ -69,14 +77,14 @@
                             <ul class="d-flex justify-content-between list-unstyled allTags">
                                 <a href=""><li>餐酒館</li></a>
                                 <a href=""><li>吃到飽</li></a>
-                                <a href=""><li>創意料理</li></a>
+                                <a href="#"><li>壽司</li></a>
                                 <a href=""><li>拉麵</li></a>
 
                             </ul>
                             <ul class="d-flex justify-content-between list-unstyled allTags">
                                 <a href="#"><li>無菜單</li></a>
-                                <a href="#"><li>壽司</li></a>
                                 <a href="#"><li>咖啡</li></a>
+                                <a href=""><li>創意料理</li></a>
                                 <a href="#"><li>甜點</li></a>
                             </ul>
                             <ul class="d-flex justify-content-between list-unstyled allTags">
@@ -93,7 +101,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div>
+                    <div class="mb-8">
                         <span>店家環境</span>
                         <div>
                             <ul class="d-flex justify-content-between list-unstyled allTags">
@@ -127,7 +135,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div>
+                    <div class="mb-8">
                         <span>店家設施</span>
                         <div>
                             <ul class="d-flex justify-content-between list-unstyled allTags">
@@ -139,35 +147,37 @@
                             <ul class="d-flex justify-content-between list-unstyled allTags">
                                 <a href="#"><li>電視</li></a>
                                 <a href="#"><li>投螢幕</li></a>
-                                <a href="#"><li>無障礙設施</li></a>
                                 <a href="#"><li>停車場</li></a>
+                                <a href="#"><li>近捷運</li></a>
                             </ul>
                             <ul class="d-flex justify-content-between list-unstyled allTags">
-                                <a href="#"><li>近捷運</li></a>
                                 <a href="#"><li>好停車</li></a>
                                 <a href="#"><li>吸菸區</li></a>
+                                <a href="#"><li>無障礙設施</li></a>
                             </ul>
                         </div>
                     </div>
-                    <div>
+                    <div class="mb-8">
                         <span>Foodie們找什麼</span>
                         <div>
                             <ul class="d-flex justify-content-between list-unstyled allTags">
                                 <a href="#"><li>店員帥</li></a>
                                 <a href="#"><li>服務親切</li></a>
-                                <a href="#"><li>店員可愛</li></a>
                                 <a href="#"><li>情人節</li></a>
+                                <a href="#"><li>慶生</li></a>
                             </ul>
                             <ul class="d-flex justify-content-between list-unstyled allTags">
                                 <a href="#"><li>甜點好吃</li></a>
                                 <a href="#"><li>cp值高</li></a>
-                                <a href="#"><li>老闆幽默</li></a>
-                                <a href="#"><li>慶生</li></a>
+                                <a href="#"><li>聚餐</li></a>
+                                <a href="#"><li>尾牙</li></a>
+
+
                             </ul>
                             <ul class="d-flex justify-content-between list-unstyled allTags">
-                                <a href="#"><li>聚餐</li></a>
+                                <a href="#"><li>店員可愛</li></a>
                                 <a href="#"><li>畢業餐會</li></a>
-                                <a href="#"><li>尾牙</li></a>
+                                <a href="#"><li>老闆幽默</li></a>
                             </ul>
                         </div>
                     </div>
@@ -177,36 +187,33 @@
                     <!-- 篩選條件 -->
                     <div class="restaurantFilter">
                         <!-- 正在搜尋 -->
-                        <div class="searchingTags">
-                            <span>正在搜尋 :</span>
-                            <a href="#">新北市</a>
-                            <a href="#">燒烤</a>
-                            <a href="#">提供酒水</a>
-                            <a href="#">專人代烤</a>
-                            <a href="#" class="clearAllTag">全部清除</a>
-                        </div>
                         <!-- 搜尋結果 -->
                         <div class="searchingCondition">
-                            <span>為您找到共 52 筆</span>
-                            <span>排序:</span>
-                            <select name="" id="">
-                                <option value="評價由高到低">評價由高到低</option>
-                                <option value="評價由低到高">評價由低到高</option>
-                                <option value="價錢由高到低">價錢由高到低</option>
-                                <option value="價錢由低到高">價錢由低到高</option>
-                            </select>
-                            <i class="fa-solid fa-sack-dollar dollar"></i>
-                            <div class="slidecontainer">
-                                <input type="range" min="0" max="2000" step="100" value="0" class="slider">
-                                <span class="priceRange"></span>
+                            <div class="d-flex mb-4 align-items-center">
+                                <span >為您找到共 52 筆</span>
                             </div>
-
-                            <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
-                            <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
-                            <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
-                            <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
-                            <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
-                            <span>以上</span>
+                            <div class="d-flex me-2 align-items-center">
+                                <span class="fs-3">排序：</span>
+                                <select name="" id="" class="form-select w-25">
+                                    <option value="評價由高到低">評價由高到低</option>
+                                    <option value="評價由低到高">評價由低到高</option>
+                                    <option value="價錢由高到低">價錢由高到低</option>
+                                    <option value="價錢由低到高">價錢由低到高</option>
+                                </select>
+                                <div class="slidecontainer me-5">
+                                    <i class="fa-solid fa-sack-dollar dollar fs-5" style="color: #6B5A52;"></i>
+                                    <input type="range" min="0" max="2000" step="100" value="0" class="slider">
+                                    <span class="priceRange ms-1"></span>
+                                </div>
+                                <div class="d-inline me-2">
+                                    <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                    <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                    <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                    <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                    <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                </div>
+                                <span>以上</span>
+                            </div>
                         </div>
                     </div>
                     <!-- 餐廳列表 -->
@@ -215,12 +222,21 @@
                             <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
                             <!-- 餐廳資訊 -->
                             <div class="restaurantContent">
-                                <a href="#" class="restaurantName">藝居酒屋</a>
-                                <div class="info">
-                                    <p class="opentime">營業時間: <span class="opentimeInfo">18:00–02:00</span></p>
-                                    <p class="averagePrice">均消: <span class="averagePriceInfo">500</span></p>
+                                <div class="d-flex align-items-center mb-2">
+                                    <a href="#" class="restaurantName me-2">藝居酒屋</a>
+                                    <div class="rating">
+                                        <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                        <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                        <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                        <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                        <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                    </div>
                                 </div>
-                                <p class="address">地址: <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="info mb-2">
+                                    <p class="opentime mb-0">營業時間： <span class="opentimeInfo mb-0">18:00–02:00</span></p>
+                                    <p class="averagePrice mb-0">均消： <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址： <span class="addressInfo">高雄市新興區復興二路123號</span></p>
                                 <div class="tagsList">
                                     <a href="#">居酒屋</a>
                                     <a href="#">有帥哥</a>
@@ -229,15 +245,38 @@
                                     <a href="#">烤串</a>
                                 </div>
                             </div>
-                            <!-- 星級與收藏 -->
-                            <div class="rating">
-                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
-                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
-                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
-                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
-                                <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
-                                <a href="#" class="collect"><i class="fa-regular fa-bookmark"></i></a>
+                            <!-- 收藏 -->
+                            <a href="#" class="collect fs-8 px-6 pt-2"><i class="fa-regular fa-bookmark" style="color: #6B5A52"></i></a>
+                        </li>
+                        <li class="restaurantItem">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
+                            <!-- 餐廳資訊 -->
+                            <div class="restaurantContent">
+                                <div class="d-flex align-items-center mb-2">
+                                    <a href="#" class="restaurantName me-2">藝居酒屋</a>
+                                    <div class="rating">
+                                        <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                        <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                        <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                        <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                        <a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>
+                                    </div>
+                                </div>
+                                <div class="info mb-2">
+                                    <p class="opentime mb-0">營業時間： <span class="opentimeInfo mb-0">18:00–02:00</span></p>
+                                    <p class="averagePrice mb-0">均消： <span class="averagePriceInfo">500</span></p>
+                                </div>
+                                <p class="address">地址： <span class="addressInfo">高雄市新興區復興二路123號</span></p>
+                                <div class="tagsList">
+                                    <a href="#">居酒屋</a>
+                                    <a href="#">有帥哥</a>
+                                    <a href="#">有wifi</a>
+                                    <a href="#">啤酒</a>
+                                    <a href="#">烤串</a>
+                                </div>
                             </div>
+                            <!-- 收藏 -->
+                            <a href="#" class="collect fs-8 px-6 pt-2"><i class="fa-regular fa-bookmark" style="color: #6B5A52"></i></a>
                         </li>
                         <li class="restaurantItem">
                             <img src="https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020" alt="">
