@@ -27984,7 +27984,7 @@ section .container .reset-password form .content .reset-button:hover {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 30px 0px;
+  padding: 32px 0px;
   /* 搜尋區 */
   /* 本周熱門 */
 }
@@ -27995,9 +27995,9 @@ section .container .reset-password form .content .reset-button:hover {
 }
 .topbar .searchBar input {
   width: 25%;
-  padding: 5px 15px;
+  padding: 8px 20px;
   font-size: 18px;
-  border: 2px solid #B5A39A;
+  border: 1px solid #A0A0A0;
   margin-right: 40px;
 }
 .topbar .searchBar input::-moz-placeholder {
@@ -28010,41 +28010,53 @@ section .container .reset-password form .content .reset-button:hover {
   color: #A0A0A0;
 }
 .topbar .searchBar input:focus {
-  border: 2px solid #6B5A52;
+  border: 1px solid #6B5A52;
   outline: 0;
 }
 .topbar .searchBar .searchBtn {
-  padding: 5px 15px;
+  padding: 8px 20px;
   font-size: 18px;
   border: 0;
   border-radius: 5px;
   background-color: #6B5A52;
   color: #FFFFFF;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+.topbar .searchBar .searchBtn:hover {
+  background-color: #B5A39A;
+  transition: all 0.2s ease-in-out;
 }
 .topbar .weeklyTop {
   width: 100%;
   display: flex;
+  align-items: center;
+  margin: 8px 0;
 }
 .topbar .weeklyTop span {
-  width: 8%;
   font-size: 18px;
 }
 .topbar .weeklyTop .weeklyTopTag {
   width: 85%;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 .topbar .weeklyTop .weeklyTopTag a {
   display: block;
-  padding: 2px 10px;
+  padding: 8px 16px;
   background-color: #6B5A52;
   color: #FFFFFF;
   border-radius: 20px;
-  margin-bottom: 10px;
-  margin-right: 5px;
+  margin-right: 12px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
 }
 .topbar .weeklyTop .weeklyTopTag a:hover {
   background-color: #B5A39A;
+  transition: all 0.2s ease-in-out;
 }
 
 /* 內容 */
@@ -28053,54 +28065,39 @@ section .container .reset-password form .content .reset-button:hover {
   justify-content: space-between;
   /* 左邊標籤區 */
   /* 右邊餐廳列表區 */
+  /* 餐廳列表 */
 }
 .searching-content .selectTags {
-  width: 25%;
+  width: 20%;
 }
 .searching-content .selectTags span {
-  font-size: 20px;
+  font-size: 18px;
 }
 .searching-content .selectTags .allTags {
   margin: 16px 0;
 }
 .searching-content .selectTags .allTags a {
   display: block;
-  padding: 4px 10px;
+  padding: 8px 12px;
   background-color: #6B5A52;
   color: #FFFFFF;
   border-radius: 20px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  font-size: 12px;
+}
+.searching-content .selectTags .allTags a:hover {
+  background-color: #B5A39A;
+  transition: all 0.2s ease-in-out;
 }
 .searching-content .restaurantsList {
-  width: 70%;
+  width: 75%;
   /* 篩選條件 */
-  /* 餐廳列表 */
 }
 .searching-content .restaurantsList .restaurantFilter {
-  /* 正在搜尋 */
   /* 搜尋結果 */
 }
-.searching-content .restaurantsList .restaurantFilter .searchingTags {
-  display: flex;
-  margin-bottom: 20px;
-}
-.searching-content .restaurantsList .restaurantFilter .searchingTags span {
-  font-size: 18px;
-  margin-right: 10px;
-}
-.searching-content .restaurantsList .restaurantFilter .searchingTags a {
-  display: block;
-  padding: 2px 10px;
-  background-color: #6B5A52;
-  color: #FFFFFF;
-  border-radius: 20px;
-  margin-right: 5px;
-}
-.searching-content .restaurantsList .restaurantFilter .searchingTags .clearAllTag {
-  background-color: #B5A39A;
-}
 .searching-content .restaurantsList .restaurantFilter .searchingCondition {
-  display: flex;
-  align-items: center;
   margin-bottom: 20px;
 }
 .searching-content .restaurantsList .restaurantFilter .searchingCondition span {
@@ -28110,20 +28107,17 @@ section .container .reset-password form .content .reset-button:hover {
 .searching-content .restaurantsList .restaurantFilter .searchingCondition select {
   margin-right: 20px;
 }
-.searching-content .restaurantsList .restaurantFilter .searchingCondition .dollar {
-  margin-right: 10px;
-}
-.searching-content .restaurantsList .restaurantFilter .searchingCondition .slidecontainer {
+.searching-content .restaurantsList .restaurantFilter .slidecontainer {
   width: 40%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
-.searching-content .restaurantsList .restaurantFilter .searchingCondition .slidecontainer .slider {
+.searching-content .restaurantsList .restaurantFilter .slidecontainer .slider {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
-  width: 80%;
+  width: 70%;
   height: 15px;
   border-radius: 5px;
   background: #d3d3d3;
@@ -28131,7 +28125,7 @@ section .container .reset-password form .content .reset-button:hover {
   opacity: 0.7;
   transition: opacity 0.2s;
 }
-.searching-content .restaurantsList .restaurantFilter .searchingCondition .slidecontainer .slider::-webkit-slider-thumb {
+.searching-content .restaurantsList .restaurantFilter .slidecontainer .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 25px;
@@ -28140,67 +28134,99 @@ section .container .reset-password form .content .reset-button:hover {
   background: #6B5A52;
   cursor: pointer;
 }
-.searching-content .restaurantsList .restaurantFilter .searchingCondition .slidecontainer .slider::-moz-range-thumb {
+.searching-content .restaurantsList .restaurantFilter .slidecontainer .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;
   background: #04AA6D;
   cursor: pointer;
 }
-.searching-content .restaurantsList .allList {
-  border: 2px solid #6B5A52;
-}
-.searching-content .restaurantsList .allList p {
+.searching-content .allList p {
   font-size: 18px;
 }
-.searching-content .restaurantsList .allList .restaurantItem {
+.searching-content .allList .restaurantItem {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #6B5A52;
+  border: 1px solid #DCD3CE;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: all 0.2s ease-in-out;
   /* 餐廳資訊 */
-  /* 星級與收藏 */
 }
-.searching-content .restaurantsList .allList .restaurantItem img {
-  width: 25%;
+.searching-content .allList .restaurantItem:hover {
+  background-color: #FAF7F5;
+  transition: all 0.2s ease-in-out;
+}
+.searching-content .allList .restaurantItem img {
+  width: 30%;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 8px;
 }
-.searching-content .restaurantsList .allList .restaurantItem .restaurantContent {
+.searching-content .allList .restaurantItem .restaurantContent {
   width: 55%;
   padding: 10px;
+  /* 星級與收藏 */
 }
-.searching-content .restaurantsList .allList .restaurantItem .restaurantContent .restaurantName {
+.searching-content .allList .restaurantItem .restaurantContent .restaurantName {
+  font-weight: bold;
   display: block;
   font-size: 20px;
-  margin-bottom: 1rem;
   color: #6B5A52;
 }
-.searching-content .restaurantsList .allList .restaurantItem .restaurantContent .restaurantName:hover {
+.searching-content .allList .restaurantItem .restaurantContent .restaurantName:hover {
   opacity: 0.8;
 }
-.searching-content .restaurantsList .allList .restaurantItem .restaurantContent .info {
+.searching-content .allList .restaurantItem .restaurantContent .info {
   display: flex;
 }
-.searching-content .restaurantsList .allList .restaurantItem .restaurantContent .info .opentime {
+.searching-content .allList .restaurantItem .restaurantContent .info .opentime {
   margin-right: 15px;
 }
-.searching-content .restaurantsList .allList .restaurantItem .restaurantContent .tagsList {
+.searching-content .allList .restaurantItem .restaurantContent .tagsList {
   display: flex;
 }
-.searching-content .restaurantsList .allList .restaurantItem .restaurantContent .tagsList a {
+.searching-content .allList .restaurantItem .restaurantContent .tagsList a {
   display: block;
-  padding: 2px 10px;
+  padding: 8px 12px;
   background-color: #6B5A52;
   color: #FFFFFF;
   border-radius: 20px;
   margin-right: 20px;
+  font-size: 14px;
+  font-weight: bold;
 }
-.searching-content .restaurantsList .allList .restaurantItem .rating {
+.searching-content .allList .restaurantItem .restaurantContent .rating {
   padding: 10px 0;
   width: 15%;
   display: flex;
   margin-right: 10px;
 }
-.searching-content .restaurantsList .allList .restaurantItem .rating .collect {
+.searching-content .allList .restaurantItem .restaurantContent .rating .collect {
   margin-left: 10px;
+}
+
+/* 正在搜尋 */
+.searchingTags {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.searchingTags span {
+  font-size: 18px;
+}
+.searchingTags a {
+  display: block;
+  padding: 8px 12px;
+  background-color: #B5A39A;
+  color: #FFFFFF;
+  border-radius: 20px;
+  margin-right: 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.searchingTags .clearAllTag {
+  background-color: #A0A0A0;
+  transition: all 0.2s ease-in-out;
 }/*# sourceMappingURL=all.css.map */

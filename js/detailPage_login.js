@@ -793,7 +793,7 @@ newTag.addEventListener('input',e=>{
     let count = 0;
     // recommendTagsContainer.innerHTML=``
     tagData.forEach(item=>{
-        if(count<3 &&item.TagName.includes(newTagValue &&newTagValue.length>2)){
+        if(count<3 &&item.TagName.includes(newTagValue)){
             recommendTagsContainer.innerHTML+=`<a href="#">
             <li class="tag me-4 mb-2 bg-primary-400 text-white" id="tags" value-id="${item.TagName}">${item.TagName}</li></a>`;
             count++;}
