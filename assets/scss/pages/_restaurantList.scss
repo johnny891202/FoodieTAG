@@ -98,6 +98,9 @@
                     transition: all 0.2s ease-in-out;
                 }
             }
+            a:hover{
+                background-color: #B5A39A;
+            }
         }
 
     }
@@ -192,12 +195,6 @@
                     }
                     .restaurantName:hover{
                         opacity: 0.8;
-                    }
-                    .info{
-                        display: flex;
-                        .opentime{
-                            margin-right: 15px;
-                        }
                     }
                     .tagsList{
                         display: flex;
