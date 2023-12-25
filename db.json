@@ -63,12 +63,11 @@
     {
       "email": "abc@gmail.com",
       "password": "$2a$10$/wy/M7eW9Nq8bYRBOLGJ1ui1XavQWa2n/QHPPdmV8nRJVJd52zkFS",
-      "userName": "小美",
+      "userName": "小美美",
       "title": "Foodie#學徒",
       "avatar": "../assets/images/memberPage/avatar7.jpeg",
       "collection": [
-        102,
-        146
+        102
       ],
       "fbUrl": "test",
       "igUrl": "test",
