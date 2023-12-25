@@ -10,7 +10,7 @@ user.addEventListener('click', e => {
 const userName = document.getElementById('userName');
 userStr = localStorage.getItem('user'); //取出localStorage的值(string)
 userObj = JSON.parse(userStr); // string轉換成物件
-let userData={};
+let userData = {};
 
 //登出後回到未登入的index.html
 const logoutLink = document.querySelector(".logoutLink");
@@ -62,18 +62,18 @@ const searchBtn = document.getElementById('searchBtn');
 
 let resturantData = [];
 function init() {
-    axios.get(`${_url}/resturants`)
+    axios.get(`${_url}/restaurants`)
         .then(function (response) {
             resturantData = response.data;
         })
-        .catch(error=>{
+        .catch(error => {
             console.log(error);
         })
     axios.get(`${_url}/users/${userObj.id}`)
-    .then(res=>{
-        userData = res.data;
-        userName.textContent = userData.userName
-    })
+        .then(res => {
+            userData = res.data;
+            userName.textContent = userData.userName
+        })
 
 };
 
