@@ -1,22 +1,39 @@
+const _url = "http://localhost:3000";
+const id = decodeURI(location.href.split('?')[1]);
+
+//撈取篩選後的資料庫
+let allRestaurants;
+function init(){
+axios.get(`${_url}/restaurants?${id}`)
+.then(function(response){
+    allRestaurants = response.data;
+    console.log(allRestaurants);
+    renderRestaurantCounts(allRestaurants);
+    renderRestaurantList(allRestaurants, 1)
+})
+};
+
+
 /* 初始化 */
-function init() {
-    getAllRestaurants();
-}
+// function init() {
+//     getAllRestaurants();
+// }
 init()
 
 /* 取得所有餐廳資料 */
-let allRestaurants;
-function getAllRestaurants() {
-    axios.get("http://localhost:3000/restaurants")
-        .then(function (response) {
-            allRestaurants = response.data;
-            renderRestaurantCounts(allRestaurants);
-            renderRestaurantList(allRestaurants, 1)
-        })
-        .catch(function (error) {
-            console.error("獲取數據時出錯:", error);
-        })
-}
+// let allRestaurants;
+// function getAllRestaurants() {
+//     axios.get("http://localhost:3000/restaurants")
+//         .then(function (response) {
+//             allRestaurants = response.data;
+//             renderRestaurantCounts(allRestaurants);
+//             renderRestaurantList(allRestaurants, 1)
+//         })
+//         .catch(function (error) {
+//             console.error("獲取數據時出錯:", error);
+//         })
+// }
+
 
 /* 渲染餐廳資料到列表 */
 const allList = document.querySelector(".allList");
@@ -52,11 +69,85 @@ function renderRestaurantList(data, nowPage) {
     }
     displayData(newData);
     pageBtn(page);
+
 }
 
+let renderData = []; //peggy新增
 function displayData(data) {
+    renderData = data;
     let str = "";
     data.forEach(function (item) {
+        /* 餐廳標籤 */
+        let restaurantTags = "";
+        // 每個餐廳顯示五個標籤
+        if (item.Tags.length <= 5) {
+            for (let i = 0; i < item.Tags.length; i++) {
+                restaurantTags += `<a href="#">${item.Tags[i]}</a>`;
+            }
+        } else {
+            for (let i = 0; i < 5; i++) {
+                restaurantTags += `<a href="#">${item.Tags[i]}</a>`;
+            }
+        }
+        /* 餐廳星星數 */
+        let rating = "";
+        // 計算實心星星數量
+        const solidStars = Math.floor(item.Stars);
+        for (let i = 0; i < solidStars; i++) {
+            rating += `<a href="#" class="stars"><i class="fa-solid fa-star fs-5" style="color: #f5cd05;"></i></a>`;
+        }
+        // 檢查有沒有半顆星
+        if (item.Stars % 1 !== 0) {
+            rating += `<a href="#" class="stars"><i class="fa-solid fa-star-half-alt fs-5" style="color: #f5cd05;"></i></a>`;
+        } else {
+            rating += `<a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>`;
+        }
+        // 創建空的星星
+        for (let i = 0; i < (5 - solidStars - 1); i++) {
+            rating += `<a href="#" class="stars"><i class="fa-regular fa-star fs-5" style="color: #f5cd05;"></i></a>`;
+        }
+        str += `<li class="restaurantItem" style="cursor:pointer" data-id="${item.id}">
+                    <img src="${item.Picture[0]}" alt="">
+                    <!-- 餐廳資訊 -->
+                    <div class="restaurantContent">
+                        <div class="d-flex align-items-center mb-2">
+                            <a href="#" class="restaurantName me-2">${item.Name}</a>
+                            <div class="rating">
+                                ${rating}
+                            </div>
+                        </div>
+                        <div class="info mb-2">
+                            <p class="opentime mb-0">營業時間： <span class="opentimeInfo mb-0">${item.Opentime}</span></p>
+                            <p class="averagePrice mb-0">均消： <span class="averagePriceInfo">${item.Price}</span></p>
+                        </div>
+                        <p class="address">地址： <span class="addressInfo">${item.Add}</span></p>
+                        <div class="tagsList">
+                            ${restaurantTags}
+                        </div>
+                    </div>
+                    <!-- 收藏 -->
+                    <a href="#" class="collect fs-8 px-6 pt-2"><i class="fa-regular fa-bookmark" style="color: #6B5A52"></i></a>
+                </li>`
+    })
+    allList.innerHTML = str;
+
+    const restaurantItem = document.querySelectorAll('.restaurantItem')
+    restaurantItem.forEach(item=>{
+        item.addEventListener('click',e=>{
+            e.preventDefault();
+            let id = item.getAttribute('data-id');
+            window.location.href=`detailPage.html?id=${id}`
+    })
+    })
+};
+
+
+function RangePrice(price){ //peggy新增
+    let str = "";
+    renderData.forEach(function (item) {
+        if(item.Price>price){
+            return
+        }else{
         /* 餐廳標籤 */
         let restaurantTags = "";
         // 每個餐廳顯示五個標籤
@@ -108,9 +199,11 @@ function displayData(data) {
                     <!-- 收藏 -->
                     <a href="#" class="collect fs-8 px-6 pt-2"><i class="fa-regular fa-bookmark" style="color: #6B5A52"></i></a>
                 </li>`
+        }
     })
     allList.innerHTML = str;
 }
+
 function pageBtn(page) {
     let str = "";
     const total = page.pageTotal;
@@ -122,9 +215,9 @@ function pageBtn(page) {
     }
     for (let i = 1; i <= total; i++) {
         if (Number(page.currentPage) === i) {
-            str += `<li class="page-item active"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+            str += `<li class="page-item active"><a class="page-link " href="#" data-page="${i}">${i}</a></li>`;
         } else {
-            str += `<li class="page-item"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+            str += `<li class="page-item"><a class="page-link " href="#" data-page="${i}">${i}</a></li>`;
         }
     }
     if (page.hasNext) {
@@ -154,6 +247,7 @@ function renderRestaurantCounts(data) {
     str += `<span>為您找到共 ${data.length} 筆</span>`;
     restaurantCounts.innerHTML = str;
 }
+
 
 /* 點擊標籤搜尋相關餐廳 */
 const weeklyTopTag = document.querySelector(".weeklyTopTag");
@@ -308,8 +402,10 @@ searchingTags.addEventListener("click", function (e) {
 let slider = document.querySelector(".slider");
 let priceRange = document.querySelector(".priceRange");
 priceRange.innerHTML = `${slider.value} 元`;
-slider.oninput = function () {
+
+slider.oninput = function range() {
     priceRange.innerHTML = `${this.value} 元`;
+    RangePrice(this.value) //peggy新增
 }
 /* 星星數篩選 */
 const stars = document.querySelectorAll(".stars i");

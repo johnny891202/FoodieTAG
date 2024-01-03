@@ -1,6 +1,6 @@
 //Banner
 .detailPage-banner {
-    background-image: url(https://lh3.googleusercontent.com/p/AF1QipNli5LhLqUQ_idAkCCZAO3NAU7DMVn2yjDY_9Pv=s1360-w1360-h1020);
+    background-image: url();
     max-width: 2600px;
     height: 30vw;
     background-size: cover;
@@ -23,7 +23,7 @@
     }
     .pic-container {
         display: flex;
-        // animation: marquee 100s infinite linear;
+        animation: marquee  100s infinite linear;
         img {
             height: 250px;
             width: 250px;
