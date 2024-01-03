@@ -7,7 +7,7 @@ console.log(id);
 //撈取篩選後的資料庫
 let filterdData = [];
 function init(){
-axios.get(`${_url}/resturants?${id}`)
+axios.get(`${_url}/restaurants?${id}`)
 .then(function(response){
     filterdData = response.data;
     console.log(filterdData);

@@ -36,14 +36,18 @@ const searchBtn = document.getElementById('searchBtn');
 
 let resturantData = [];
 function init(){
-    axios.get(`${_url}/resturants`)
+    axios.get(`${_url}/restaurants`)
     .then(function(response){
         resturantData = response.data;
+        console.log(resturantData);
+    })
+    .catch(function(error){
+        console.log(error);
     })
 };
 
 searchBtn.addEventListener('click',function(e){
-    window.location.href = `list_test.html?q=${keywordOne.value}&Tags_like=${keywordTwo.value}`;
+    window.location.href = `restaurantList.html?q=${keywordOne.value}&Add_like=${keywordTwo.value}`;
     });
 
 init();

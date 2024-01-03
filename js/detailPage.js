@@ -5,23 +5,21 @@ loginBtn.addEventListener('click',e=>{
     window.location.href = `login.html`
 })
 
+//取得餐廳資訊
 const url = `http://localhost:3000`;
+const id = decodeURI(location.href.split('?')[1]);
+
 let postData = [];
 let favoriteId = [];
-
-//取得餐廳資訊
-const testName = "禾園小吃";
-
 let restaurantDetail = [];
 function init(){
 
-    axios.get(`${url}/restaurants?Name=${testName}`)
+    axios.get(`${url}/restaurants?${id}`)
     .then(function(res){
         restaurantDetail = res.data[0];
         console.log(restaurantDetail);
         renderRestaurantDetail();
         getComments();
-        // getUserData();
     })
     .catch(function(error){
         console.log(error);
@@ -48,9 +46,7 @@ function renderRestaurantDetail(){
     for(let i = 1 ; i <=restaurantstarNumInteger ; i++){
         starStr+=`<i class="fa-sharp fa-solid fa-star" style="color: #f3b353;"></i>`
     }
-    if(Number.isInteger(restaurantstarNum)){
-        return
-    }else{
+    if(!Number.isInteger(restaurantstarNum)){
         starStr+=`<i class="fa-solid fa-star-half-stroke" style="color: #f3b353;"></i>`
     }
 
@@ -77,7 +73,8 @@ function renderRestaurantDetail(){
     </p>
     <p class="d-flex align-items-center"><span class="material-icons me-2"> call </span>電話：${restaurantDetail.Tel}</p>
     <p class="d-flex align-items-center"><span class="material-icons me-2"> paid </span>人均消費：${restaurantDetail.Price}</p>
-    <p>已被收藏  ${restaurantDetail.collectionNum}  次</p>`
+    <p>已被收藏  ${restaurantDetail.collectionNum}  次</p>`;
+    console.log(restaurantDetail.Name);
 
     //tag區
     const tagsContainer = document.querySelector('.tags-container');

@@ -9,12 +9,11 @@ user.addEventListener('click', e => {
 })
 
 const url = `http://localhost:3000`;
-// const resname = decodeURI(location.href.split("=")[1]);
+const id = decodeURI(location.href.split('?')[1]);
 let postData = [];
 let favoriteId = [];
 
 //取得餐廳資訊
-const testName = "藝居酒屋";
 const userAvatar = document.querySelectorAll('.avatar-container');
 //取得localstorage資料
 const userName = document.querySelectorAll('.userName');
@@ -24,7 +23,7 @@ userObj = JSON.parse(userStr); // string轉換成物件
 
 let restaurantDetail = [];
 function init() {
-    axios.get(`${url}/restaurants?q=${testName}`)
+    axios.get(`${url}/restaurants?${id}`)
         .then(function (res) {
             restaurantDetail = res.data[0];
             // console.log(restaurantDetail);
@@ -58,9 +57,7 @@ function renderRestaurantDetail() {
     for (let i = 1; i <= restaurantstarNumInteger; i++) {
         starStr += `<i class="fa-sharp fa-solid fa-star" style="color: #f3b353;"></i>`
     }
-    if (Number.isInteger(restaurantstarNum)) {
-        return
-    } else {
+    if (!Number.isInteger(restaurantstarNum)) {
         starStr += `<i class="fa-solid fa-star-half-stroke" style="color: #f3b353;"></i>`
     }
 
