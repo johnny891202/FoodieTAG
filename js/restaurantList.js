@@ -215,9 +215,9 @@ function pageBtn(page) {
     }
     for (let i = 1; i <= total; i++) {
         if (Number(page.currentPage) === i) {
-            str += `<li class="page-item active"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+            str += `<li class="page-item active"><a class="page-link " href="#" data-page="${i}">${i}</a></li>`;
         } else {
-            str += `<li class="page-item"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+            str += `<li class="page-item"><a class="page-link " href="#" data-page="${i}">${i}</a></li>`;
         }
     }
     if (page.hasNext) {
